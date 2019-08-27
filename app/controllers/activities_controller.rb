@@ -12,9 +12,14 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    authorize @activity
   end
 
   def edit
+  end
+
+  def create
+    authorize @activity
   end
 
   def update
@@ -23,6 +28,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
+    authorize @activity
   end
 
   private
