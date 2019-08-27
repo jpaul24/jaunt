@@ -2,8 +2,13 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
+
   def index
-    @activities = Activity.all
+    if params[:place].present?
+      @activities = policy_scope(Activity).where("city ILIKE ?", "%#{params[:place]}%")
+    else
+      @activities = policy_scope(Activity)
+    end
   end
 
   def show
