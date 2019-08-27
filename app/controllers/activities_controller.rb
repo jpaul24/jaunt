@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_activity, only: [:show, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+
 
   def index
     if params[:place].present?
@@ -14,11 +15,19 @@ class ActivitiesController < ApplicationController
     authorize @activity
   end
 
+  def edit
+  end
+
   def create
     authorize @activity
   end
 
+  def update
+    @activity.update(activity_params)
+  end
+
   def destroy
+    @activity.destroy
     authorize @activity
   end
 
