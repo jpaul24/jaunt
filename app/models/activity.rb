@@ -2,7 +2,7 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :reviews
   has_many :activity_categories
-  has_many :shortlisted_activities
+  has_many :shortlisted_activities, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
