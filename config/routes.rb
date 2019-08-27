@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :trips
   resources :users
+  resources :shortlisted_activities
 end

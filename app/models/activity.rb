@@ -7,8 +7,6 @@ class Activity < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
   validates :city, presence: true
-
   validates :tod, presence: true, inclusion: { in: ["Morning", "Afternoon", "Evening"] }
-
   validates :price, presence: true
 end

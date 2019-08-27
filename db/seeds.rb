@@ -3,6 +3,11 @@
 #
 # Examples:
 #
+
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 Activity.destroy_all
@@ -21,3 +26,4 @@ canal_st_martin = Activity.create!(user: janice, name: 'Canal St-Martin', tod: '
 belleville = Activity.create!(user: janice, name: 'belleville', tod: 'Morning', price: '0', city: 'Paris', description: 'A stroll along the streets of Belleville, a district with a history of rebellion and multicultural flair, is certain to fire the imagination. Belleville’s bustling Chinatown and artist residents make it a lively place to explore. Wander up rue de Belleville to see where tragic chanteuse (female singer) Edith Piaf is said to have been born under a street lamp, then turn right onto pedestrian rue Dénoyez where you ll find Paris’ most dazzling street art. End your Belleville encounter with a meander and flop over first-class views of the city from leafy Parc de Belleville.')
 jadin_tueleries = Activity.create!(user: marc, name: 'Jardin des Tuileries', tod: 'Afternoon', price: '0', city: 'Paris', description: 'Give your Paris trip a regal feel by sweeping through the historic park between the Louvre and Place de la Concorde. Tread in the dainty footsteps of Marie-Antoinette and see where Napoléon built his triumphal arch.')
 parc_monceau = Activity.create!(user: janice, name: 'Parc Monceau', tod: 'Afternoon', price: '0', city: 'Paris', description: 'If celebrity-spotting in a cemetery is too morbid, march among France’s greats in Parc Monceau, which has statues of luminaries like Chopin and celebrated writer Guy de Maupassant. The park’s rich history makes it a fascinating spot for a promenade: this peaceful green space was the site of a massacre in 1871, and was a favourite painting spot for Monet. Throw in an extra freebie with a gander at the wonderful collection of rarely seen Chinese statuary showcased in the Musée Cernuschi, a municipal Asian Art Museum inside an elegant mansion next to the park’s eastern entrance on av Vélasquez. Take line 2 to the Monceau metro station in the 8th arrondissement.')
+
