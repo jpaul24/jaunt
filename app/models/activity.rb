@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
+  TOD = ["Morning", "Afternoon", "Evening"]
   belongs_to :user
   has_many :reviews
   has_many :activity_categories
@@ -7,7 +8,7 @@ class Activity < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
   validates :city, presence: true
-  validates :tod, presence: true, inclusion: { in: ["Morning", "Afternoon", "Evening"] }
+  validates :tod, presence: true, inclusion: { in: TOD }
   validates :price, presence: true
   mount_uploader :photo, PhotoUploader
 end
