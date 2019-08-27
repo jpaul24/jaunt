@@ -1,5 +1,6 @@
 class Trip < ApplicationRecord
   belongs_to :user
+  has_many :shortlisted_activities
 
   validates :duration, presence: true
   validates :duration, numericality: true

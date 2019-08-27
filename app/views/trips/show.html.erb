@@ -1,7 +1,16 @@
-@trip.shortlistedactivities.activity.name
-@trip.shortlistedactivities.activity.description
-@trip.shortlistedactivities.activity.city
-@trip.shortlistedactivities.activity.tod
-@trip.shortlistedactivities.activity.rating
-@trip.shortlistedactivities.activity.price
+<h1>My Trip</h1>
+
+<p></p>
+ <ul>
+   <% @trip.shortlisted_activities.each do |shortlisted| %>
+   <li> Activity name:<%=  shortlisted.activity.name %> </li>
+   <li> Activity city: <%= shortlisted.activity.city %> </li>
+   <li> Activity description:<%=  shortlisted.activity.description %> </li>
+   <li> Activity price:<%=  shortlisted.activity.price %> </li>
+   <li> Activity rating:<%=  shortlisted.activity.rating %> </li>
+   <% end %>
+
+ </ul>
+
+
 
