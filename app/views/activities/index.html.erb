@@ -1,5 +1,11 @@
 
-<h1>Activities index page</h1>
-<% @activities.each do |act| %>
-  <p><%= act.name %></p>
-<% end %>
+
+
+<div id="viewport">
+  <ul class="stack">
+    <% @activities.each do |activity| %>
+      <li><p><%= activity.name %></p></li>
+    <% end %>
+  </ul>
+</div>
+
