@@ -3,6 +3,8 @@
 <p></p>
  <ul>
    <% @trip.shortlisted_activities.each do |shortlisted| %>
+  <% user = shortlisted.activity.user.username %>
+  <li> Added by: <%= link_to user, user_path(user) %></li>
    <li> Activity name:<%=  shortlisted.activity.name %> </li>
    <li> Activity city: <%= shortlisted.activity.city %> </li>
    <li> Activity description:<%=  shortlisted.activity.description %> </li>
