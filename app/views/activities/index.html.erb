@@ -1,2 +1,5 @@
 
-<h1>Activities index page<%= @activities %></h1>
+<h1>Activities index page</h1>
+<% @activities.each do |act| %>
+  <p><%= act.name %></p>
+<% end %>

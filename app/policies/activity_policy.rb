@@ -4,4 +4,16 @@ class ActivityPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    true
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    update?
+  end
 end
