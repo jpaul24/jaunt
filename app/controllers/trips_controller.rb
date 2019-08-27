@@ -2,16 +2,19 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user_trips = current_user.trips
+    @user_trips = policy_scope(Trip)
   end
 
   def show
+    authorize @trip
   end
 
   def create
+    authorize @trip
     @trip = Trip.new(trip_params)
-    @trip.user_id = current_user
+    @trip.user_id = current_user.id
     @trip.likes = 0
+    authorize @trip
   end
 
   def edit
@@ -20,9 +23,11 @@ class TripsController < ApplicationController
   def update
     @trip.update(trip_params)
     redirect_to trips_path
+    authorize @trip
   end
 
   def destroy
+    authorize @trip
     @trip.destroy
   end
 

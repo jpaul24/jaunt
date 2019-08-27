@@ -3,12 +3,14 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    authorize @user
   end
 
   def edit
   end
 
   def update
+    authorize @user
     if @user.update(user_params)
       redirect_to :show
     else
