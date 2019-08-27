@@ -9,4 +9,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
+  private
+
+  def activity_params
+    params.require(:activity).permit(:name, :rating, :description, :city, :tod, :price, :user_id, :photo)
+  end
 end
