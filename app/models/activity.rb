@@ -9,4 +9,5 @@ class Activity < ApplicationRecord
   validates :city, presence: true
   validates :tod, presence: true, inclusion: { in: ["Morning", "Afternoon", "Evening"] }
   validates :price, presence: true
+  mount_uploader :photo, PhotoUploader
 end
