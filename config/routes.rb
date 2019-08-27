@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :edit, :update, :destroy]
   end
   resources :trips
-  resources :users
+  resources :users do
+    member do
+      get 'reviews'
+      get 'activities'
+    end
+  end
+  resources :shortlisted_activities, only: [:create, :destroy]
 end

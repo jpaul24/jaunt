@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>My trips</h1>
+
+        <p> <% @user_trips.each do |trip| %></p>
+          <div class="card">
+          <div class="card-title">
+            <%= link_to trip.trip_name, trip_path(trip) %>
+          </div>
+          <div class="card-info">
+            <%= trip.description %>
+            Likes: <%= trip.likes %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

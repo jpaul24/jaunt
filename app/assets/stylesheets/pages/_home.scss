@@ -1,1 +1,51 @@
 // Specific CSS for your home-page
+.all-container {
+  margin: 0 auto;
+  padding-top: 80px;
+  width: 95%;
+  height: 100%;
+}
+
+.home {
+  background-image: url('hike.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.svg {
+  width: 60%;
+}
+
+.flex-center {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 40%;
+}
+
+.home-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn {
+  text-align: center;
+}
+
+.search-btn {
+  margin-top: 10px;
+  width: 100%;
+  font-family: $secondary-font;
+  height: 40px;
+}
+
+.input-field {
+  width: 100%;
+  opacity: 0.8;
+  font-family: $secondary-font;
+  margin: 10px 0;
+  height: 40px;
+}

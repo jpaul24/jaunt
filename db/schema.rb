@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_110109) do
+ActiveRecord::Schema.define(version: 2019_08_27_144807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_110109) do
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "day"
     t.index ["activity_id"], name: "index_shortlisted_activities_on_activity_id"
     t.index ["trip_id"], name: "index_shortlisted_activities_on_trip_id"
   end
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_110109) do
     t.integer "likes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.integer "duration"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -83,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_110109) do
     t.string "username"
     t.string "nationality"
     t.text "bio"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
