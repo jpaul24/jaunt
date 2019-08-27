@@ -12,5 +12,5 @@ Rails.application.routes.draw do
       get 'activities'
     end
   end
-  resources :shortlisted_activities
+  resources :shortlisted_activities, only: [:create, :destroy]
 end

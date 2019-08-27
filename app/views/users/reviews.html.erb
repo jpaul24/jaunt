@@ -1,4 +1,5 @@
 <% current_user.reviews.each do |review| %>
-  <h2><%= review.description %></h2>
   <h2><%= review.rating %></h2>
+  <%= link_to "Edit", edit_activity_review_path(review.activity_id, review)  %>
+  <%= link_to "Delete", activity_review(review.activity_id, review), method: :delete %>
 <% end %>
