@@ -1,0 +1,7 @@
+<h1>My trips</h1>
+<p> <% @user_trips.each do |trip| %></p>
+<%= link_to trip.trip_name, trip_path(trip) %>
+<%= trip.description %>
+Likes: <%= trip.likes %>
+<p></p>
+<% end %>

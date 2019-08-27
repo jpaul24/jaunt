@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       get 'activities'
     end
   end
+  resources :shortlisted_activities
 end
