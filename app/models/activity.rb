@@ -1,4 +1,9 @@
 class Activity < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :city
+  end
   belongs_to :user
   has_many :reviews
   has_many :activity_categories
