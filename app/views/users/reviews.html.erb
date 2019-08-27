@@ -1,0 +1,4 @@
+<% current_user.reviews.each do |review| %>
+  <h2><%= review.description %></h2>
+  <h2><%= review.rating %></h2>
+<% end %>
