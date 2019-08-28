@@ -10,7 +10,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    raise
+
     # get all ids from params
     # convert it from a string to an array
     # iterate over this array
