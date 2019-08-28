@@ -16,4 +16,8 @@ class ActivityPolicy < ApplicationPolicy
   def destroy?
     update?
   end
+
+  def activities?
+    true
+  end
 end

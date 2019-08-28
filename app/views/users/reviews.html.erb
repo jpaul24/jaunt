@@ -3,3 +3,5 @@
   <%= link_to "Edit", edit_activity_review_path(review.activity_id, review)  %>
   <%= link_to "Delete", activity_review(review.activity_id, review), method: :delete %>
 <% end %>
+
+<%= link_to "Back to profile", user_path(current_user) %>
