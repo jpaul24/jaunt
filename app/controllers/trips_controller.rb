@@ -28,7 +28,7 @@ class TripsController < ApplicationController
       ShortlistedActivity.create(activity_id: activity, trip: @trip)
     end
     # create a trip
-    redirect_to trip_path(@trip)
+    redirect_to trips_path
   end
 
   def edit

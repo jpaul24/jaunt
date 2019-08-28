@@ -33,6 +33,7 @@ stack.on('throwin', () => {
 
 const thumbsUp = document.getElementById('thumbs_up_btn');
 thumbsUp.addEventListener('click', (event) => {
+
   thumbsUp.disabled = true
   const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
@@ -48,6 +49,7 @@ thumbsUp.addEventListener('click', (event) => {
     currentCard.remove();
     thumbsUp.disabled = false;
   }, 800);
+
 });
 
 stack.on('throwoutend', (event) => {
@@ -62,3 +64,22 @@ stack.on('throwoutend', (event) => {
   }
   event.target.remove(); // removing card after card is swiped to the right
 });
+
+const thumbsDwn = document.getElementById('thumbs_dwn_btn');
+thumbsDwn.addEventListener('click', (event) => {
+  thumbsUp.disabled = true
+
+  const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
+  const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
+
+  currentCard.remove()
+
+  setTimeout(() => {
+    thumbsUp.disabled = false;
+  }, 200);
+});
+
+
+
+
+
