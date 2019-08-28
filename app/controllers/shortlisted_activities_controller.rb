@@ -1,3 +1,2 @@
 class ShortlistedActivitiesController < ApplicationController
-
 end
