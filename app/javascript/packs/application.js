@@ -30,6 +30,7 @@ stack.on('throwin', () => {
 
 const thumbsUp = document.getElementById('thumbs_up_btn');
 thumbsUp.addEventListener('click', (event) => {
+  thumbsUp.disabled = true
   const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
   const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
@@ -42,6 +43,7 @@ thumbsUp.addEventListener('click', (event) => {
   currentCard.classList.add('swiped-right');
   setTimeout(() => {
     currentCard.remove();
+    thumbsUp.disabled = false;
   }, 800);
 });
 
