@@ -10,11 +10,25 @@ class TripsController < ApplicationController
   end
 
   def create
-    authorize @trip
-    @trip = Trip.new(trip_params)
-    @trip.user_id = current_user.id
+    activity_ids = params[:cardIds]
+    # get all ids from params
+    activity_array = activity_ids.split(",").map(&:to_i).uniq
+    # convert it from a string to an array
+    # iterate over this array
+
+    # for each one of the ids create a shortlisted activity with the id of the trip you just created
+
+    @trip = Trip.new
+    @trip.user = current_user
     @trip.likes = 0
+    @trip.duration = activity_array.size
     authorize @trip
+    @trip.save
+    activity_array.each do |activity|
+      ShortlistedActivity.create(activity_id: activity, trip: @trip)
+    end
+    # create a trip
+    redirect_to trip_path(@trip)
   end
 
   def edit

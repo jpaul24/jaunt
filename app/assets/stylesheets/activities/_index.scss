@@ -54,3 +54,8 @@
     color: #C7433E;
 }
 
+.swiped-right {
+  transition: all 0.8s ease;
+  transform: translateX(100vw) rotate(20deg);
+}
+
