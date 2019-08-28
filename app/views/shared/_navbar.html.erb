@@ -15,7 +15,7 @@
     </div>
 
   <% else %>
-    <li class="nav-item">
+    <li class="nav-item <%= "nav-item-home" if params[:action] == "home" %>">
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     </li>
   <% end %>

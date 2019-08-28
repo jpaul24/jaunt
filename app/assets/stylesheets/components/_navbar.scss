@@ -17,6 +17,21 @@
 
 .nav-item {
   list-style: none;
+  a {
+    color: black;
+    font-size: 16px;
+    padding-top: 17px;
+  }
+}
+
+.nav-item-home {
+  list-style: none;
+  font-family: $secondary-font;
+  a {
+    color: white;
+    font-size: 16px;
+    padding-top: 17px;
+  }
 }
 
 .home-link {
@@ -39,4 +54,6 @@
 .nav-link {
   cursor: pointer;
   z-index: 2000000;
+  font-family: $secondary-font;
 }
+
