@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorize @user
   end
 
   def update
@@ -20,10 +21,12 @@ class UsersController < ApplicationController
 
   def reviews
     @reviews = current_user.reviews
+    authorize @reviews
   end
 
   def activities
     @activities = current_user.activities
+    authorize @activities
   end
 
   private
