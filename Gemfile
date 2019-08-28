@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
 gem "algoliasearch-rails"
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'web-console', '>= 3.3.0'
