@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
+  # card buttons routes
+  get 'thumb_up', to: 'cards#thumb_up', as: 'thumb_up'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :activities do
     resources :reviews, only: [:create, :edit, :update, :destroy]
@@ -14,3 +18,4 @@ Rails.application.routes.draw do
   end
   resources :shortlisted_activities, only: [:create, :destroy]
 end
+

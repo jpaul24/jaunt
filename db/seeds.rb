@@ -14,7 +14,7 @@ Activity.destroy_all
 User.destroy_all
 
 puts "Making users..."
-marc = User.create!(email: 'ben@gmail.com', password:'mypassword', first_name: 'Marc', second_name: 'Johnson', username: 'MJ', nationality: 'American', bio: 'Originaly from texas, I am looking for authentic and cheap places to stay' )
+marc = User.create!(email: 'marc@gmail.com', password:'mypassword', first_name: 'Marc', second_name: 'Johnson', username: 'MJ', nationality: 'American', bio: 'Originaly from texas, I am looking for authentic and cheap places to stay' )
 janice = User.create!(email: 'janice@gmail.com', password:'mypassword', first_name: 'Janice', second_name: 'Spencer', username: 'Jane', nationality: 'Scottish', bio: 'I love traveling and here to find the best places all arround the world' )
 puts "Users created"
 
