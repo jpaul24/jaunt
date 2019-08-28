@@ -1,0 +1,66 @@
+.modal {
+    position: fixed;
+    border-radius: 20px;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tod-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.each-tod {
+ width: 30%;
+ display: flex;
+ justify-content: center;
+}
+
+.icon-box {
+  width: 100%;
+  justify-content: center;
+}
+
+.each-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection_check_boxes {
+  font-size: 25px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.category-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.category-choice {
+  flex: 0 0 30%;
+  text-align: center;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  color: $orange;
+  opacity: 1;
+  }
+}
+
+
+
+

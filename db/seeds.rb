@@ -10,8 +10,13 @@
 
 #   Character.create!(name: 'Luke', movie: movies.first)
 
+Trip.destroy_all
+ShortlistedActivity.destroy_all
+Review.destroy_all
+ActivityCategory.destroy_all
 Activity.destroy_all
 User.destroy_all
+Category.destroy_all
 
 puts "Making users..."
 marc = User.create!(email: 'ben@gmail.com', password:'mypassword', first_name: 'Marc', second_name: 'Johnson', username: 'MJ', nationality: 'American', bio: 'Originaly from texas, I am looking for authentic and cheap places to stay' )
@@ -40,5 +45,35 @@ puts "Making shortlisted_activities..."
 marcsactivity1 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: champ_mars.id)
 marcsactivity2 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: puces.id)
 puts "Shortlisted activities created"
+
+puts "Making categories..."
+drinking = Category.create(name:"drinking", icon:"fas fa-cocktail")
+food = Category.create(name:"food", icon:"fas fa-utensils")
+beach = Category.create(name:"beach", icon:"fas fa-umbrella-beach")
+historic = Category.create(name:"historic", icon:"fas fa-landmark")
+mountain = Category.create(name:"mountain", icon:"fas fa-mountain")
+social = Category.create(name:"social", icon:"far fa-handshake")
+shopping = Category.create(name:"shopping", icon:"fas fa-shopping-bag")
+nature = Category.create(name:"nature", icon:"fab fa-pagelines")
+art = Category.create(name:"art", icon:"fas fa-palette")
+puts "Categories created"
+
+puts "Making activity_category links..."
+ActivityCategory.create(activity_id: puces.id, category_id: shopping.id)
+ActivityCategory.create(activity_id: basilique_sacre_coeur.id, category_id: historic.id)
+ActivityCategory.create(activity_id: champ_mars.id, category_id: nature.id)
+ActivityCategory.create(activity_id: marche_aligre.id, category_id: shopping.id)
+ActivityCategory.create(activity_id: marche_aligre.id, category_id: food.id)
+ActivityCategory.create(activity_id: arrene_lutece.id, category_id: historic.id)
+ActivityCategory.create(activity_id: atelier_brancusi.id, category_id: art.id)
+ActivityCategory.create(activity_id: canal_st_martin.id, category_id: historic.id)
+ActivityCategory.create(activity_id: belleville.id, category_id: shopping.id)
+ActivityCategory.create(activity_id: belleville.id, category_id: art.id)
+ActivityCategory.create(activity_id: belleville.id, category_id: food.id)
+ActivityCategory.create(activity_id: jadin_tueleries.id, category_id: historic.id)
+ActivityCategory.create(activity_id: jadin_tueleries.id, category_id: nature.id)
+ActivityCategory.create(activity_id: parc_monceau.id, category_id: nature.id)
+ActivityCategory.create(activity_id: parc_monceau.id, category_id: art.id)
+puts "activity_category links created"
 
 puts "FINISHED!"

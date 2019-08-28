@@ -2,25 +2,28 @@
 <div class="footer page-footer <%= "no-footer" if params[:action] == "home" %>">
 
         <div class="footer-section">
+          <%= link_to root_path do %>
           <div class="icons">
             <i class="fas fa-search-location"></i>
             <p>Search</p>
           </div>
+          <% end %>
         </div>
 
-        <div class="footer-section">
+        <div class="footer-section" data-toggle="modal" data-target="#filterModal">
           <div class="icons">
             <i class="fas fa-filter"></i>
             <p>Filter</p>
           </div>
         </div>
 
-
         <div class="footer-section">
+          <%= link_to trips_path do %>
           <div class="icons">
             <i class="fas fa-suitcase-rolling"></i>
             <p>My trips</p>
           </div>
+          <% end %>
         </div>
 
         <div class="footer-section">
