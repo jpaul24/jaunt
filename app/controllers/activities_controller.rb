@@ -3,7 +3,6 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   skip_after_action :verify_policy_scoped, only: [:index]
 
-
   def index
     if params[:place].present?
       @activities = Activity.search(params[:place])
