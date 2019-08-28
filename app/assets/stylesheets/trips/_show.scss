@@ -1,0 +1,59 @@
+.itinerary-container {
+  height: 60vh;
+  margin-top: 40px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-orange {
+  background-color: $orange;
+  opacity: .8;
+  color: white;
+}
+
+.nav-pills .nav-link.active {
+  opacity: 1;
+  background-color: $orange;
+}
+
+
+.margin-top {
+ margin-top: 50px;
+}
+
+.wrap-tab {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    padding: 3px 6px;
+  }
+}
+
+.tab-content {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .3)
+}
+
+.padding-left {
+  padding-left: 0px;
+}
+
+.padding-right {
+  padding-right: 0px;
+}
+
+.view-height {
+  height: 50vh;
+  border-radius: 10px;
+}
