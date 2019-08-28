@@ -1,6 +1,20 @@
 <h1>My Trip</h1>
 
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <% @trip.shortlisted_activities.each do |shortlisted| %>
+          <div class="card">
+            <ul>
+             <% user = shortlisted.activity.user.username %>
+             <li> Added by: <%= link_to user, user_path(user) %></li>
+              <li> Activity name:<%=  shortlisted.activity.name %> </li>
+              <li> Activity city: <%= shortlisted.activity.city %> </li>
+              <li> Activity description:<%=  shortlisted.activity.description %> </li>
+              <li> Activity price:<%=  shortlisted.activity.price %> </li>
+            </ul>
+          </div>
+      <% end %>
   <div class="itinerary-container">
     <div class="row row-grey">
       <div class="col-2 margin-top padding-right">
