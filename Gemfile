@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
+gem 'pg_search'
 gem "algoliasearch-rails"
 
 group :development do

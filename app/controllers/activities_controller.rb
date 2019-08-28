@@ -5,7 +5,8 @@ class ActivitiesController < ApplicationController
 
   def index
     if params[:place].present?
-      @activities = Activity.search(params[:place])
+      place = params[:place].split.first
+      @activities = Activity.search_by_city(place)
     else
       @activities = policy_scope(Activity)
     end

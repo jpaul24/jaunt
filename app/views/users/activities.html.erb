@@ -1,5 +1,5 @@
 <% current_user.activities.each do |activity| %>
-  <h2><%= activity.description %></h2>
+  <h2><%= activity.name %></h2>
   <%= link_to "Edit", edit_activity_path(activity)  %>
   <%= link_to "Delete", activity_path(activity), method: :delete %>
 <% end %>
