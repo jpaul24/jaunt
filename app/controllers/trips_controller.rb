@@ -10,6 +10,12 @@ class TripsController < ApplicationController
   end
 
   def create
+
+    # get all ids from params
+    # convert it from a string to an array
+    # iterate over this array
+    # create a trip
+    # for each one of the ids create a shortlisted activity with the id of the trip you just created
     authorize @trip
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id

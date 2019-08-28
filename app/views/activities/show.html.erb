@@ -1,1 +1,32 @@
-<h1>Acitivities show page<%= @activity %></h1>
+<div class="all-container">
+  <div class="text-center header-show">
+    <h2><%= @activity.name %></h1>
+  </div>
+  <div class="image-contain">
+    <div class="image-show">
+    </div>
+  </div>
+  <div class="show-rating">
+    <div class="show-bold">
+      <p>Rating:<%= @activity.rating %></p>
+    </div>
+    <div class="show-bold">
+      <p>$<%= @activity.price %></p>
+    </div>
+  </div>
+  <div class="show-bold">
+    <p><%= @activity.tod %></p>
+  </div>
+  <div>
+    <p><%= @activity.description %></p>
+  </div>
+  <div>
+    <h4>Who else has done this?</h3>
+    <div>
+
+    </div>
+  </div>
+  <div>
+    <h4>Reviews</h4>
+  </div>
+</div>
