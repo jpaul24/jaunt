@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
 
   validates :duration, presence: true
   validates :duration, numericality: true
-  validates :trip_name, length: { in: 5..50 }
+  validates :trip_name, length: { in: 5..50 }, on: :update
   validates :description, length: { maximum: 500 }
   validates :likes, numericality: true
 
