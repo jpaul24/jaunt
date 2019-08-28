@@ -1,6 +1,8 @@
-<div class="profile-container">
+<div class="cover-container">
+</div>
+<div class="all-container">
   <div class="main-container">
-    <div class="user-container">
+    <div class="user-contianer">
       <div class="photo-container">
         <% if @user.photo.url.nil? %>
         <%= cl_image_tag("https://res.cloudinary.com/nmozzer/image/upload/v1566482236/tgmcoyt93kqshoyunzdb.jpg", cloud_name: "nmozzer" ) %>
@@ -8,15 +10,14 @@
         <%= @user.photo %>
         <% end %>
       </div>
-      <h2><%= @user.username %></h2>
+      <div>
+        <h4><%= @user.first_name %> <%= @user.second_name %></h2>
+        <p><%= @user.email %></p>
+      </div>
     </div>
     <div class="bio-container">
-      <%= @user.bio %>
+      <p><%= @user.bio %></p>
     </div>
-  </div>
-  <div class="name-container">
-    <h2><strong>Name:</strong> <%= @user.first_name %> <%= @user.second_name %></h2>
-    <h2><strong>Email:</strong> <%= @user.email %></h2>
   </div>
   <div class="button-container d-flex flex-column">
     <div class="btn user-link"><%= link_to "My Trips", trips_path %></div>
