@@ -1,0 +1,30 @@
+.header-show {
+  margin-top: 15px;
+}
+
+.image-show {
+  background-image: url('hike.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 35vh;
+  width: 100%;
+  border-radius: 5px;
+}
+.image-contain {
+  display: flex;
+  justify-content: center;
+}
+.show-rating {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    padding: none;
+  }
+}
+.show-bold {
+  p {
+    font-weight: bold;
+  }
+}
