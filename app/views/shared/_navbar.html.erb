@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-home" if params[:action] == "home" %>">
-  <% if !current_page?(root_path) && !( controller_name == "users" &&action_name == "show")  %>
+  <% if !current_page?(root_path)%>
     <%= link_to root_path, class: "navbar-brand" do %>
       <p class="home-link">jaunt.</p>
     <% end %>

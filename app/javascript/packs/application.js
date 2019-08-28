@@ -1,6 +1,9 @@
 import "bootstrap";
 import "swing";
+import { placesAutocomplete } from '../add-ons/places'
 // import "swing/examples/card-stack/card-stack.css";
+
+placesAutocomplete();
 
 window.swing = require('swing');
 // Prepare the cards in the stack for iteration.
