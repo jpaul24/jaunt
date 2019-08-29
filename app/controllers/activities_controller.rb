@@ -4,13 +4,30 @@ class ActivitiesController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
+
     if params[:place].present?
       place = params[:place].split.first
+      @activities = Activity.search_by_city(place)
+    elsif
+      params.dig(:filter, :place).present?
+      filter = params[:filter]
+      place = filter[:place].split.first
       @activities = Activity.search_by_city(place)
     else
       @activities = policy_scope(Activity)
     end
+
+    if params.dig(:filter, :tod).present?
+      filter = params[:filter]
+      @activities = @activities.where("tod ILIKE?", "%#{filter[:tod]}%")
+    end
+
+    if params.dig(:filter, :categories).present?
+      filter = params[:filter]
+      @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
+    end
   end
+
 
   def show
     authorize @activity
