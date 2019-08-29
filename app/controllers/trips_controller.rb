@@ -8,7 +8,7 @@ class TripsController < ApplicationController
   def show
     @selected_time = params[:selected_time] || "Morning"
     @selected_day = params[:selected_day] || 1
-
+    @trip.sort_activities
     @shortlisted_activities = @trip.shortlisted_activities.joins(:activity).where(
       day: @selected_day,
       activities: {
@@ -22,7 +22,11 @@ class TripsController < ApplicationController
   def create
     activity_ids = params[:cardIds]
     # get all ids from params
-    activity_array = activity_ids.split(",").map(&:to_i).uniq
+    if activity_ids.nil?
+      activity_array = []
+    else
+      activity_array = activity_ids.split(",").map(&:to_i).uniq
+    end
     # convert it from a string to an array
     # iterate over this array
 

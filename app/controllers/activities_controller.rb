@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-
     if params[:place].present?
       place = params[:place].split.first
       @activities = Activity.search_by_city(place).near(place, 40)
