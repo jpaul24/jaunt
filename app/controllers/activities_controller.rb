@@ -25,6 +25,11 @@ class ActivitiesController < ApplicationController
       filter = params[:filter]
       @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
     end
+
+    if params[:cardIds]
+      activity_ids = params[:cardIds].split(',').uniq.map(&:to_i)
+      @activities = @activities.reject { |activity| activity_ids.include?(activity.id) }
+    end
   end
 
 

@@ -21,9 +21,7 @@
   </ul>
 </div>
 
-
-
-<h4 class="trip-btn"><%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %></h4>
+<h4 class="trip-btn"><%= link_to "Plan trip", trips_path(cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %></h4>
 
 <div class="thum-btns">
   <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
@@ -35,3 +33,4 @@
 
 </div>
 <%= render 'activities/filter' %>
+

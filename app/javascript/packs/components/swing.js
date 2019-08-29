@@ -35,10 +35,10 @@ thumbsUp.addEventListener('click', (event) => {
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
   const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
   const planTrip = document.getElementById('plan_trip_link'); // getting the link that will redirect to trips#create action
-  if (/\?cardIds=/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
-    planTrip.href += `${cardId},`; // just add the id of the new card
+  if (/\?cardIds/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
+    planTrip.href += `,${cardId}`; // just add the id of the new card
   } else {
-    planTrip.href += `?cardIds=${cardId},`; // add the param with the value if no ids were previously added
+    planTrip.href += `?cardIds=${cardId}`; // add the param with the value if no ids were previously added
   }
   currentCard.classList.add('swiped-right');
   setTimeout(() => {
@@ -54,11 +54,18 @@ stack.on('throwout', (event) => {
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
   const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
   const planTrip = document.getElementById('plan_trip_link'); // getting the link that will redirect to trips#create action
+  const activityShowLinks = document.querySelectorAll('.activity-show-link');
   if (event.throwDirection.toString() === Symbol('RIGHT').toString()) {
-    if (/\?cardIds=/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
-      planTrip.href += `${cardId},`; // just add the id of the new card
+    if (/\?cardIds/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
+      planTrip.href += `,${cardId}`; // just add the id of the new card
+      activityShowLinks.forEach((link) => {
+        link.href += `,${cardId}`;
+      });
     } else {
-      planTrip.href += `?cardIds=${cardId},`; // add the param with the value if no ids were previously added
+      planTrip.href += `?cardIds=${cardId}`; // add the param with the value if no ids were previously added
+      activityShowLinks.forEach((link) => {
+        link.href += `?cardIds=${cardId}`;
+      });
     }
     event.target.remove(); // removing card after card is swiped to the right
   }
@@ -83,10 +90,10 @@ thumbsDwn.addEventListener('click', (event) => {
 
 
 
-const btn = document.getElementById("plan_trip_link");
-btn.disabled = true;
+// const btn = document.getElementById("plan_trip_link");
+// // btn.disabled = true;
 
-const icon = document.getElementById("thumbs_up_btn");
-icon.addEventListener("click", (event) => {
-  btn.disabled = false;
-});
+// const icon = document.getElementById("thumbs_up_btn");
+// icon.addEventListener("click", (event) => {
+//   btn.disabled = false;
+// });

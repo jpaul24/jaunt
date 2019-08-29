@@ -1,4 +1,4 @@
-<%= link_to activity_path(activity) do %>
+<%= link_to activity_path(activity, cardIds: params[:cardIds]), class:'activity-show-link' do %>
   <div class="activity-container">
     <div class="activity-photo"><%= cl_image_tag activity.photo %>
       <div class="activity-name">
