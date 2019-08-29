@@ -21,11 +21,8 @@ gem 'webpacker'
 gem 'pundit'
 gem 'pg_search'
 gem "algoliasearch-rails"
-<<<<<<< HEAD
 gem 'geocoder'
-=======
 gem 'dotenv-rails', groups: [:development, :test]
->>>>>>> d515634fb2ec99bb87240fcfc75be9b521a7872c
 
 group :development do
   gem 'web-console', '>= 3.3.0'
