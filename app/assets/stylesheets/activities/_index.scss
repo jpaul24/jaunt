@@ -9,7 +9,7 @@
 #viewport .stack {
     width: 100%;
     height: 80%;
-    position: absolute;
+    // position: absolute;
     border-radius: 10px;
     padding: 0;
     display: flex;
@@ -18,7 +18,7 @@
 
 #viewport li {
     width: 340px;
-    height: 100%;
+    height: 96%;
     list-style: none;
     background: #fff;
     border-radius: 5px;
@@ -55,8 +55,25 @@
 }
 
 .swiped-right {
-  transition: all 0.8s ease;
-  transform: translateX(100vw) rotate(20deg);
+  transition: all 0.7s ease;
+  transform: translateX(120vw) rotate(20deg);
+}
+
+.swiped-left {
+  transition: all 0.7s ease;
+  transform: translateX(-120vw) rotate(-20deg);
+}
+
+.fa-thumbs-up:before {
+    font-size: 65px;
+}
+
+.fa-thumbs-down:before {
+    font-size: 65px;
+}
+
+.trip-btn {
+  text-align: center;
 }
 
 .activity-container{
@@ -127,3 +144,25 @@
   padding: 0;
   margin: 0;
 }
+
+#plan_trip_link {
+  display: block;
+  width: max-content;
+  margin: auto;
+  padding: 10px 15px;
+  background-color: #F86524;
+  color: white;
+  border-radius: 5px;
+  &:hover {
+    background-color: #ffb291;
+  }
+}
+
+
+.thum-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+

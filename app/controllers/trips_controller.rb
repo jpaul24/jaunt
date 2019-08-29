@@ -6,6 +6,16 @@ class TripsController < ApplicationController
   end
 
   def show
+    @selected_time = params[:selected_time] || "Morning"
+    @selected_day = params[:selected_day] || 1
+
+    @shortlisted_activities = @trip.shortlisted_activities.joins(:activity).where(
+      day: @selected_day,
+      activities: {
+        tod: @selected_time
+      })
+
+    @activity = @shortlisted_activities.each { |shortlisted_activity| shortlisted_activity.activity }.join
     authorize @trip
   end
 
