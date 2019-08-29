@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'pg_search'
 gem "algoliasearch-rails"
+gem 'geocoder'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -13,6 +13,15 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+    if @activity.geocoded?
+      @markers = [
+        {
+          lat: @activity.latitude,
+          lng: @activity.longitude
+        }
+      ]
+    end
     authorize @activity
   end
 

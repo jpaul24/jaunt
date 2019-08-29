@@ -1,4 +1,6 @@
 class Activity < ApplicationRecord
+  geocoded_by :name
+  after_validation :geocode, if: :will_save_change_to_name?
   include PgSearch::Model
   pg_search_scope :search_by_city,
     against: [:city],
@@ -18,5 +20,11 @@ class Activity < ApplicationRecord
   validates :city, presence: true
   validates :tod, presence: true, inclusion: { in: TOD }
   validates :price, presence: true
-  mount_uploader :photo, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
+
+  before_validation :add_city_to_name
+
+  def add_city_to_name
+    self.name = "#{self.name}, #{self.city}"
+  end
 end
