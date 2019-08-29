@@ -1,7 +1,22 @@
+
+<div class="all-container">
+
+<% if @activities.length == 1 %>
+  <p>Your search returned <%= @activities.length %> activity:</p>
+<% else %>
+  <p>Your search returned <%= @activities.length %> activities:</p>
+<% end %>
+
+
 <div id="viewport">
   <ul class="stack" id="activity-list">
     <% @activities.each do |activity| %>
-      <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>"><p><%= activity.name %></p></li>
+
+      <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
+        <%= render 'activity', activity: activity %>
+      </li>
+
+
     <% end %>
   </ul>
 </div>
@@ -18,5 +33,5 @@
   <%= javascript_pack_tag 'components/swing' %>
 <% end %>
 
+</div>
 <%= render 'activities/filter' %>
-
