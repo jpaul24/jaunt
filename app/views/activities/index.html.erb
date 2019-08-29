@@ -1,7 +1,10 @@
 <div class="all-container">
 
-<p>Your search returned <%= @activities.length %> activities:</p>
-
+<% if @activities.length == 1 %>
+  <p>Your search returned <%= @activities.length %> activity:</p>
+<% else %>
+  <p>Your search returned <%= @activities.length %> activities:</p>
+<% end %>
 
 <div id="viewport">
   <ul class="stack" id="activity-list">

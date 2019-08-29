@@ -76,7 +76,7 @@
   border-radius: 5px;
 }
 
-.activity-name h2 {
+.activity-name h3 {
   position: absolute;
   bottom: 5px;
   left: 5px;
@@ -105,9 +105,25 @@
   padding: 10px;
 }
 
+.activity-icons i {
+    color: $gray;
+    opacity: 0.8;
+}
+
 .activity-rating {
   position:absolute;
   bottom: 0;
   left:0;
   padding: 10px;
+  display: flex;
+}
+
+.fa-star {
+  font-size: 20px;
+  color: #F4CC04;
+}
+
+.star {
+  padding: 0;
+  margin: 0;
 }

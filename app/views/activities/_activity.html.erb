@@ -5,7 +5,7 @@
   <div class="activity-photo"><%= cl_image_tag activity.photo %>
 
     <div class="activity-name">
-      <h2><%= activity.name %></h2>
+      <h3><%= activity.name %></h3>
     </div>
   </div>
 
@@ -18,11 +18,23 @@
 
   <div class="activity-rating">
     <% if activity.reviews.empty? %>
-      <i class="far fa-star"></i>
+      <% 5.times do %>
+      <div class="star">
+        <i class="far fa-star"></i>
+      </div>
+      <% end %>
     <% else %>
-      <p>Avg. rating:
       <% activity.reviews.each do |review| %>
-        <%= review.rating.to_i%></p>
+        <% review.rating.to_i.times do %>
+          <div class="star">
+            <i class="fas fa-star"></i>
+          </div>
+        <% end %>
+        <% (5 - review.rating.to_i).times do %>
+          <div class="star">
+            <i class="far fa-star"></i>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
 
