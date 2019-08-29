@@ -18,11 +18,14 @@ class ActivitiesController < ApplicationController
     end
     if params.dig(:filter, :categories).present?
       filter = params[:filter]
-      @activities = Category.joins(:).where("categories ILIKE?", "%#{filter[:categories]}%")
+      # @activities = Activity.joins(:categories).where("categories.id = ?", "#{filter[:categories].last.to_i}")
+      @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
     end
     # @activities = policy_scope(Activity)
-    session[:trip_days] = params[:days].to_i || params.dig(:filter, :days)
+    # session[:trip_days] = params[:days].to_i || params.dig(:filter, :days)
+    # raise
   end
+
 
   def show
     authorize @activity
