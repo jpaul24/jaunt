@@ -7,6 +7,7 @@
 </div>
 
 
+
 <h4 class="trip-btn"><%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %></h4>
 
 <div class="thum-btns">
@@ -16,3 +17,6 @@
 <%= content_for(:after_js) do %>
   <%= javascript_pack_tag 'components/swing' %>
 <% end %>
+
+<%= render 'activities/filter' %>
+
