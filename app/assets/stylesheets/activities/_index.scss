@@ -93,6 +93,10 @@
   border-radius: 5px;
 }
 
+.activity-name {
+  justify-content: left;
+}
+
 .activity-name h3 {
   position: absolute;
   bottom: 5px;
@@ -171,6 +175,7 @@
 
 .fa-thumbs-down:before {
   font-size: 45px;
+  transform: rotateY(180deg);
 }
 
 .isDisabled {
