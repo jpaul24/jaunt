@@ -7,8 +7,12 @@
 </div>
 
 
-<%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %>
+<h4 class="trip-btn"><%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %></h4>
 
-<button id="thumbs_up_btn">thumbs up</button>
-<button id="thumbs_dwn_btn">thumbs down</button>
-
+<div class="thum-btns">
+  <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
+  <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
+</div>
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/swing' %>
+<% end %>
