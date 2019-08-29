@@ -20,7 +20,7 @@
         <% if @activity.empty? %>
           <%= "add activity" %>
         <% else %>
-          <%= @activity %>
+          <%= @activity.split("#").second %>
         <% end %>
       </div>
     </div>
