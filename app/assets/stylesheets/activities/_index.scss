@@ -1,7 +1,7 @@
 @import "show";
 
 #viewport {
-    width: 100vw;
+    width: 100%;
     height: 500px;
     position: relative;
 }
@@ -24,7 +24,7 @@
     border-radius: 5px;
     position: absolute;
     box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);
-    line-height: 300px;
+    line-height: 0px;
     text-align: center;
     font-size: 100px;
     cursor: default;
@@ -76,6 +76,75 @@
   text-align: center;
 }
 
+.activity-container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.activity-photo {
+  height: 80%;
+  width: 95%;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.activity-name h3 {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  margin: 0;
+  color: white;
+  font-family: $body-font;
+}
+
+
+.activity-photo img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.activity-card-icon {
+  font-size: 25px;
+}
+
+.activity-icons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.activity-icons i {
+    color: $gray;
+    opacity: 0.8;
+}
+
+.activity-rating {
+  position:absolute;
+  bottom: 0;
+  left:0;
+  padding: 10px;
+  display: flex;
+}
+
+.fa-star {
+  font-size: 20px;
+  color: #F4CC04;
+}
+
+.star {
+  padding: 0;
+  margin: 0;
+}
+
 #plan_trip_link {
   display: block;
   width: max-content;
@@ -97,7 +166,19 @@
   padding-top: 15px;
 }
 
+<<<<<<< HEAD
+=======
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.isDisabled > a {
+  color: black;
+  display: inline-block;  /* For IE11/ MS Edge bug */
+  pointer-events: none;
+  text-decoration: none;
+}
 
 
-
-
+>>>>>>> 2cc7ee3cf92b57e393cbb69990e51efd59df9263

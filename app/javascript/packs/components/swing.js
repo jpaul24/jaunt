@@ -80,3 +80,13 @@ thumbsDwn.addEventListener('click', (event) => {
     thumbsUp.disabled = false;
   }, 800);
 });
+
+
+
+const btn = document.getElementById("plan_trip_link");
+btn.disabled = true;
+
+const icon = document.getElementById("thumbs_up_btn");
+icon.addEventListener("click", (event) => {
+  btn.disabled = false;
+});
