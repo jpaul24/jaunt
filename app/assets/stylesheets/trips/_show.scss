@@ -1,59 +1,58 @@
-.itinerary-container {
-  height: 60vh;
-  margin-top: 40px;
-}
-
-.nav-link {
+.trip-container {
+  width: 80vw;
+  padding: 10px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  margin: 0px auto;
 }
 
-.background-orange {
-  background-color: $orange;
-  opacity: .8;
-  color: white;
-}
-
-.nav-pills .nav-link.active {
-  opacity: 1;
-  background-color: $orange;
-}
-
-
-.margin-top {
- margin-top: 50px;
-}
-
-.wrap-tab {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.nav-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  a {
-    padding: 3px 6px;
+.trip-logo {
+  width: 6vw;
+  h2 {
+    color: $orange;
+    margin-right: 10px;
+    margin-bottom: 0px;
   }
 }
 
-.tab-content {
-  height: 100%;
+.tod-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.tod-tab {
+  flex-grow: 3;
+  background-color: $orange;
+  padding: 3px 6px;
+  border-radius: 5px 5px 0px 0px;
+  a {
+    font-size: 15px;
+  }
+}
+
+.day-activity {
   width: 100%;
-  background-color: rgba(0, 0, 0, .3)
+  height: 60vh;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.padding-left {
-  padding-left: 0px;
+.day-tab {
+  display: flex;
+  justify-content: center;
+  width: 6vw;
+  background-color: $orange;
+  min-width: 15px;
+  padding: 2px 5px;
+  border-radius: 5px 0px 0px 5px;
 }
 
-.padding-right {
-  padding-right: 0px;
+.trip-content {
+  width: 100%;
 }
 
-.view-height {
-  height: 50vh;
-  border-radius: 10px;
-}
