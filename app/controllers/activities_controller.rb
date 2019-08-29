@@ -4,10 +4,10 @@ class ActivitiesController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
-    activity_category = ActivityCategory.all
 
-    if params[:place].present? || params.dig(:filter, :place).present?
-      @activities = Activity.where("city ILIKE?", "%#{params[:place]}%")
+    if params[:place].present?
+      place = params[:place].split.first
+      @activities = Activity.search_by_city(place)
     else
       @activities = policy_scope(Activity)
     end
@@ -16,14 +16,11 @@ class ActivitiesController < ApplicationController
       filter = params[:filter]
       @activities = @activities.where("tod ILIKE?", "%#{filter[:tod]}%")
     end
+
     if params.dig(:filter, :categories).present?
       filter = params[:filter]
-      # @activities = Activity.joins(:categories).where("categories.id = ?", "#{filter[:categories].last.to_i}")
       @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
     end
-    # @activities = policy_scope(Activity)
-    # session[:trip_days] = params[:days].to_i || params.dig(:filter, :days)
-    # raise
   end
 
 
