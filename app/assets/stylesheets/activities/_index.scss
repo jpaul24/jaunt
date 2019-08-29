@@ -1,7 +1,7 @@
 @import "show";
 
 #viewport {
-    width: 100vw;
+    width: 100%;
     height: 500px;
     position: relative;
 }
@@ -24,7 +24,7 @@
     border-radius: 5px;
     position: absolute;
     box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);
-    line-height: 300px;
+    line-height: 0px;
     text-align: center;
     font-size: 100px;
     cursor: default;
@@ -59,3 +59,55 @@
   transform: translateX(100vw) rotate(20deg);
 }
 
+.activity-container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.activity-photo {
+  height: 80%;
+  width: 95%;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.activity-name h2 {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  margin: 0;
+  color: white;
+  font-family: $body-font;
+}
+
+
+.activity-photo img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.activity-card-icon {
+  font-size: 25px;
+}
+
+.activity-icons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.activity-rating {
+  position:absolute;
+  bottom: 0;
+  left:0;
+  padding: 10px;
+}

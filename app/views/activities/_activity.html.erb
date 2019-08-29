@@ -1,0 +1,36 @@
+<%= link_to activity_path(activity) do %>
+<div class="activity-container">
+
+  <% activity.categories.each do |category| %>
+  <div class="activity-photo"><%= cl_image_tag activity.photo %>
+
+    <div class="activity-name">
+      <h2><%= activity.name %></h2>
+    </div>
+  </div>
+
+
+  <div class="activity-icons">
+
+      <i class="<%= category.icon %> activity-card-icon"></i>
+    <% end %>
+  </div>
+
+  <div class="activity-rating">
+    <% if activity.reviews.empty? %>
+      <i class="far fa-star"></i>
+    <% else %>
+      <p>Avg. rating:
+      <% activity.reviews.each do |review| %>
+        <%= review.rating.to_i%></p>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
+<% end %>
+
+
+
+
