@@ -1,9 +1,11 @@
 class Activity < ApplicationRecord
-  include AlgoliaSearch
+  include PgSearch::Model
+  pg_search_scope :search_by_city,
+    against: [:city],
+    using: {
+      tsearch: { prefix: true }
+    }
 
-  algoliasearch do
-    attributes :city
-  end
   TOD = ["Morning", "Afternoon", "Evening"]
 
   belongs_to :user
