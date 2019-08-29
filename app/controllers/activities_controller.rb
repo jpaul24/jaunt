@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
 
     if params[:place].present?
       place = params[:place].split.first
-      @activities = Activity.search_by_city(place)
+      @activities = Activity.search_by_city(place).near(place, 40)
     elsif
       params.dig(:filter, :place).present?
       filter = params[:filter]
