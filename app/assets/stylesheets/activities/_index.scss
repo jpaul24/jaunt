@@ -1,3 +1,4 @@
+@import "show";
 
 #viewport {
     width: 100vw;
@@ -51,5 +52,10 @@
 
 #source a {
     color: #C7433E;
+}
+
+.swiped-right {
+  transition: all 0.8s ease;
+  transform: translateX(100vw) rotate(20deg);
 }
 

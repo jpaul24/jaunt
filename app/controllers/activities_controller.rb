@@ -18,7 +18,7 @@ class ActivitiesController < ApplicationController
     end
     if params.dig(:filter, :categories).present?
       filter = params[:filter]
-      @activities = @activities.where("categories ILIKE?", "%#{filter[:categories]}%")
+      @activities = Category.joins(:).where("categories ILIKE?", "%#{filter[:categories]}%")
     end
     # @activities = policy_scope(Activity)
     session[:trip_days] = params[:days].to_i || params.dig(:filter, :days)

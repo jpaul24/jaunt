@@ -1,10 +1,13 @@
 import "bootstrap";
 import "swing";
+import { placesAutocomplete } from '../add-ons/places'
 // import "swing/examples/card-stack/card-stack.css";
+
+placesAutocomplete();
 
 window.swing = require('swing');
 // Prepare the cards in the stack for iteration.
-const cards = [].slice.call(document.querySelectorAll('ul li'));
+const cards = [].slice.call(document.querySelectorAll('#activity-list > li'));
 
 // An instance of the Stack is used to attach event listeners.
 const stack = swing.Stack();
@@ -20,10 +23,63 @@ stack.on('throwout', (event) => {
   // e.throwDirection Direction in which the element has been thrown (Direction.LEFT, Direction.RIGHT).
 
   console.log('Card has been thrown out of the stack.');
-  console.log('Throw direction: ' + (event.throwDirection == Direction.LEFT ? 'left' : 'right'));
+  // console.log('Throw direction: ' + (event.throwDirection == Direction.LEFT ? 'left' : 'right'));
 });
 
 // Add event listener for when a card is thrown in the stack, including the spring back into place effect.
 stack.on('throwin', () => {
   console.log('Card has snapped back to the stack.');
 });
+
+const thumbsUp = document.getElementById('thumbs_up_btn');
+thumbsUp.addEventListener('click', (event) => {
+
+  thumbsUp.disabled = true
+  const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
+  const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
+  const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
+  const planTrip = document.getElementById('plan_trip_link'); // getting the link that will redirect to trips#create action
+  if (/\?cardIds=/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
+    planTrip.href += `${cardId},`; // just add the id of the new card
+  } else {
+    planTrip.href += `?cardIds=${cardId},`; // add the param with the value if no ids were previously added
+  }
+  currentCard.classList.add('swiped-right');
+  setTimeout(() => {
+    currentCard.remove();
+    thumbsUp.disabled = false;
+  }, 800);
+
+});
+
+stack.on('throwoutend', (event) => {
+  const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
+  const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
+  const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
+  const planTrip = document.getElementById('plan_trip_link'); // getting the link that will redirect to trips#create action
+  if (/\?cardIds=/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
+    planTrip.href += `${cardId},`; // just add the id of the new card
+  } else {
+    planTrip.href += `?cardIds=${cardId},`; // add the param with the value if no ids were previously added
+  }
+  event.target.remove(); // removing card after card is swiped to the right
+});
+
+const thumbsDwn = document.getElementById('thumbs_dwn_btn');
+thumbsDwn.addEventListener('click', (event) => {
+  thumbsUp.disabled = true
+
+  const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
+  const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
+
+  currentCard.remove()
+
+  setTimeout(() => {
+    thumbsUp.disabled = false;
+  }, 200);
+});
+
+
+
+
+

@@ -1,0 +1,72 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  p {
+    font-size: 14px;
+  }
+  margin-top: -20%;
+}
+
+.cover-container {
+  background-image: asset-url('map.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 20vh;
+}
+
+.photo-container {
+  img {
+    width: 35vw;
+    border-radius: 50%;
+  }
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.bio-container {
+  padding-bottom: 10px;
+  p {
+    font-size: 12px;
+  }
+}
+
+.name-container {
+  padding: 5vw;
+  h2 {
+    font-size: 20px;
+  }
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+
+.user-link {
+  width: 50vw;
+  background-color: $orange;
+  border: none;
+  margin-bottom: 5px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    opacity: .5;
+  }
+}

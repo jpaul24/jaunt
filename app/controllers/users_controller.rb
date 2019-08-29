@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     if @user.update(user_params)
-      redirect_to :show
+      redirect_to user_path(current_user)
     else
       render :edit
     end

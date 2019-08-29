@@ -1,16 +1,19 @@
 
+
 <p> No:<%= @activities.length %> </p>
 
 <div id="viewport">
-  <ul class="stack">
+  <ul class="stack" id="activity-list">
     <% @activities.each do |activity| %>
-      <li><p><%= activity.name %></p></li>
+      <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>"><p><%= activity.name %></p></li>
     <% end %>
   </ul>
 </div>
 
-<button class="btn btn-primary">Generate Trip</button>
-
-
 
 <%= render 'activities/filter' %>
+
+<%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %>
+
+<button id="thumbs_up_btn">thumbs up</button>
+<button id="thumbs_dwn_btn">thumbs down</button>
