@@ -16,17 +16,11 @@ class ActivitiesController < ApplicationController
       @activities = policy_scope(Activity)
     end
 
-    if params.dig(:filter, :tod).present?
-      filter = params[:filter]
-      @activities = @activities.where("tod ILIKE?", "%#{filter[:tod]}%")
-    end
-
     if params.dig(:filter, :categories).present?
       filter = params[:filter]
       @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
     end
   end
-
 
   def show
     @activity = Activity.find(params[:id])

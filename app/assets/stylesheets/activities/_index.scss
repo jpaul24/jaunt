@@ -158,7 +158,6 @@
   }
 }
 
-
 .thum-btns {
   width: 100%;
   display: flex;
@@ -166,8 +165,13 @@
   padding-top: 15px;
 }
 
-<<<<<<< HEAD
-=======
+.fa-thumbs-up:before {
+  font-size: 45px;
+}
+
+.fa-thumbs-down:before {
+  font-size: 45px;
+}
 
 .isDisabled {
   cursor: not-allowed;
@@ -180,5 +184,3 @@
   text-decoration: none;
 }
 
-
->>>>>>> 2cc7ee3cf92b57e393cbb69990e51efd59df9263

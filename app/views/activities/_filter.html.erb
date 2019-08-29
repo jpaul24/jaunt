@@ -13,19 +13,6 @@
         <%= f.input :place, as: :hidden, input_html: { value: params[:place] } %>
         <%= f.input :days, as: :hidden, input_html: { value: params[:days] } %>
 
-         <div class="modal-body">
-          <fieldset class="form-group radio_buttons required filter_tod tod-box">
-            <div class="category-choices">
-              <% ["morning", "afternoon", "evening"].each do |tod| %>
-                <div class="each-tod">
-                <input class="radio-buttons hidden" type="radio" value="<%= tod %>" name="filter[tod]" id="filter_tod_<%= tod %>">
-                <label class="collection_radio_buttons category-choice" for="filter_tod_<%= tod %>"><%= tod %></label>
-                </div>
-              <% end %>
-            </div>
-          </fieldset>
-        </div>
-
         <div class="modal-body">
           <fieldset class="icon-box">
             <input type="hidden" name="filter[categories][]" value="">
