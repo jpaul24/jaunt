@@ -21,6 +21,6 @@ class Trip < ApplicationRecord
   end
 
   def trip_duration
-    (2..self.duration).to_a
+    (1..duration).to_a
   end
 end
