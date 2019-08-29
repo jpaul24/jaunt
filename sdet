@@ -1,0 +1,99 @@
+=> [[32m#<Activity:0x00007f0d0098eb80[0m
+  id: [1;34m2[0m,
+  name: [31m[1;31m"[0m[31mBasilique du Sacré-Coeur[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mThis palatial white marble church crowns the lively Montmartre district in the 18th arrondissement. Its interior is bedecked with gold mosaics and towering stained-glass windows, and you can listen for the peal of one of the world’s heaviest bells. Visiting the basilica is free, but there’s a charge to ascend into the dome or explore the crypt.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mAfternoon[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098e9f0[0m
+  id: [1;34m3[0m,
+  name: [31m[1;31m"[0m[31mParc du Champ de Mars[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mA lift to the peak of the Eiffel Tower can squeeze the budget but views below can be equally stunning, albeit from a different angle. Parc du Champ de Mars has lawns and flowerbeds manicured with military precision (as you’d expect from a former army marching ground). Bring a blanket, wine and the best picnic ingredients you can find to this expanse of greenery and wait for the light show at dusk to set La Tour Eiffel a-twinkle.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mAfternoon[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098e7c0[0m
+  id: [1;34m4[0m,
+  name: [31m[1;31m"[0m[31mMarché d’Aligre[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mFeast your eyes on the finest local produce at this fabulous covered food market on Place d’Aligre in the 12th arrondissement. Mountains of cheese, artisan butchers and a field of flower stalls can send you into sensory overload after wandering through a few aisles. Stop for a discreet glass of Bordeaux and get your hands floury on some crusty baguette. Ride metro line 8 to the Ledru-Rollin stop.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mMorning[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098e4a0[0m
+  id: [1;34m5[0m,
+  name: [31m[1;31m"[0m[31mArènes de Lutèce[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mTrace the ruins of Paris’ Roman heritage at the Arènes de Lutèce in the Latin Quarter. Dating back to 1AD, it is thought to be the longest Roman amphitheatre ever constructed. While the arena no longer hosts gladiatorial fights, it does provide a space for a competitive sport no less formidable: pétanque.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mAfternoon[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098e180[0m
+  id: [1;34m6[0m,
+  name: [31m[1;31m"[0m[31mAtelier Brancusi[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mImmerse yourself in the smooth shapes of Brancusi’s sculpture with a free visit to his recreated studio in front of the Centre Pompidou. The Romanian-born abstract sculptor made a name for himself with famous works like The Kiss. This Brancusi workshop is a lovingly assembled and surprisingly intimate glimpse into the mind of an artist.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mMorning[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m1[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098df50[0m
+  id: [1;34m7[0m,
+  name: [31m[1;31m"[0m[31mCanal St-Martin[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mJoin chic Parisians at the water’s edge while the sun goes down or skip stones like the heroine of Amélie. This lively waterside haunt, between République and Gare du Nord in the 10th arrondissement, is the perfect spot to bring a picnic, pop a cork and eavesdrop on the locals.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mEvening[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098dd48[0m
+  id: [1;34m8[0m,
+  name: [31m[1;31m"[0m[31mbelleville[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mA stroll along the streets of Belleville, a district with a history of rebellion and multicultural flair, is certain to fire the imagination. Belleville’s bustling Chinatown and artist residents make it a lively place to explore. Wander up rue de Belleville to see where tragic chanteuse (female singer) Edith Piaf is said to have been born under a street lamp, then turn right onto pedestrian rue Dénoyez where you ll find Paris’ most dazzling street art. End your Belleville encounter with a meander and flop over first-class views of the city from leafy Parc de Belleville.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mMorning[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098db68[0m
+  id: [1;34m9[0m,
+  name: [31m[1;31m"[0m[31mJardin des Tuileries[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mGive your Paris trip a regal feel by sweeping through the historic park between the Louvre and Place de la Concorde. Tread in the dainty footsteps of Marie-Antoinette and see where Napoléon built his triumphal arch.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mAfternoon[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m1[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Activity:0x00007f0d0098d960[0m
+  id: [1;34m10[0m,
+  name: [31m[1;31m"[0m[31mParc Monceau[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31mIf celebrity-spotting in a cemetery is too morbid, march among France’s greats in Parc Monceau, which has statues of luminaries like Chopin and celebrated writer Guy de Maupassant. The park’s rich history makes it a fascinating spot for a promenade: this peaceful green space was the site of a massacre in 1871, and was a favourite painting spot for Monet. Throw in an extra freebie with a gander at the wonderful collection of rarely seen Chinese statuary showcased in the Musée Cernuschi, a municipal Asian Art Museum inside an elegant mansion next to the park’s eastern entrance on av Vélasquez. Take line 2 to the Monceau metro station in the 8th arrondissement.[1;31m"[0m[31m[0m,
+  city: [31m[1;31m"[0m[31mParis[1;31m"[0m[31m[0m,
+  tod: [31m[1;31m"[0m[31mAfternoon[1;31m"[0m[31m[0m,
+  price: [1;34m0[0m,
+  user_id: [1;34m2[0m,
+  created_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m28[0m [1;34;4mAug[0m [1;34m2019[0m [1;34m09[0m:[1;34m33[0m:[1;34m30[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]
