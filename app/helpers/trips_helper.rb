@@ -7,4 +7,8 @@ module TripsHelper
       photo
     end
   end
+
+  def active_class(link_path)
+    current_page?(link_path) ? "active-tab" : ""
+  end
 end

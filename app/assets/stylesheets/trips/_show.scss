@@ -32,6 +32,11 @@
   a {
     font-size: 15px;
   }
+  opacity: .5;
+}
+
+.active-tab {
+  opacity: 1;
 }
 
 .day-activity {
@@ -55,6 +60,11 @@
   min-width: 15px;
   padding: 2px 5px;
   border-radius: 5px 0px 0px 5px;
+  opacity: .5;
+}
+
+.active-tab {
+  opacity: 1;
 }
 
 .trip-content {
