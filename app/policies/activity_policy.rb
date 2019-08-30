@@ -5,6 +5,10 @@ class ActivityPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    create?
+  end
+
   def show?
     true
   end

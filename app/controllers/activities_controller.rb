@@ -44,10 +44,13 @@ class ActivitiesController < ApplicationController
   end
 
   def new
+    authorize @activity
+    @activity = Activity.new
   end
 
   def create
     authorize @activity
+    @activity = Activity.new(activity_params)
   end
 
   def update

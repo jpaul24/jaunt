@@ -1,1 +1,8 @@
-new.html.erb
+<% if policy(Activity).create? %>
+  <%= simple_form_for @activity do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :city %>
+  <%= f.button :submit, "Add this activity" %>
+    <% end %>
+<% end %>
