@@ -8,16 +8,6 @@ class Trip < ApplicationRecord
   validates :description, length: { maximum: 500 }
   validates :likes, numericality: true
 
-  def activities_hash
-    trip_hash = Hash[trip_duration.map { |day| [day, { "Morning" => nil, "Afternoon" => nil, "Evening" => nil}] }]
-    shortlisted_activities.each do |shortlisted_activity|
-      if trip_hash[shortlisted_activity.day.to_i][shortlisted_activity.activity.tod].nil?
-        trip_hash[shortlisted_activity.day.to_i][shortlisted_activity.activity.tod] = shortlisted_activity.activity.name
-      end
-    end
-    trip_hash
-  end
-
   def morning_activities
     morning = ShortlistedActivity.where(trip: self).joins(:activity).where(activities: {tod: 'Morning'})
     day_increment(morning)
