@@ -3,7 +3,7 @@
     <h2><%= @activity.name %></h1>
   </div>
   <div class="image-contain">
-    <div class="image-show">
+    <div class="image-show" style="background-image: url(<%= asset_path check_photo(@activity) %>)">
     </div>
   </div>
   <div class="show-rating">
@@ -46,4 +46,16 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  button = document.getElementById('up_vote')
+  button.addEventListener('click', () => {
+    console.log('hi')
+    button.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    button.style.animation = ''
+    }, 1000)
+  })
+</script>
+
 

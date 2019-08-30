@@ -36,9 +36,29 @@
 
     <div class="thum-btns">
       <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
-        <h4 class="trip-btn"><%= link_to "Plan trip", trips_path(cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %></h4>
+        <h4 class="trip-btn"><%= link_to "Plan trip", trips_path(cardIds: params[:cardIds], days: params[:days]), method: :post, id:'plan_trip_link', remote: false %>
+        </h4>
       <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
     </div>
 
     <%= render 'activities/filter' %>
 
+<script>
+  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne.addEventListener('click', () => {
+    console.log('hi')
+    buttonOne.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    buttonOne.style.animation = ''
+    }, 1000)
+  })
+
+  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo.addEventListener('click', () => {
+    console.log('hi')
+    buttonTwo.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    buttonTwo.style.animation = ''
+    }, 1000)
+  })
+</script>
