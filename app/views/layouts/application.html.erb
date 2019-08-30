@@ -20,7 +20,6 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <div class="container-background">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
@@ -31,7 +30,6 @@
       <% if params[:action] != "home" %>
         <%= render 'shared/footer' %>
       <% end %>
-    <!-- </div> -->
 
   </body>
 </html>

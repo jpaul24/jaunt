@@ -14,7 +14,6 @@ class TripsController < ApplicationController
       activities: {
         tod: @selected_time
       })
-
     @activity = @shortlisted_activities.empty? ? nil : @shortlisted_activities.first.activity
     authorize @trip
   end
