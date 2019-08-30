@@ -11,17 +11,21 @@
           <div class="trip-image">
           </div>
         <% end %>
+          <% counter = 0 %>
           <% @user_trips.each do |trip| %>
-          <div class="card">
-            <div class="card-title">
-            <%= link_to trip.trip_name, trip_path(trip) %>
+          <% counter += 1 %>
+          <div class="card-trip">
+            <div class="card-info-trip">
+              <%= link_to "Trip #{counter}", trip_path(trip) %>
+              <%= trip.duration %> days
+              <div>
+                <i class="fas fa-heart"></i> <%= trip.likes %>
+              </div>
             </div>
-            <div class="card-info">
-              <%= trip.description %>
-              Likes: <%= trip.likes %>
+            <div class="activity-photo-trip" style="background-image: url(<%= asset_path check_photo(trip.activities.first) %>)" >
             </div>
-          <% end %>
           </div>
+          <% end %>
       </div>
     </div>
   </div>
