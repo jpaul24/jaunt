@@ -29,7 +29,11 @@
       <%= yield(:after_js) %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
-      <%= render 'shared/footer' %>
-    </div>
+
+      <% if params[:action] != "home" %>
+        <%= render 'shared/footer' %>
+      <% end %>
+    <!-- </div> -->
+
   </body>
 </html>
