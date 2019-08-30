@@ -3,33 +3,28 @@
 
   <% if @activities.length == 0 %>
 
-  <div class="noactivities">
-    <p>Sorry, there are no activities for <%= params[:filter][:place] %> in those categories. Try another category!</p>
-  </div>
+    <div class="noactivities">
+      <p>Sorry, there are no activities for <%= params[:filter][:place] %> in those categories. Try another category!</p>
+    </div>
 
   <% else  %>
-        <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
-          <%= render 'activity', activity: activity %>
-        </li>
-      <% end %>
-    </ul>
 
-    <% if @activities.length == 1 %>
-      <p>Your search returned <%= @activities.length %> activity:</p>
-    <% else %>
-      <p>Your search returned <%= @activities.length %> activities:</p>
-    <% end %>
+      <% if @activities.length == 1 %>
+        <p>Your search returned <%= @activities.length %> activity:</p>
+      <% else %>
+        <p>Your search returned <%= @activities.length %> activities:</p>
+      <% end %>
 
     <div id="viewport">
 
       <ul class="stack" id="activity-list">
         <% @activities.each do |activity| %>
-            <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
-              <%= render 'activity', activity: activity %>
-            </li>
-        <div class="endoflist">
-          <p >That's all the activities for <%= activity.city %>, time to plan your trip!</p>
-        </div>
+          <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
+            <%= render 'activity', activity: activity %>
+          </li>
+          <div class="endoflist">
+            <p >That's all the activities for <%= activity.city %>, time to plan your trip!</p>
+          </div>
         <% end %>
       </ul>
 
