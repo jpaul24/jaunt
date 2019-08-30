@@ -38,7 +38,7 @@ thumbsUp.addEventListener('click', (event) => {
   if (/\?cardIds/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
     planTrip.href += `,${cardId}`; // just add the id of the new card
   } else {
-    planTrip.href += `?cardIds=${cardId}`; // add the param with the value if no ids were previously added
+    planTrip.href += `&cardIds=${cardId}`; // add the param with the value if no ids were previously added
   }
   currentCard.classList.add('swiped-right');
   setTimeout(() => {
