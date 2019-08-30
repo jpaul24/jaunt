@@ -36,4 +36,14 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+  <div class="thum-vote" id="thumbs-show">
+    <%= link_to activities_path(cardIds: params[:cardIds]), id:'dwn_vote' do %>
+      <i class="far fa-thumbs-down"></i>
+    <% end %>
+    <% card_ids = params[:cardIds].present? ? params[:cardIds] << ",#{@activity.id}" : @activity.id %>
+    <%= link_to activities_path(cardIds: card_ids), id:'up_vote' do %>
+      <i class="far fa-thumbs-up"></i>
+    <% end %>
+  </div>
 </div>
+

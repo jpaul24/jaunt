@@ -1,19 +1,29 @@
 <div class="all-container">
   <div class="row">
     <div class="col-12">
-      <h1>My trips</h1>
-
-        <p> <% @user_trips.each do |trip| %></p>
-          <div class="card">
-          <div class="card-title">
-            <%= link_to trip.trip_name, trip_path(trip) %>
+      <h1 class="text-center trip-head">My Trips</h1>
+        <% if @user_trips.empty? %>
+          <div class="trip-none">
+            <p>You have no trips planned<p>
+            <p>Let's change that...</p>
+            <%= link_to "Plan New Trip", root_path, class: "btn btn-warning" %>
           </div>
-          <div class="card-info">
-            <%= trip.description %>
-            Likes: <%= trip.likes %>
+          <div class="trip-image">
+          </div>
+        <% end %>
+          <% @user_trips.each do |trip| %>
+          <div class="card">
+            <div class="card-title">
+            <%= link_to trip.trip_name, trip_path(trip) %>
+            </div>
+            <div class="card-info">
+              <%= trip.description %>
+              Likes: <%= trip.likes %>
+            </div>
           <% end %>
-        </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
+
