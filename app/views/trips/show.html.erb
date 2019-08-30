@@ -8,7 +8,7 @@
 
       <div class="trip-tod d-flex">
         <% Activity::TOD.each do |time| %>
-          <div class="tod-tab"><%= link_to time, trip_path(@trip, selected_time: time, selected_day: @selected_day) %></div>
+          <div class="tod-tab <%= active_class(trip_path(@trip, selected_time: time, selected_day: @selected_day)) %>"><%= link_to time, trip_path(@trip, selected_time: time, selected_day: @selected_day) %></div>
         <% end %>
       </div>
 
@@ -17,7 +17,7 @@
     <div class="trip-content d-flex">
       <div class="trip-days d-flex flex-column">
         <% @trip.trip_duration.each do |day| %>
-          <div class="day-tab"><%= link_to day, trip_path(@trip, selected_time: @selected_time, selected_day: day) %></div>
+          <div class="day-tab <%= active_class(trip_path(@trip, selected_time: @selected_time, selected_day: day)) %>"><%= link_to day, trip_path(@trip, selected_time: @selected_time, selected_day: day) %></div>
         <% end %>
       </div>
       <div class="day-activity">
