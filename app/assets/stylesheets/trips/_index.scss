@@ -23,3 +23,29 @@
 .trip-head {
   margin-top: 5%;
 }
+
+.card-trip {
+  border: 1px solid $box-gray;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 15px;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info-trip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.activity-photo-trip {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
