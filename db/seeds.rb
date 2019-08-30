@@ -91,8 +91,6 @@ Review.create(activity_id: arrene_lutece.id, user_id: marc.id, rating: 1)
 Review.create(activity_id: belleville.id, user_id: marc.id, rating: 5)
 Review.create(activity_id: jadin_tueleries.id, user_id: marc.id, rating: 4)
 Review.create(activity_id: parc_monceau.id, user_id: marc.id, rating: 3)
-Review.create(activity_id: belleville.id, user_id: marc.id, rating: 4)
-Review.create(activity_id: arrene_lutece.id, user_id: marc.id, rating: 3)
 puts "reviews created"
 
 puts "FINISHED!"
