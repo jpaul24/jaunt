@@ -8,6 +8,11 @@
   </div>
 
   <% else  %>
+        <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
+          <%= render 'activity', activity: activity %>
+        </li>
+      <% end %>
+    </ul>
 
     <% if @activities.length == 1 %>
       <p>Your search returned <%= @activities.length %> activity:</p>
