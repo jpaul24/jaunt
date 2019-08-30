@@ -47,3 +47,15 @@
   </div>
 </div>
 
+<script>
+  button = document.getElementById('up_vote')
+  button.addEventListener('click', () => {
+    console.log('hi')
+    button.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    button.style.animation = ''
+    }, 1000)
+  })
+</script>
+
+

@@ -43,3 +43,22 @@
 
     <%= render 'activities/filter' %>
 
+<script>
+  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne.addEventListener('click', () => {
+    console.log('hi')
+    buttonOne.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    buttonOne.style.animation = ''
+    }, 1000)
+  })
+
+  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo.addEventListener('click', () => {
+    console.log('hi')
+    buttonTwo.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    buttonTwo.style.animation = ''
+    }, 1000)
+  })
+</script>
