@@ -30,11 +30,10 @@ class TripsController < ApplicationController
     # iterate over this array
 
     # for each one of the ids create a shortlisted activity with the id of the trip you just created
-
     @trip = Trip.new
     @trip.user = current_user
     @trip.likes = 0
-    @trip.duration = activity_array.size
+    @trip.duration = params[:days]
     authorize @trip
     @trip.save
     activity_array.each do |activity|
