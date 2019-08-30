@@ -15,13 +15,11 @@
     </div>
 
     <div class="trip-content d-flex">
-
       <div class="trip-days d-flex flex-column">
         <% @trip.trip_duration.each do |day| %>
           <div class="day-tab"><%= link_to day, trip_path(@trip, selected_time: @selected_time, selected_day: day) %></div>
         <% end %>
       </div>
-
       <div class="day-activity">
         <% if @activity.nil? %>
           <%= "add activity" %>
@@ -61,14 +59,8 @@
             <%= @activity.description %>
           </p>
         </div>
-
-
         <% end %>
       </div>
     </div>
   </div>
-
-
-
-
 
