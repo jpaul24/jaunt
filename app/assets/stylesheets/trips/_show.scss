@@ -83,6 +83,7 @@
   display: flex;
 }
 
+
 .trip-name-container {
   margin-top: 20px;
   height: 80%;
@@ -95,7 +96,10 @@
   box-shadow: 1px 1px 1px rgba(0,0,0,.2);
   h2 {
     font-size: 1.2em;
-    color: $orange;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 2px 4px;
   }
 }
 
@@ -106,7 +110,7 @@
   height: 30%;
   width: 90%;
   margin-bottom: 20px;
-  overflow: scroll;
+  overflow: hidden;
   font-size: 13px;
   background-color: rgba(255, 255, 255,.4);
   padding: 10px;
