@@ -83,7 +83,16 @@ ActivityCategory.create(activity_id: parc_monceau.id, category_id: art.id)
 puts "activity_category links created"
 
 puts "Making reviews"
-Review.create(activity_id: canal_st_martin.id, user_id: marc.id, rating: 3)
+Review.create(activity_id: puces.id, user_id: marc.id, rating: 3)
+Review.create(activity_id: basilique_sacre_coeur.id, user_id: marc.id, rating: 3)
+Review.create(activity_id: champ_mars.id, user_id: marc.id, rating: 4)
+Review.create(activity_id: marche_aligre.id, user_id: marc.id, rating: 2)
+Review.create(activity_id: arrene_lutece.id, user_id: marc.id, rating: 1)
+Review.create(activity_id: belleville.id, user_id: marc.id, rating: 5)
+Review.create(activity_id: jadin_tueleries.id, user_id: marc.id, rating: 4)
+Review.create(activity_id: parc_monceau.id, user_id: marc.id, rating: 3)
+Review.create(activity_id: belleville.id, user_id: marc.id, rating: 4)
+Review.create(activity_id: arrene_lutece.id, user_id: marc.id, rating: 3)
 puts "reviews created"
 
 puts "FINISHED!"
