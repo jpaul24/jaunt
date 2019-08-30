@@ -1,6 +1,13 @@
+#filterModal {
+  bottom: 0;
+  top: unset;
+  outline: none;
+}
+
 .modal {
-    position: fixed;
-    border-radius: 20px;
+  position: fixed;
+  border-radius: 20px;
+  height: 40%;
 }
 
 .modal-body {

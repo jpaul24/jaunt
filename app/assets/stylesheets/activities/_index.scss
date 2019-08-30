@@ -64,12 +64,12 @@
   transform: translateX(-120vw) rotate(-20deg);
 }
 
-.fa-thumbs-up:before {
-    font-size: 65px;
+.fa-thumbs-up:before{
+    font-size: 45px !important;
 }
 
 .fa-thumbs-down:before {
-    font-size: 65px;
+    font-size: 45px !important;
 }
 
 .trip-btn {
@@ -91,6 +91,10 @@
   margin-top: 10px;
   position: relative;
   border-radius: 5px;
+}
+
+.activity-name {
+  justify-content: left;
 }
 
 .activity-name h3 {
@@ -158,12 +162,20 @@
   }
 }
 
-
 .thum-btns {
   width: 100%;
   display: flex;
   justify-content: space-around;
   padding-top: 15px;
+}
+
+.fa-thumbs-up:before {
+  font-size: 45px;
+}
+
+.fa-thumbs-down:before {
+  font-size: 45px;
+  transform: rotateY(180deg);
 }
 
 .isDisabled {
