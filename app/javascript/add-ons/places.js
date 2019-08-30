@@ -1,14 +1,14 @@
 import places from 'places.js'
 
-const placesAutocomplete = () => {
+const placesAutocomplete = (id, key) => {
   const addressInput = document.querySelector('#address-input');
   const reconfigurableOptions = {
     type: 'city',
     aroundLatLngViaIP: false // Search only for cities names
   };
   if (addressInput) {
-    places({ appId: process.env.YOUR_PLACES_APP_ID,
-              apiKey: process.env.YOUR_PLACES_API_KEY,
+    places({ appId: id,
+              apiKey: key,
               container: addressInput,
                }).configure(reconfigurableOptions);;
   }
