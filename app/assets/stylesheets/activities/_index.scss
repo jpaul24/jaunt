@@ -64,6 +64,19 @@
   transform: translateX(-120vw) rotate(-20deg);
 }
 
+.endoflist {
+  position: fixed;
+  top: 35%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.noactivities {
+  margin-top: 250px;
+  margin-bottom: 250px;
+}
+
 .fa-thumbs-up:before{
     font-size: 45px !important;
 }
