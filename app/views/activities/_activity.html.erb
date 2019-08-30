@@ -1,5 +1,5 @@
   <div class="activity-container">
-    <%= link_to activity_path(activity, cardIds: params[:cardIds]), class:'activity-show-link' do %>
+    <%= link_to activity_path(activity, trips_path(cardIds: params[:cardIds], days: params[:days])), class:'activity-show-link' do %>
       <div class="activity-photo"><%= cl_image_tag activity.photo %>
     <% end %>
       <div class="activity-name">
