@@ -18,11 +18,11 @@
             <input type="hidden" name="filter[categories][]" value="">
                 <div class="category-choices">
                   <% Category.all.each do |category| %>
-                    <div class="col-4 each-icon">
-                      <input type="checkbox" class="d-none" value="<%= category.id %>" name="filter[categories][]" id="filter_categories_<%= category.id %>">
-                      <label class="collection_check_boxes category-choice" for="filter_categories_<%= category.id %>">
-                        <i class="<%= category.icon %>" for="filter_categories_<%= category.id %>"></i>
-                      </label>
+                    <div class="col-4 each-icon p-10">
+                        <input type="checkbox" class="d-none" value="<%= category.id %>" name="filter[categories][]" id="filter_categories_<%= category.id %>">
+                        <label class="each-icon collection_check_boxes category-choice" for="filter_categories_<%= category.id %>"><%= category.name %>
+                          <i class="<%= category.icon %>" for="filter_categories_<%= category.id %>"></i>
+                        </label>
                     </div>
                   <% end %>
                 </div>

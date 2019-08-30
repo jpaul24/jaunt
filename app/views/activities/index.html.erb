@@ -1,35 +1,44 @@
 
 <div class="all-container">
 
-  <% if @activities.length == 1 %>
-    <p>Your search returned <%= @activities.length %> activity:</p>
-  <% else %>
-    <p>Your search returned <%= @activities.length %> activities:</p>
+  <% if @activities.length == 0 %>
+
+    <div class="noactivities">
+      <p>Sorry, there are no activities for <%= params[:filter][:place] %> in those categories. Try another category!</p>
+    </div>
+
+  <% else  %>
+
+      <% if @activities.length == 1 %>
+        <p>Your search returned <%= @activities.length %> activity:</p>
+      <% else %>
+        <p>Your search returned <%= @activities.length %> activities:</p>
+      <% end %>
+
+    <div id="viewport">
+
+      <ul class="stack" id="activity-list">
+        <% @activities.each do |activity| %>
+          <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
+            <%= render 'activity', activity: activity %>
+          </li>
+          <div class="endoflist">
+            <p >That's all the activities for <%= activity.city %>, time to plan your trip!</p>
+          </div>
+        <% end %>
+      </ul>
+
+      <%= content_for(:after_js) do %>
+        <%= javascript_pack_tag 'components/swing' %>
+      <% end %>
+    </div>
   <% end %>
 
+    <div class="thum-btns">
+      <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
+        <h4 class="trip-btn"><%= link_to "Plan trip", trips_path(cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %></h4>
+      <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
+    </div>
 
-  <div id="viewport">
-    <ul class="stack" id="activity-list">
-      <% @activities.each do |activity| %>
-
-        <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
-          <%= render 'activity', activity: activity %>
-        </li>
-
-      <% end %>
-    </ul>
-
-    <%= content_for(:after_js) do %>
-      <%= javascript_pack_tag 'components/swing' %>
-    <% end %>
-  </div>
-
-  <h4 class="trip-btn"><%= link_to "Plan trip", trips_path, method: :post, id:'plan_trip_link' %></h4>
-
-  <div class="thum-btns">
-    <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
-    <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
-  </div>
-</div>
-<%= render 'activities/filter' %>
+    <%= render 'activities/filter' %>
 
