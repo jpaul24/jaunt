@@ -1,2 +1,25 @@
 @import "show";
 
+.trip-none {
+  text-align: center;
+  border: 1px solid $box-gray;
+  border-radius: 3px;
+  padding: 15% 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 10% 0;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.trip-image {
+  background-image: asset-url('travelscooter.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.trip-head {
+  margin-top: 5%;
+}
