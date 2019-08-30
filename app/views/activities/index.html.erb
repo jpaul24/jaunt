@@ -15,7 +15,6 @@
         <li id="activity_<%= activity.id %>" data-id="<%= activity.id %>">
           <%= render 'activity', activity: activity %>
         </li>
-
       <% end %>
     </ul>
 
@@ -30,7 +29,7 @@
 <div class="thum-btns">
   <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
     <h4 class="trip-btn"><%= link_to "Plan trip", trips_path(cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %></h4>
-  <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
+    <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
 </div>
 
 <%= render 'activities/filter' %>
