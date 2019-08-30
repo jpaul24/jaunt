@@ -15,7 +15,7 @@ class TripsController < ApplicationController
         tod: @selected_time
       })
 
-    @activity = @shortlisted_activities.each { |shortlisted_activity| shortlisted_activity.activity }.join
+    @activity = @shortlisted_activities.first.activity
     authorize @trip
   end
 
