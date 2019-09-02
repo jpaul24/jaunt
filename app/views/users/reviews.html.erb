@@ -3,7 +3,22 @@
   <div class="card-product">
     <%= cl_image_tag review.activity.photo, alt: "alttext" %>
       <div class="card-product-infos">
-        <h2><%= review.rating %></h2>
+        <% if review %>
+          <div class="star">
+            <% review.rating.times do  %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <% 5.times do %>
+            <div class="star">
+              <i class="far fa-star"></i>
+            </div>
+          <% end %>
+        <% end %>
         <%= link_to "Delete", activity_review_url(review.activity_id, review), method: :delete, class: 'delete-btn' %>
         <button type="button" class="edit-btn" data-toggle="modal" data-target="#exampleModal-<%= review.id %>">
           Edit
@@ -32,7 +47,7 @@
     </div>
   </div>
   <% end %>
-  <br><br>
+  <br>
   <%= link_to "Back to profile", user_path(current_user), class: "return-btn" %>
 </div>
 
