@@ -28,4 +28,16 @@ class Activity < ApplicationRecord
   def add_city_to_name
     self.name = "#{self.name}, #{self.city}"
   end
+
+  def averagerating
+    thisactivity = Activity.find(self.id)
+    totalratings = []
+    allreviews = thisactivity.reviews
+    allreviews.each do |review|
+      totalratings.push(review.rating.to_i)
+    end
+    avg = (totalratings.sum / allreviews.length)
+    return avg
+  end
+
 end
