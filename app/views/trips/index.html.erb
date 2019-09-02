@@ -1,33 +1,28 @@
 <div class="all-container">
-  <div class="row">
-    <div class="col-12">
-      <h1 class="text-center trip-head">My Trips</h1>
-        <% if @user_trips.empty? %>
-          <div class="trip-none">
-            <p>You have no trips planned<p>
-            <p>Let's change that...</p>
-            <%= link_to "Plan New Trip", root_path, class: "btn btn-warning" %>
-          </div>
-          <div class="trip-image">
-          </div>
-        <% end %>
-          <% counter = 0 %>
-          <% @user_trips.each do |trip| %>
-          <% counter += 1 %>
-          <div class="card-trip">
-            <div class="card-info-trip">
-              <%= link_to "Trip #{counter}", trip_path(trip, selected_day: 1, selected_time: "Morning") %>
-              <%= trip.duration %> days
-              <div>
-                <i class="fas fa-heart"></i> <%= trip.likes %>
-              </div>
-            </div>
-            <div class="activity-photo-trip" style="background-image: url(<%= asset_path check_photo(trip.activities.first) %>)" >
-            </div>
-          </div>
-          <% end %>
+  <h1 class="text-center trip-head">My Trips</h1>
+    <% if @user_trips.empty? %>
+      <div class="trip-none">
+        <p>You have no trips planned<p>
+        <p>Let's change that...</p>
+        <%= link_to "Plan New Trip", root_path, class: "btn btn-warning" %>
       </div>
-    </div>
-  </div>
+      <div class="trip-image">
+      </div>
+    <% end %>
+      <% counter = 0 %>
+      <% @user_trips.each do |trip| %>
+      <% counter += 1 %>
+      <div class="card-trip">
+        <div class="card-info-trip">
+          <%= link_to "Trip #{counter}", trip_path(trip, selected_day: 1, selected_time: "Morning"), class: "trip-title" %>
+          <%= trip.duration %> days
+          <div>
+            <i class="fas fa-heart"></i> <%= trip.likes %>
+          </div>
+        </div>
+        <div class="activity-photo-trip" style="background-image: url(<%= asset_path check_photo(trip.activities.first) %>)" >
+        </div>
+      </div>
+      <% end %>
 </div>
 
