@@ -1,5 +1,5 @@
 <div class="all-container">
-        <% current_user.reviews.each do |review| %>
+      <% current_user.reviews.each do |review| %>
   <div class="card-product">
     <%= cl_image_tag review.activity.photo, alt: "alttext" %>
       <div class="card-product-infos">
