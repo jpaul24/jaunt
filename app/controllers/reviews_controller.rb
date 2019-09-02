@@ -16,7 +16,6 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -27,7 +26,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find(params[:id])
     authorize @review
+    @review.destroy
+    redirect_to reviews_user_path(current_user)
   end
 
   private
