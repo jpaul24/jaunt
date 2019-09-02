@@ -64,3 +64,39 @@
 a#plan_trip_link {
   text-decoration: none;
 }
+
+.home-content {
+  height: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.works-home {
+  color: white;
+  font-family: $secondary-font;
+  height: 40px;
+}
+
+.modal {
+  height: 100%;
+}
+
+.modal-content {
+  font-family: $secondary-font;
+  border-radius: 5px;
+}
+
+.modal-title {
+  font-family: $secondary-font;
+  text-align: center;
+  color: $orange;
+}
+
+.modal-body {
+  padding: 0 !important;
+  li {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
