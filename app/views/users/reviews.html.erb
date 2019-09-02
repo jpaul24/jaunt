@@ -1,7 +1,17 @@
-<% current_user.reviews.each do |review| %>
-  <h2><%= review.rating %></h2>
-  <%= link_to "Edit", edit_activity_review_path(review.activity_id, review)  %>
-  <%= link_to "Delete", activity_review_url(review.activity_id, review), method: :delete %>
-<% end %>
+<div class="all-container">
+        <% current_user.reviews.each do |review| %>
+  <div class="card-product">
+    <%= cl_image_tag review.activity.photo, alt: "alttext" %>
+      <div class="card-product-infos">
+        <h2><%= review.rating %></h2>
+        <a class="edit-btn"<%= link_to "Edit", edit_activity_review_path(review.activity_id, review)%></a>
+        <a class="delete-btn"<%= link_to "Delete", activity_review_url(review.activity_id, review), method: :delete %></a>
+      </div>
+  </div>
+       <% end %>
+<br>
+<a class="return-btn"<%= link_to "Back to profile", user_path(current_user) %></a>
+</div>
 
-<%= link_to "Back to profile", user_path(current_user) %>
+
+
