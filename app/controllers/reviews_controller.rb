@@ -19,11 +19,17 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find(params[:id])
     authorize @review
+    @review.update(review_params)
+    redirect_to reviews_user_path(current_user)
   end
 
   def destroy
+    @review = Review.find(params[:id])
     authorize @review
+    @review.destroy
+    redirect_to reviews_user_path(current_user)
   end
 
   private

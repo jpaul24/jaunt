@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy, :like]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy, :like, :trip_map]
 
   def index
     @user_trips = policy_scope(Trip)
@@ -57,9 +57,26 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
+<<<<<<< HEAD
   def like
     @trip.likes += 1
     @trip.save
+=======
+  def trip_map
+    all_activities = @trip.shortlisted_activities.joins(:activity)
+    @activity_array = []
+    all_activities.each do |shortlisted|
+      @activity_array << Activity.find(shortlisted.activity_id)
+    end
+
+    @markers = @activity_array.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { activity: activity })
+      }
+    end
+>>>>>>> 35628911d3ac05b2ecd51dcf1db3b9023fac4ab3
     authorize @trip
   end
 
