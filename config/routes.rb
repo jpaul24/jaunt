@@ -11,7 +11,11 @@ Rails.application.routes.draw do
       post 'down-vote'
     end
   end
-  resources :trips
+  resources :trips do
+    member do
+      post 'like'
+    end
+  end
   resources :users do
     member do
       get 'reviews'

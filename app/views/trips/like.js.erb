@@ -1,0 +1,8 @@
+function updateLikes() {
+  const numLikes = <%= @trip.likes %>;
+  const divLikes = document.querySelector(".triplikes");
+  divLikes.innerHTML = `${numLikes} <i class="fas fa-heart"></i>`;
+  divLikes.setAttribute('disabled', true);
+}
+
+updateLikes();

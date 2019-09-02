@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: [:show, :edit, :update, :destroy, :like]
 
   def index
     @user_trips = policy_scope(Trip)
@@ -55,6 +55,12 @@ class TripsController < ApplicationController
   def destroy
     authorize @trip
     @trip.destroy
+  end
+
+  def like
+    @trip.likes += 1
+    @trip.save
+    authorize @trip
   end
 
   private

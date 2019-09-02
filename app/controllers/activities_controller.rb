@@ -38,6 +38,8 @@ class ActivitiesController < ApplicationController
       ]
     end
     authorize @activity
+
+    @activitytrips = ShortlistedActivity.where("activity_id = ?", @activity.id)
   end
 
   def edit

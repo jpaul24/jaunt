@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="text-center">My Trip</h3>
+  <h3 class="text-center"><%= @trip.trip_name %></h3>
 </div>
 
   <div class="trip-container d-flex flex-column justify-content-center">
@@ -35,23 +35,16 @@
                   </div>
                 <% end %>
               <% else %>
-                <% @activity.reviews.each do |review| %>
-                  <% review.rating.to_i.times do %>
-                    <div class="star">
+                <div class="star">
+                  <% @activity.averagerating.times do  %>
                       <i class="fas fa-star"></i>
-                    </div>
                   <% end %>
-                  <% (5 - review.rating.to_i).times do %>
-                    <div class="star">
+                  <% (5 - @activity.averagerating).times do %>
                       <i class="far fa-star"></i>
-                    </div>
                   <% end %>
-                <% end %>
+                </div>
               <% end %>
             </div>
-          </div>
-          <div class="trip-title-container d-flex">
-            <h5>What to do!</h5>
           </div>
         </div>
         <div class="trip-activity-description-container">
@@ -62,4 +55,12 @@
         <% end %>
       </div>
     </div>
+    <div class="button-row">
+      <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+        <div>
+          <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+        </div>
+      <% end %>
+    </div>
+
   </div>

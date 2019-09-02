@@ -36,8 +36,37 @@
   </div>
   <div>
     <h4>Who else has done this?</h3>
-    <div>
-
+    <div class="othertrips">
+      <% @activitytrips.each do |shortlistedactivity| %>
+        <% trip = Trip.find(shortlistedactivity.trip_id) %>
+        <% user = User.find(trip.user_id) %>
+          <% if user != current_user %>
+            <div class="otherusers">
+              <div class="userinfo">
+                <%= link_to user_path(user) do %>
+                  <div class ="userphoto">
+                    <%= user.photo %>
+                  </div>
+                <% end %>
+                <div>
+                  <%= user.username %>
+                </div>
+              </div>
+              <%= link_to trip_path(trip) do  %>
+              <div class="tripinfo">
+                <p>Included in their trip: <em> <%= trip.trip_name %> </em> </p>
+                <div>
+                  <%= trip.created_at.day %>/<%= trip.created_at.month %>/<%= trip.created_at.year %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          <% else %>
+          <div>
+            <p>No-one else has done this activity yet</p>
+          </div>
+          <% end %>
+      <% end %>
     </div>
   </div>
   <div>
