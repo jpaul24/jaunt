@@ -13,6 +13,10 @@ class TripPolicy < ApplicationPolicy
     true
   end
 
+  def trip_map?
+    true
+  end
+
   def update?
     record.user == user
   end
