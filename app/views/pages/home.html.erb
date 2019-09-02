@@ -5,7 +5,7 @@
         <!-- <h1 class="title-home">jaunt.</h1> -->
         <img src="<%= image_path('title.svg') %>" class="svg"/>
       </div>
-      <div>
+      <div class="home-content">
         <div class="home-search">
           <%= form_tag activities_path, method: :get do %>
           <div>
@@ -15,13 +15,44 @@
             <%= text_field_tag :days, nil, type: "number", min: "1", max: "7", placeholder: "How many days?", class: "input-field" %>
           </div>
           <div>
-            <%= submit_tag 'Plan My Trip', class: "search-btn btn btn-warning" %>
+            <%= submit_tag 'Take Me There', class: "search-btn btn btn-warning" %>
           </div>
           <% end %>
+        </div>
+        <div class="works-home">
+          <button type="button" class="btn btn-warning w-100" data-toggle="modal" data-target="#howItWorks">
+            How It Works
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- modal -->
+<div class="modal fade" id="howItWorks" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">How It Works</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Type in the city you are going to</li>
+          <li>Select how many days you are going for</li>
+          <li>Press 'Take Me There'</li>
+          <li>Choose which activities you like the look of and find out a bit more about them if you want to by clicking on the image</li>
+          <li>When you're ready click 'Plan Trip'</li>
+          <li>View your autopopulated itinerary for your time there</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
