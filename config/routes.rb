@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :trips do
     member do
       post 'like'
+    end
     resources :shortlisted_activities, only: :show
     member do
       get 'trip_map'
