@@ -4,8 +4,31 @@ window.swing = require('swing');
 // Prepare the cards in the stack for iteration.
 const cards = [].slice.call(document.querySelectorAll('#activity-list > li'));
 
+const config = {
+
+   // * Invoked in the event of dragmove.
+   // * Returns a value between 0 and 1 indicating the completeness of the throw out condition.
+   // * Ration of the absolute distance from the original card position and element width.
+
+   // @param {number} xOffset
+   // @param {number} yOffset
+   // @param {HTMLElement} element Element.
+   // @returns {number}
+
+
+
+  // minThrowOutDistance: 1,
+  throwOutConfidence: (xOffset, yOffset, element) => {
+
+    const xConfidence = Math.min(Math.abs(xOffset) / (element.offsetWidth / 2), 1);
+    const yConfidence = Math.min(Math.abs(yOffset) / (element.offsetHeight / 2), 1);
+
+    return Math.max(xConfidence, yConfidence);
+  }
+
+};
 // An instance of the Stack is used to attach event listeners.
-const stack = swing.Stack();
+const stack = swing = swing.Stack(config);
 
 cards.forEach((targetElement) => {
   // Add card element to the Stack.
