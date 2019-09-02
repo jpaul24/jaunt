@@ -38,6 +38,7 @@ class ActivitiesController < ApplicationController
       ]
     end
     authorize @activity
+    raise
   end
 
   def edit
