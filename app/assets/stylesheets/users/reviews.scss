@@ -33,8 +33,8 @@
 }
 
 
-a.edit-btn {
-  padding: 3px 9px;
+button.edit-btn {
+  padding: 3px 20px;
   background-color: #F86524;
   color: white;
   text-decoration: none;
@@ -45,7 +45,7 @@ a.edit-btn {
 }
 
 a.delete-btn {
-  padding: 3px 9px;
+  padding: 5px 10px;
   background-color: #F86524;
   color: white;
   text-decoration: none;
@@ -55,13 +55,24 @@ a.delete-btn {
   }
 }
 
-a.return-btn {
-  padding: 3px 9px;
+.return-btn {
+  padding: 5px 10px;
   background-color: #F86524;
   color: white;
   text-decoration: none;
   border-radius: 5px;
   &:hover {
     background-color: #f7946a;
+  }
+}
+
+a.update-review-btn {
+  padding: 5px 10px;
+  background-color: #F86524;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  &:hover {
+  background-color: #f7946a;
   }
 }
