@@ -1,6 +1,7 @@
 <div class="all-container">
   <div class="text-center header-show">
     <h2><%= @activity.name %></h1>
+      <p>Recommended for: <%= @activity.tod %></p>
   </div>
   <div class="image-contain">
     <div class="image-show" style="background-image: url(<%= asset_path check_photo(@activity) %>)">
@@ -8,16 +9,29 @@
   </div>
   <div class="show-rating">
     <div class="show-bold">
-      <p>Rating:</p>
+      <% if @activity.reviews.empty? %>
+        <% 5.times do %>
+          <div class="star">
+            <i class="far fa-star"></i>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="star">
+          <% @activity.averagerating.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - @activity.averagerating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="show-bold">
       <p>$<%= @activity.price %></p>
     </div>
   </div>
-  <div class="show-bold">
-    <p><%= @activity.tod %></p>
-  </div>
-  <div>
+
+  <div class="description">
     <p><%= @activity.description %></p>
   </div>
   <div>
@@ -35,7 +49,8 @@
     height: 250px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+  >
+  </div>
   <div class="thum-vote" id="thumbs-show">
     <%= link_to activities_path(cardIds: params[:cardIds]), id:'dwn_vote' do %>
       <i class="far fa-thumbs-down"></i>
