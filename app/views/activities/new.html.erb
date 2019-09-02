@@ -1,8 +1,18 @@
-<% if policy(Activity).create? %>
-  <%= simple_form_for @activity do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :city %>
-  <%= f.button :submit, "Add this activity" %>
+<div class="all-container">
+  <div>
+    <h1 class="text-center trip-head">Add Activity</h1>
+  </div>
+  <div>
+    <% if policy(Activity).create? %>
+      <%= simple_form_for @activity do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :city %>
+      <%= f.input :tod, label: 'Suggested time of day', collection: ["Morning", "Afternoon", "Evening"]  %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.button :submit, "Add this activity", class: "btn btn-warning w-100" %>
+        <% end %>
     <% end %>
-<% end %>
+  </div>
+</div>

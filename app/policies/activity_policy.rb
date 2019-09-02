@@ -6,7 +6,7 @@ class ActivityPolicy < ApplicationPolicy
   end
 
   def new?
-    create?
+    true
   end
 
   def show?

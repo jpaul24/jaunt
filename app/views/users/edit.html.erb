@@ -1,10 +1,13 @@
-<%= simple_form_for current_user do |f| %>
-<%= f.input :username %>
-<%= f.input :first_name %>
-<%= f.input :second_name %>
-<%= f.input :nationality %>
-<%= f.input :bio %>
-<%= f.submit %>
-<% end %>
+<div class="all-container">
+  <%= link_to "Back to profile", user_path(current_user) %>
+  <%= simple_form_for current_user do |f| %>
+  <%= f.input :username %>
+  <%= f.input :first_name %>
+  <%= f.input :second_name %>
+  <%= f.input :nationality %>
+  <%= f.input :bio %>
+  <%= f.submit class: "btn btn-warning w-100"%>
+  <% end %>
 
-<%= link_to "Back to profile", user_path(current_user) %>
+
+</div>
