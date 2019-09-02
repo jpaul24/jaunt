@@ -41,7 +41,7 @@
       <i class="far fa-thumbs-down"></i>
     <% end %>
     <% card_ids = params[:cardIds].present? ? params[:cardIds] << ",#{@activity.id}" : @activity.id %>
-    <%= link_to activities_path(cardIds: card_ids), id:'up_vote' do %>
+    <%= link_to activities_path(cardIds: card_ids, days: params[:days]), id:'up_vote' do %>
       <i class="far fa-thumbs-up"></i>
     <% end %>
   </div>

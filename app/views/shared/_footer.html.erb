@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="footer-section">
+        <div class="footer-section <%= "active-footer" if params[:action] == "index" %> ">
           <%= link_to trips_path do %>
           <div class="icons">
             <i class="fas fa-suitcase-rolling"></i>
