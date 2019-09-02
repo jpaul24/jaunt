@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       post 'down-vote'
     end
   end
-  resources :trips
+  resources :trips do
+    resources :shortlisted_activities, only: :show
+    member do
+      get 'trip_map'
+    end
+  end
   resources :users do
     member do
       get 'reviews'
