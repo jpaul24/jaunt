@@ -5,3 +5,16 @@
 <% end %>
 
 <%= link_to "Back to profile", user_path(current_user) %>
+
+<div class="all-container">
+  <h1 class="text-center trip-head">My Activities</h1>
+    <% if @user_activities.nil? %>
+      <div class="trip-none">
+        <p>You haven't added any activities<p>
+        <p>Share your experiences...</p>
+        <%= link_to "Add an activity", new_activity_path, class: "btn btn-warning" %>
+      </div>
+      <div class="trip-image">
+      </div>
+    <% end %>
+</div>
