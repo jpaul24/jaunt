@@ -58,10 +58,17 @@ thumbsUp.addEventListener('click', (event) => {
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
   const cardId = parseInt(currentCard.getAttribute('data-id'), 10); // getting the activity id from the data-id stored in each card
   const planTrip = document.getElementById('plan_trip_link'); // getting the link that will redirect to trips#create action
+  const activityShowLinks = document.querySelectorAll('.activity-show-link');
   if (/\&cardIds/.exec(planTrip.getAttribute('href'))) { // if we already had some ids in the link
     planTrip.href += `,${cardId}`; // just add the id of the new card
+    activityShowLinks.forEach((link) => {
+        link.href += `,${cardId}`;
+    });
   } else {
     planTrip.href += `&cardIds=${cardId}`; // add the param with the value if no ids were previously added
+    activityShowLinks.forEach((link) => {
+        link.href += `&cardIds=${cardId}`;
+      });
   }
   currentCard.classList.add('swiped-right');
   setTimeout(() => {
@@ -101,7 +108,6 @@ thumbsDwn.addEventListener('click', (event) => {
 
   const updatedCards = document.querySelectorAll('#activity-list > li'); // getting the list of the cards that remain
   const currentCard = updatedCards[updatedCards.length - 1]; // getting the last card which is the current one
-
 
   currentCard.classList.add('swiped-left');
   setTimeout(() => {
