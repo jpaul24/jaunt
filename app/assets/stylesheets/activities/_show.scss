@@ -35,6 +35,37 @@
   text-align: justify;
 }
 
+.userphoto {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 10px;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+}
+
+.tripinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  p {
+    text-align: right;
+  }
+}
+
+.otherusers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin: 0;
+  }
+}
+
 .fa-thumbs-up {
     color: black;
     font-size: 45px;

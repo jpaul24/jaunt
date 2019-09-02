@@ -1,11 +1,13 @@
 <div class="cover-container">
 </div>
+
+
 <div class="all-container">
   <div class="main-container">
     <div class="user-contianer">
       <div class="photo-container">
         <% if @user.photo.url.nil? %>
-        <%= cl_image_tag("https://res.cloudinary.com/nmozzer/image/upload/v1566482236/tgmcoyt93kqshoyunzdb.jpg", cloud_name: "nmozzer" ) %>
+        <%= cl_image_tag("https://res.cloudinary.com/nmozzer/image/upload/v1567092357/e6zblsb2zxmyg6ejucla.jpg", cloud_name: "nmozzer" ) %>
         <% else %>
         <%= @user.photo %>
         <% end %>
@@ -19,11 +21,27 @@
       <p><%= @user.bio %></p>
     </div>
   </div>
-  <div class="button-container d-flex flex-column">
-    <div class="btn user-link"><%= link_to "My Trips", trips_path %></div>
-    <div class="btn user-link"><%= link_to "My Reviews", reviews_user_path(current_user) %></div>
-    <div class="btn user-link"><%= link_to "My Activities", activities_user_path(current_user) %></div>
-    <div class="btn user-link"><%= link_to "Update Bio", edit_user_path(current_user) %> </div>
-    <div class="btn user-link"><%= link_to "Update Password", edit_user_registration_path %></div>
-  </div>
+
+  <% if @user == current_user %>
+    <div class="button-container d-flex flex-column">
+      <div class="btn user-link"><%= link_to "My Trips", trips_path %></div>
+      <div class="btn user-link"><%= link_to "My Reviews", reviews_user_path(current_user) %></div>
+      <div class="btn user-link"><%= link_to "My Activities", activities_user_path(current_user) %></div>
+      <div class="btn user-link"><%= link_to "Update Bio", edit_user_path(current_user) %> </div>
+      <div class="btn user-link"><%= link_to "Update Password", edit_user_registration_path %></div>
+    </div>
+  <% else %>
+    <div>
+      <p> <%= @user.first_name %>'s trips: </p>
+      <% @user.trips.each do |trip| %>
+      <div>
+        <div>
+          <%= trip.activities.first.photo %>
+        </div>
+        <%= trip.trip_name %>
+      </div>
+
+      <% end %>
+    </div>
+  <% end %>
 </div>

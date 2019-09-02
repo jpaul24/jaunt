@@ -24,4 +24,8 @@ class TripPolicy < ApplicationPolicy
   def destroy?
     update?
   end
+
+  def like?
+    true
+  end
 end
