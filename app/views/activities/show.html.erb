@@ -77,25 +77,33 @@
   >
   </div>
   <div class="thum-vote" id="thumbs-show">
-    <%= link_to activities_path(cardIds: params[:cardIds]), id:'dwn_vote' do %>
-      <i class="far fa-thumbs-down"></i>
+    <%= link_to activities_path(cardIds: params[:cardIds]) do %>
+      <i class="far fa-thumbs-down" id='thumbs_dwn_btn'></i>
     <% end %>
     <% card_ids = params[:cardIds].present? ? params[:cardIds] << ",#{@activity.id}" : @activity.id %>
-    <%= link_to activities_path(cardIds: card_ids, days: params[:days]), id:'up_vote' do %>
-      <i class="far fa-thumbs-up"></i>
+    <%= link_to activities_path(cardIds: card_ids, days: params[:days]) do %>
+      <i class="far fa-thumbs-up" id='thumbs_up_btn'></i>
     <% end %>
   </div>
 </div>
 
 <script>
-  button = document.getElementById('up_vote')
-  button.addEventListener('click', () => {
+  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne.addEventListener('click', () => {
     console.log('hi')
-    button.style.animation = 'pulse 1s ease'
+    buttonOne.style.animation = 'pulse 1s ease'
     setTimeout(() => {
-    button.style.animation = ''
+    buttonOne.style.animation = ''
+    }, 1000)
+  })
+
+  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo.addEventListener('click', () => {
+    console.log('hi')
+    buttonTwo.style.animation = 'pulse 1s ease'
+    setTimeout(() => {
+    buttonTwo.style.animation = ''
     }, 1000)
   })
 </script>
-
 
