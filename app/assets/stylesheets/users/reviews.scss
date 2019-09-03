@@ -33,26 +33,10 @@
 }
 
 
-button.edit-btn {
-  padding: 3px 20px;
-  background-color: #F86524;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  &:hover {
-    background-color: #f7946a;
-  }
+.edit-btn {
 }
 
-a.delete-btn {
-  padding: 5px 10px;
-  background-color: #F86524;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  &:hover {
-    background-color: #f7946a;
-  }
+.delete-btn {
 }
 
 .return-btn {
@@ -61,6 +45,8 @@ a.delete-btn {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  position: sticky;
+  top: 10px;
   &:hover {
     background-color: #f7946a;
   }

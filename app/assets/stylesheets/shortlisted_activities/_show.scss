@@ -28,3 +28,10 @@
 .modal-title-review {
   font-family: $body-font;
 }
+.modal-review {
+  height: 100%;
+}
+.show-buttons {
+  display: flex;
+  justify-content: space-between;
+}
