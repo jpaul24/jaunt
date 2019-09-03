@@ -57,11 +57,9 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
-<<<<<<< HEAD
   def like
     @trip.likes += 1
     @trip.save
-=======
   def trip_map
     all_activities = @trip.shortlisted_activities.joins(:activity)
     @activity_array = []
@@ -76,7 +74,6 @@ class TripsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { activity: activity })
       }
     end
->>>>>>> 35628911d3ac05b2ecd51dcf1db3b9023fac4ab3
     authorize @trip
   end
 
@@ -90,3 +87,5 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:trip_name, :description, :user_id)
   end
 end
+end
+
