@@ -10,6 +10,10 @@
   margin-top: -20%;
 }
 
+.user-photo {
+
+}
+
 .cover-container {
   background-image: asset-url('map.jpg');
   background-position: center;
@@ -19,8 +23,11 @@
 
 .photo-container {
   img {
-    width: 35vw;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
