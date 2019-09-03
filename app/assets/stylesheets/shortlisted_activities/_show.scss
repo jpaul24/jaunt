@@ -1,0 +1,30 @@
+.review-act {
+  display: flex;
+  justify-content: space-between;
+}
+.review-btn {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.review-show {
+  margin-bottom: 30px;
+}
+.review-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+.review-user {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 5px;
+}
+.modal-content-review {
+  font-family: $body-font;
+}
+.modal-title-review {
+  font-family: $body-font;
+}
