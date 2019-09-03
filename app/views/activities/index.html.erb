@@ -1,9 +1,7 @@
 <div class="all-container">
 
-  <% place = params[:place].split.first %>
-  <% if Activity.search_by_city(place).near(place, 40) == [] %>
-
-  <p>Sorry we don't have any activities in that city, search again!</p>
+  <% if params[:place] && Activity.search_by_city(params[:place].split.first) == [] %>
+      <p>Sorry we don't have any activities in that city, search again!</p>
 
   <% elsif @activities.length == 0 %>
 
@@ -48,6 +46,7 @@
     </div>
 
     <%= render 'activities/filter' %>
+</div>
 
 <script>
   buttonOne = document.getElementById('thumbs_up_btn')
