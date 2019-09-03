@@ -1,17 +1,55 @@
 <div class="all-container">
-        <% current_user.reviews.each do |review| %>
+      <% current_user.reviews.each do |review| %>
   <div class="card-product">
     <%= cl_image_tag review.activity.photo, alt: "alttext" %>
       <div class="card-product-infos">
-        <h2><%= review.rating %></h2>
-        <a class="edit-btn"<%= link_to "Edit", edit_activity_review_path(review.activity_id, review)%></a>
-        <a class="delete-btn"<%= link_to "Delete", activity_review_url(review.activity_id, review), method: :delete %></a>
+        <% if review %>
+          <div class="review-star">
+            <% review.rating.times do  %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <% 5.times do %>
+            <div class="review-
+            star">
+              <i class="far fa-star"></i>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to "Delete", activity_review_url(review.activity_id, review), method: :delete, class: 'delete-btn' %>
+        <button type="button" class="edit-btn" data-toggle="modal" data-target="#exampleModal-<%= review.id %>">
+          Edit
+        </button>
       </div>
   </div>
-       <% end %>
-<br>
-<a class="return-btn"<%= link_to "Back to profile", user_path(current_user) %></a>
+  <div class="modal fade" id="exampleModal-<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit my review</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <%= simple_form_for [review.activity, review] do |f| %>
+        <div class="modal-body">
+          <%= f.input :rating %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="close-review-btn" data-dismiss="modal">Close</button>
+          <%= f.submit 'Save' %>
+        </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <br>
+  <%= link_to "Back to profile", user_path(current_user), class: "return-btn" %>
 </div>
-
 
 

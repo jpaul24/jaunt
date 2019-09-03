@@ -4,13 +4,13 @@
 </div>
 
 <% @trip.trip_duration.each do |day| %>
-<% @activity = @shortlisted_activities.where(day: day).first.activity.photo %>
-  <div class="day-container mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @activity %>')">
-    <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-      <h2>Day <%= day %></h2>
-      <h6>click to expand</h6>
-    </a>
-  </div>
+  <% @activity = @shortlisted_activities.where(day: day).first.activity.photo %>
+    <div class="day-container mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @activity %>')">
+      <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <h2>Day <%= day %></h2>
+        <h6>click to expand</h6>
+      </a>
+    </div>
 
   <% @shortlisted_activities.where(day: day).limit(3).each_with_index do |activity, i| %>
     <div class="collapse" id="collapseExample<%= day %>">
@@ -35,3 +35,11 @@
   <% end %>
 <% end %>
 
+
+<div class="button-row">
+  <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+    <div>
+      <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,5 @@
 module TripsHelper
-  def check_photo(activity)
-    photo = activity.photo
+  def check_photo(photo)
     if photo.nil?
       "default_activity.jpg"
     else

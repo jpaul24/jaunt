@@ -4,6 +4,12 @@ class ActivitiesController < ApplicationController
   skip_after_action :verify_policy_scoped, only: [:index]
 
   def index
+    if params[:cardIds].nil? && session[:trips_params].present?
+      params[:cardIds] = session[:trips_params]['cardIds']
+    end
+    if params[:days].nil? && session[:trips_params].present?
+      params[:days] = session[:trips_params]['days']
+    end
     if params[:place].present?
       place = params[:place].split.first
       @activities = Activity.search_by_city(place).near(place, 40)
@@ -38,6 +44,8 @@ class ActivitiesController < ApplicationController
       ]
     end
     authorize @activity
+
+    @activitytrips = ShortlistedActivity.where("activity_id = ?", @activity.id)
   end
 
   def edit

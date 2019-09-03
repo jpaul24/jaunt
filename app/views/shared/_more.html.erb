@@ -1,0 +1,21 @@
+<div class="dropdown dropdown-toggle" id="footerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="icons">
+    <i class="fas fa-ellipsis-h"></i>
+    <p>More</p>
+  </div>
+</div>
+
+  <% if user_signed_in? %>
+    <div class="dropdown-menu moreoptions" aria-labelledby="footerDropdown">
+      <a class="dropdown-item">
+        <%= link_to "Add Activity", new_activity_path, class: "activity-new dropdown-item" %>
+      </a>
+      <a class="dropdown-item">
+        <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
+      </a>
+    </div>
+  <% end %>
+
+
+
+
