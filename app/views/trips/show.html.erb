@@ -37,7 +37,7 @@
   <% end %>
 <% end %>
 
-
+<% if @trip.user != current_user %>
 <div class="button-row">
   <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
     <div>
@@ -45,3 +45,5 @@
     </div>
   <% end %>
 </div>
+<% end %>
+
