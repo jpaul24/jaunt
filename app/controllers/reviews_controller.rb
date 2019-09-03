@@ -11,10 +11,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.activity = Activity.find(params[:activity_id])
     authorize @review
-    if @review.save
-      redirect_to trip_shortlisted_activity(@review.activity)
-    end
-
+    @review.save
   end
 
   def edit
