@@ -42,6 +42,8 @@ class TripsController < ApplicationController
         ShortlistedActivity.create(activity_id: activity, trip: @trip)
       end
       # create a trip
+      @trip.trip_name = "My trip to #{@trip.activities.first.city}"
+      @trip.save
       redirect_to trips_path
     else
       trips_params = {}

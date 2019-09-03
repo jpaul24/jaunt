@@ -69,7 +69,11 @@
   top: 35%;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  p {
+    text-align: center;
+  }
 }
 
 .noactivities {

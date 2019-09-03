@@ -11,11 +11,10 @@
     <% end %>
       <% counter = 0 %>
       <% @user_trips.each do |trip| %>
-      <% @trip = trip %>
       <% counter += 1 %>
       <div class="card-trip">
         <div class="card-info-trip">
-          <%= link_to "Trip #{counter}", trip_path(trip, selected_day: 1, selected_time: "Morning"), class: "trip-title" %>
+          <%= link_to trip.trip_name, trip_path(trip, selected_day: 1, selected_time: "Morning"), class: "trip-title" %>
           <%= trip.duration %> days
           <div>
             <i class="fas fa-heart"></i> <%= trip.likes %>
