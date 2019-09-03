@@ -54,17 +54,13 @@
               </div>
               <%= link_to trip_path(trip) do  %>
               <div class="tripinfo">
-                <p>Included in their trip: <em> <%= trip.trip_name %> </em> </p>
+                <p><em> <%= trip.trip_name %> </em> </p>
                 <div>
                   <%= trip.created_at.day %>/<%= trip.created_at.month %>/<%= trip.created_at.year %>
                 </div>
               </div>
               <% end %>
             </div>
-          <% else %>
-          <div>
-            <p>No-one else has done this activity yet</p>
-          </div>
           <% end %>
       <% end %>
     </div>
