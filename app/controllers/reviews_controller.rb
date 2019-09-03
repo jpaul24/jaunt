@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
     @review.activity = Activity.find(params[:activity_id])
     authorize @review
     @review.save
-
   end
 
   def edit
