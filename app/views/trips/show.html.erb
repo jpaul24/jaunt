@@ -17,7 +17,7 @@
       <div class="card-product">
         <%= cl_image_tag activity.activity.photo %>
         <div class="card-product-infos">
-          <h2><%= activity.activity.name %></h2>
+          <h2><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h2>
           <div class="icon-container">
             <div class="icon-inner-container d-flex">
               <% activity.activity.categories.each do |category| %>
