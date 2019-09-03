@@ -1,12 +1,17 @@
 <div class="all-container">
 
-  <% if @activities.length == 0 %>
+  <% place = params[:place].split.first %>
+  <% if Activity.search_by_city(place).near(place, 40) == [] %>
+
+  <p>Sorry we don't have any activities in that city, search again!</p>
+
+  <% elsif @activities.length == 0 %>
 
     <div class="noactivities">
       <p>Sorry, there are no activities for <%= params[:filter][:place] %> in those categories. Try another category!</p>
     </div>
 
-  <% else  %>
+  <% else %>
 
       <% if @activities.length == 1 %>
         <p>Your search returned <%= @activities.length %> activity:</p>
@@ -22,7 +27,9 @@
             <%= render 'activity', activity: activity %>
           </li>
           <div class="endoflist">
-            <p >That's all the activities for <%= activity.city %>, time to plan your trip!</p>
+            <p >That's all the activities </p>
+            <p> for <%= activity.city %>, time to </p>
+              <p> plan your trip!</p>
           </div>
         <% end %>
       </ul>
