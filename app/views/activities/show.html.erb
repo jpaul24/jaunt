@@ -68,8 +68,31 @@
   <div>
     <h4>Ratings</h4>
   </div>
+  <div class="review-show">
+    <% if @activity.reviews.blank? %>
+      <p>There are no ratings for this trip yet</p>
+    <% else %>
+    <% @activity.reviews.each do |review| %>
+      <div class="review-info">
+        <div class="d-flex">
+          <div class ="userphoto">
+            <%= @activity.user.photo %>
+          </div>
+          <p class="review-user"><%= @activity.user.username %></p>
+        </div>
+        <div class="star">
+          <% review.rating.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
   <h4>Where it is</h4>
-    <h4>Reviews</h4>
   <div
     id="map"
     style="width: 100%;
