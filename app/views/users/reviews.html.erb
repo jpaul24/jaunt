@@ -4,7 +4,7 @@
     <%= cl_image_tag review.activity.photo, alt: "alttext" %>
       <div class="card-product-infos">
         <% if review %>
-          <div class="star">
+          <div class="review-star">
             <% review.rating.times do  %>
               <i class="fas fa-star"></i>
             <% end %>
@@ -14,7 +14,8 @@
           </div>
         <% else %>
           <% 5.times do %>
-            <div class="star">
+            <div class="review-
+            star">
               <i class="far fa-star"></i>
             </div>
           <% end %>
