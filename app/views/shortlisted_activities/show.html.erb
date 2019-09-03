@@ -3,11 +3,11 @@
     <%= link_to "Back to trip", trip_path(@trip), class: "btn btn-warning" %>
   </div>
   <div class="text-center header-show">
-    <h2><%= @activity.name %></h1>
-      <p>Recommended for: <%= @activity.tod %></p>
+    <h2><%= @activity.name %></h2>
+    <p>Recommended for: <%= @activity.tod %></p>
   </div>
   <div class="image-contain">
-    <!-- <div class="image-show" style="background-image: url(<%#= asset_path check_photo(@activity) %>)"> -->
+    <div class="image-show" style="background-image: url(<%= asset_path check_photo(@activity.photo) %>)">
     </div>
   </div>
   <div class="show-rating">
