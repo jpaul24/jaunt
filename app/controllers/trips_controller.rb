@@ -36,6 +36,7 @@ class TripsController < ApplicationController
       @trip.user = current_user
       @trip.likes = 0
       @trip.duration = params[:days]
+      @trip.trip_name = "My trip to #{params[:place]}"
       authorize @trip
       @trip.save
       activity_array.each do |activity|
