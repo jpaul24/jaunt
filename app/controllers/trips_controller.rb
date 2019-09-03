@@ -6,15 +6,8 @@ class TripsController < ApplicationController
   end
 
   def show
-    @selected_time = params[:selected_time] || "Morning"
-    @selected_day = params[:selected_day] || 1
     @trip.sort_activities
-    @shortlisted_activities = @trip.shortlisted_activities.joins(:activity).where(
-      day: @selected_day,
-      activities: {
-        tod: @selected_time
-      })
-    @activity = @shortlisted_activities.empty? ? nil : @shortlisted_activities.first.activity
+    @shortlisted_activities = @trip.shortlisted_activities
     authorize @trip
   end
 
@@ -36,12 +29,15 @@ class TripsController < ApplicationController
       @trip.user = current_user
       @trip.likes = 0
       @trip.duration = params[:days]
+      @trip.trip_name = "My trip to #{params[:place]}"
       authorize @trip
       @trip.save
       activity_array.each do |activity|
         ShortlistedActivity.create(activity_id: activity, trip: @trip)
       end
       # create a trip
+      @trip.trip_name = "My trip to #{@trip.activities.first.city}"
+      @trip.save
       redirect_to trips_path
     else
       trips_params = {}

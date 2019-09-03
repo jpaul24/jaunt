@@ -6,13 +6,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @trip
     @review = Review.new(review_params)
     @review.user = current_user
     @review.activity = Activity.find(params[:activity_id])
-    @review.save
-
     authorize @review
-    redirect_to activities_user_path(current_user.id)
+    @review.save
   end
 
   def edit
