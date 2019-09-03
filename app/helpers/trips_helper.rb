@@ -7,7 +7,13 @@ module TripsHelper
     end
   end
 
-  def active_class(link_path)
-    current_page?(link_path) ? "active-tab" : ""
+  def tod_icon_picker(i)
+    if i == 0
+      "sunrise.png"
+    elsif i == 1
+      "sun.png"
+    elsif i == 2
+      "sunset.png"
+    end
   end
 end
