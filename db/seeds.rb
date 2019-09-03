@@ -61,8 +61,14 @@ marcsactivity3 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, act
 marcsactivity4 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: jadin_tueleries.id)
 marcsactivity5 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: canal_st_martin.id)
 marcsactivity6 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: parc_monceau.id)
-marcsactivity7 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: belleville.id)
 marcsactivity8 = ShortlistedActivity.create!(day: 1, trip_id: marcstrip1.id, activity_id: basilique_sacre_coeur.id)
+janicesactivity1 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: champ_mars.id)
+janicesactivity2 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: puces.id)
+janicesactivity3 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: atelier_brancusi.id)
+janicesactivity5 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: canal_st_martin.id)
+janicesactivity6 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: parc_monceau.id)
+janicesactivity7 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: belleville.id)
+janicesactivity8 = ShortlistedActivity.create!(day: 1, trip_id: janicestrip1.id, activity_id: basilique_sacre_coeur.id)
 puts "Shortlisted activities created"
 
 puts "Making categories..."
