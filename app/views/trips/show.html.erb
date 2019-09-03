@@ -19,12 +19,14 @@
         <div class="card-product-infos">
           <h2><%= activity.activity.name %></h2>
           <div class="icon-container">
-            <% activity.activity.categories.each do |category| %>
-              <div class="icon-name-container">
-                <i class="<%= category.icon %>"></i>
-                <p><%= category.name %></p>
-              </div>
-            <% end %>
+            <div class="icon-inner-container d-flex">
+              <% activity.activity.categories.each do |category| %>
+                <div class="icon-name-container">
+                  <i class="<%= category.icon %>"></i>
+                  <p><%= category.name %></p>
+                </div>
+              <% end %>
+            </div>
               <div class="tod-icon">
                 <%= image_tag(tod_icon_picker(i)) %>
               </div>
