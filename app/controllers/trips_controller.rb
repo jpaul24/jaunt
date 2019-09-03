@@ -6,15 +6,8 @@ class TripsController < ApplicationController
   end
 
   def show
-    @selected_time = params[:selected_time] || "Morning"
-    @selected_day = params[:selected_day] || 1
     @trip.sort_activities
-    @shortlisted_activities = @trip.shortlisted_activities.joins(:activity).where(
-      day: @selected_day,
-      activities: {
-        tod: @selected_time
-      })
-    @activity = @shortlisted_activities.empty? ? nil : @shortlisted_activities.first.activity
+    @shortlisted_activities = @trip.shortlisted_activities
     authorize @trip
   end
 
