@@ -1,7 +1,7 @@
 <div class="trip-show-container">
   <div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
-    <h2>Explore</h2>
-    <h1><%= @shortlisted_activities.first.activity.city %></h1>
+    <h2> <%= @trip.trip_name %> </h2>
+    <h2> <%= @trip.user.username %> </h2>
   </div>
 
   <% @trip.trip_duration.each do |day| %>
@@ -12,6 +12,7 @@
           <h6>click to expand</h6>
         </a>
       </div>
+
 
     <% tod_activity_picker(@shortlisted_activities, day).each do |activity| %>
       <div class="collapse" id="collapseExample<%= day %>">
@@ -39,16 +40,18 @@
   <% end %>
 
   <div class="map-link-container">
-    <%= image_tag "globe.png" %>
+    <%= link_to "Check it out on the map! <%= image_tag "globe.png" %>" %>
   </div>
 
   <% if @trip.user != current_user %>
-  <div class="button-row">
-    <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
-      <div>
-        <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+    <div class="button-row">
+      <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+        <div>
+          <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 
