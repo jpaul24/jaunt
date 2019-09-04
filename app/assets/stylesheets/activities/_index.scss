@@ -4,6 +4,7 @@
 #viewport {
     position: relative;
     flex-grow: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
 #viewport .stack {
@@ -23,7 +24,6 @@
     background: #fff;
     border-radius: 5px;
     position: absolute;
-    box-shadow: 0 0 2px rgba(0,0,0,.2), 1px 1px 1px rgba(0,0,0,.2);
     line-height: 0px;
     text-align: center;
     font-size: 100px;
