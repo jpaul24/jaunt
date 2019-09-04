@@ -30,6 +30,24 @@
   }
 }
 
+.gray {
+  i {
+    color: gray;
+  }
+  p {
+    color: gray;
+  }
+}
+
+.black {
+  i {
+    color: black;
+  }
+  p {
+    color: black;
+  }
+}
+
 .icons {
   display: flex;
   flex-direction: column;
