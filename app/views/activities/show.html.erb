@@ -102,11 +102,11 @@
   >
   </div>
   <div class="thum-vote" id="thumbs-show">
-    <%= link_to activities_path(cardIds: params[:cardIds]) do %>
+    <%= link_to activities_path(cardIds: params[:cardIds], days: params[:days], place: @place) do %>
       <i class="far fa-thumbs-down" id='thumbs_dwn_btn'></i>
     <% end %>
     <% card_ids = params[:cardIds].present? ? params[:cardIds] << ",#{@activity.id}" : @activity.id %>
-    <%= link_to activities_path(cardIds: card_ids, days: params[:days]) do %>
+    <%= link_to activities_path(cardIds: card_ids, days: params[:days], place: @place) do %>
       <i class="far fa-thumbs-up" id='thumbs_up_btn'></i>
     <% end %>
   </div>
