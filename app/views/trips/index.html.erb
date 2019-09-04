@@ -14,7 +14,7 @@
       <% activity = trip.activities.first %>
       <div class="card-trip">
         <div class="card-trip-infos">
-          <div>
+          <div class="index-trip-head">
             <h2><%= link_to trip.trip_name, trip_path(trip, selected_day: 1, selected_time: "Morning") %></h2>
             <p><%= trip.duration %> days</p>
           </div>
