@@ -39,12 +39,13 @@
     <% end %>
   <% end %>
 
-
-  <div class="button-row">
-    <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
-      <div>
-        <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
-      </div>
-    <% end %>
-  </div>
+<% if @trip.user != current_user %>
+<div class="button-row">
+  <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+    <div>
+      <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+    </div>
+  <% end %>
 </div>
+<% end %>
+
