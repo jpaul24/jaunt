@@ -7,7 +7,16 @@
     <p></p>
   <% end %>
 
-  <% if !user_signed_in? %>
+  <% if user_signed_in? %>
+    <% if params[:action] == "home" %>
+      <%= link_to user_path(current_user) do %>
+        <div class="icons nav-link">
+          <i class="fas fa-user whiteicon"></i>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% else %>
     <li class="nav-item <%= "nav-item-home" if params[:action] == "home" %>">
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     </li>
