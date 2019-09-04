@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :activities, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+
+  def country_flag
+    country = ISO3166::Country.find_country_by_name(nationality)
+    country.emoji_flag
+  end
 end
