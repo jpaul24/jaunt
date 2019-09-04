@@ -1,7 +1,6 @@
 <div class="cover-container">
 </div>
 
-
 <div class="all-container">
   <div class="main-container">
     <div class="user-contianer">
@@ -34,6 +33,8 @@
       <div class="btn user-link"><%= link_to "Update Profile", edit_user_path(current_user) %> </div>
 
       <div class="btn user-link"><%= link_to "Change Password", edit_user_registration_path %></div>
+      <div class="btn user-link"><%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </div>
     </div>
   <% else %>
     <div>
