@@ -49,8 +49,8 @@ stack.on('throwin', () => {
   console.log('Card has snapped back to the stack.');
 });
 
-const thumbsUp = document.getElementById('thumbs_up_btn');
-const thumbsDwn = document.getElementById('thumbs_dwn_btn');
+const thumbsUp = document.getElementById('yes');
+const thumbsDwn = document.getElementById('no');
 thumbsUp.addEventListener('click', (event) => {
   thumbsDwn.disabled = true;
   thumbsUp.disabled = true;
@@ -122,7 +122,7 @@ thumbsDwn.addEventListener('click', (event) => {
 // const btn = document.getElementById("plan_trip_link");
 // // btn.disabled = true;
 
-// const icon = document.getElementById("thumbs_up_btn");
+// const icon = document.getElementById("yes");
 // icon.addEventListener("click", (event) => {
 //   btn.disabled = false;
 // });

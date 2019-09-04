@@ -1,14 +1,13 @@
 @import "show";
 
 #viewport {
-    width: 100%;
-    height: 450px;
     position: relative;
+    flex-grow: 1;
 }
 
 #viewport .stack {
     width: 100%;
-    height: 80%;
+    height: 100%;
     // position: absolute;
     border-radius: 10px;
     padding: 0;
@@ -17,8 +16,8 @@
 }
 
 #viewport li {
-    width: 95%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     list-style: none;
     background: #fff;
     border-radius: 5px;
@@ -64,6 +63,23 @@
   transform: translateX(-120vw) rotate(-20deg);
 }
 
+.categoriesfiltered {
+  display: flex;
+}
+
+.cat {
+  background-color: $orange;
+  color: white;
+  padding: 2px 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.text {
+  margin: 0;
+  padding: 0;
+}
+
 .endoflist {
   position: fixed;
   top: 35%;
@@ -81,14 +97,6 @@
   margin-bottom: 250px;
 }
 
-.fa-thumbs-up:before{
-    font-size: 45px !important;
-}
-
-.fa-thumbs-down:before {
-    font-size: 45px !important;
-}
-
 .trip-btn {
   text-align: center;
 }
@@ -103,7 +111,7 @@
 
 
 .activity-photo {
-  height: 80%;
+  height: 85%;
   width: 95%;
   margin-top: 10px;
   position: relative;
@@ -168,7 +176,7 @@
 
 #plan_trip_link {
   display: block;
-  width: max-content;
+  width: 60%;
   margin: auto;
   padding: 10px 15px;
   background-color: #F86524;
@@ -182,18 +190,36 @@
 .thum-btns {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-top: 15px;
 }
 
-.fa-thumbs-up:before {
-  font-size: 45px;
+.choicebutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
-.fa-thumbs-down:before {
-  font-size: 45px;
-  transform: rotateY(180deg);
+.y {
+    transform: rotate(15deg);
+    color: $orange;
+    font-family: $headers-font;
+}
+
+.n {
+    transform: rotate(-15deg);
+    color: $orange;
+    font-family: $headers-font;
 }
 
 .isDisabled {
