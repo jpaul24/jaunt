@@ -3,22 +3,15 @@
 
 <div class="all-container">
   <div class="main-container">
-    <div class="user-contianer">
+    <div class="user-container">
       <div class="photo-container">
-        <% if @user.photo %>
-        <div class="user-photo">
-           <%= cl_image_tag(@user.photo) %>
-        </div>
-        <% else %>
-        <div class="user-photo">
-          <%= cl_image_tag("https://res.cloudinary.com/nmozzer/image/upload/v1567092357/e6zblsb2zxmyg6ejucla.jpg", cloud_name: "nmozzer" ) %>
-        </div>
-        <% end %>
+        <%= cl_image_tag(@user.photo.url) %>
+        <p id="country-flag"><%= @user.country_flag %></p>
       </div>
+
       <div>
         <h4><%= @user.first_name %> <%= @user.second_name %></h2>
         <p><%= @user.email %></p>
-        <p><%= @user.nationality %></p>
       </div>
     </div>
     <div class="bio-container">

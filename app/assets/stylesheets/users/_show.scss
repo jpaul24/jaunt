@@ -11,7 +11,8 @@
 }
 
 .user-photo {
-
+  font-size: 100px;
+  color: white;
 }
 
 .cover-container {
@@ -22,6 +23,7 @@
 }
 
 .photo-container {
+  position: relative;
   img {
     width: 150px;
     height: 150px;
@@ -76,4 +78,11 @@
   &:hover {
     opacity: .5;
   }
+}
+
+#country-flag {
+  font-size: 40px;
+  position: absolute;
+  right: 0px;
+  bottom: -25px;
 }

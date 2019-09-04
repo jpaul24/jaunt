@@ -101,15 +101,16 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   >
   </div>
-  <div class="thum-vote" id="thumbs-show">
+
+   <div class="thum-btns thum-vote" id="thumbs-show">
     <%= link_to activities_path(cardIds: params[:cardIds], days: params[:days], place: @place) do %>
-      <i class="far fa-thumbs-down" id='thumbs_dwn_btn'></i>
+      <p class="choicebutton n" id="no">Nope!</p>
     <% end %>
     <% card_ids = params[:cardIds].present? ? params[:cardIds] << ",#{@activity.id}" : @activity.id %>
     <%= link_to activities_path(cardIds: card_ids, days: params[:days], place: @place) do %>
-      <i class="far fa-thumbs-up" id='thumbs_up_btn'></i>
+      <p class="choicebutton y" id="yes">Hell yea!</p>
     <% end %>
-  </div>
+    </div>
 </div>
 
 <script>

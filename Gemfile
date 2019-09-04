@@ -11,6 +11,7 @@ gem 'redis'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'nationality', '~> 1.0.3'
+gem 'countries', require: 'countries/global'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
