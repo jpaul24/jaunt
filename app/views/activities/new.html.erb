@@ -1,7 +1,7 @@
-<div class="all-container">
-  <div>
-    <h1 class="text-center trip-head">Add Activity</h1>
-  </div>
+<div class="trip-title d-flex justify-content-center flex-column new-activity-head">
+  <h3 class="my-trip-title">Add Activity </h3>
+</div>
+<div class="all-container activity-new">
   <div>
     <% if policy(Activity).create? %>
       <%= simple_form_for @activity do |f| %>

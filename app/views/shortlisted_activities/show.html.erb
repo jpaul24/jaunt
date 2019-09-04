@@ -42,7 +42,7 @@
       Rate
     </button>
   </div>
-  <div class="review-show">
+  <div class="review-show" id="reviews">
     <% if @activity.reviews.blank?  %>
       <p>Be the first to rate this activity</p>
     <% else %>
@@ -52,7 +52,7 @@
           <div class ="userphoto">
             <%= @activity.user.photo %>
           </div>
-          <p class="review-user"><%= @activity.user.username %></p>
+          <p class="review-user"><%= review.user.username %></p>
         </div>
         <div class="star">
           <% review.rating.times do  %>
@@ -87,7 +87,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for([@activity, @review], class: "review_form") do |f| %>
+        <%= simple_form_for([@activity, @review], remote: true, html: { class: "review_form" }) do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.button :submit, class: "hidden" %>
         <% end %>

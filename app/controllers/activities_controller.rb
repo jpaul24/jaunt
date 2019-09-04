@@ -59,6 +59,13 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.user = current_user
+    if @activity.save
+      redirect_to activities_user_path(@activity.user)
+    else
+      render :new
+    end
+
     authorize @activity
   end
 
