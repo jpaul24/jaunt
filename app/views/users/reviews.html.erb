@@ -1,7 +1,9 @@
 <div class="all-container">
   <%= link_to "Back to profile", user_path(current_user), class: "return-btn" %>
+
   <% current_user.reviews.each do |review| %>
     <div class="card-product">
+
       <%= cl_image_tag review.activity.photo, alt: "alttext" %>
       <div class="card-product-infos">
         <% if review  %>
@@ -22,12 +24,15 @@
             </div>
           <% end %>
         <% end %>
-        <br>
-        <%= link_to "Delete", activity_review_path(review.activity_id, review.id), method: :delete, class: 'btn btn-warning delete-btn' %>
-        <button type="button" class="btn btn-warning edit-btn" data-toggle="modal" data-target="#exampleModal-<%= review.id %>">
-          Edit
+        <!-- <br> -->
+        <div id='orange-btns'>
+        <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, activity_review_path(review.activity_id, review.id), method: :delete, class: 'btn delete-btn' %>
+        <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#exampleModal-<%= review.id %>">
+          <i class="far fa-edit"></i>
         </button>
+        </div>
       </div>
+
     </div>
 
     <div class="modal fade" id="exampleModal-<%= review.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

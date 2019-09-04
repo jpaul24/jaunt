@@ -34,9 +34,11 @@
 
 
 .edit-btn {
+  color: #F86524;
 }
 
 .delete-btn {
+  color: #F86524;
 }
 
 .return-btn {
@@ -61,6 +63,12 @@ a.update-review-btn {
   &:hover {
   background-color: #f7946a;
   }
+}
+
+#orange-btns {
+  display: flex;
+  justify-content: end;
+
 }
 
 
