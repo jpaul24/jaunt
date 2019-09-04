@@ -1,4 +1,4 @@
-<div class="all-container d-flex flex-column">
+<div class="all-container d-flex flex-column" id="activitycontainer">
 
   <% if params[:place] && Activity.search_by_city(params[:place].split.first) == [] %>
       <p>Sorry we don't have any activities in that city, search again!</p>

@@ -1,6 +1,10 @@
 @import "show";
 @import "new";
 
+#activitycontainer {
+  height: calc(100vh - 153.19px);
+}
+
 #viewport {
     position: relative;
     flex-grow: 1;
