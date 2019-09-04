@@ -2,22 +2,34 @@
 <div class="trip-title d-flex justify-content-center flex-column my-activity-head">
   <h3 class="my-trip-title"> My Activities </h3>
 </div>
-<div class="all-container">
-  <% if current_user.activities.nil? %>
+<div class="all-container activity-display">
+  <% if current_user.activities.empty? %>
     <div class="trip-none">
       <p>You haven't added any activities<p>
       <p>Share your experiences...</p>
       <%= link_to "Add an activity", new_activity_path, class: "btn btn-warning" %>
     </div>
   <% end %>
+  <div class="row">
+    <% current_user.activities.each do |activity| %>
+      <div class="col-6 padding-activity">
+        <div class="activity-card">
+          <img src="<%= asset_path check_photo(activity.photo) %>" class="my-show">
+          <div class="activity-info">
+            <h6 class="activity-card-name"><%= activity.name %></h6>
+            <div class="upadate-activity">
+              <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_activity_path(activity), class: "edit-btn"  %>
+              <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, activity_path(activity), method: :delete, class: 'btn delete-btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+
+
+  </div>
 
 </div>
 
-<% current_user.activities.each do |activity| %>
-  <h2><%= activity.name %></h2>
-  <%= link_to "Edit", edit_activity_path(activity)  %>
-  <%= link_to "Delete", activity_path(activity), method: :delete %>
-  <%= link_to "Create a review", new_activity_review_url(activity) %>
-<% end %>
 
-<br><br>
