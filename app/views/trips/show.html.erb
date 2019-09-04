@@ -1,5 +1,4 @@
-<div class="tripscontainer">
-
+<div class="trip-show-container">
   <div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
     <h3> <%= @trip.trip_name %> </h3>
     <h5> <%= @trip.user.username %> </h5>
@@ -14,7 +13,8 @@
         </a>
       </div>
 
-    <% @shortlisted_activities.where(day: day).limit(3).each_with_index do |activity, i| %>
+
+    <% tod_activity_picker(@shortlisted_activities, day).each do |activity| %>
       <div class="collapse" id="collapseExample<%= day %>">
         <div class="card-product">
           <%= cl_image_tag activity.activity.photo %>
@@ -30,7 +30,7 @@
                 <% end %>
               </div>
                 <div class="tod-icon">
-                  <%= image_tag(tod_icon_picker(i)) %>
+                  <%= image_tag(tod_icon_picker(activity)) %>
                 </div>
             </div>
           </div>
