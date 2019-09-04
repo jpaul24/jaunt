@@ -45,7 +45,7 @@ class ActivitiesController < ApplicationController
       ]
     end
     authorize @activity
-
+    @place = @activity.city
     @activitytrips = ShortlistedActivity.where("activity_id = ?", @activity.id)
   end
 
