@@ -20,47 +20,57 @@
       <p>Bio: <%= @user.bio %></p>
     </div>
   </div>
-  <% if @user == current_user %>
-    <%= link_to activities_user_path(current_user) do %>
-      <div class="boxrow user-link">
-        <p>Activities I've added</p>
-        <i class="fas fa-chevron-right"></i>
-      </div>
+    <% if @user == current_user %>
+
+      <%= link_to activities_user_path(current_user) do %>
+        <div class="boxrow user-link">
+          <p>Activities I've added</p>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      <% end %>
+
+      <%= link_to edit_user_path(current_user) do %>
+        <div class="boxrow user-link">
+          <p>Edit my profile</p>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete do  %>
+        <div class="boxrow user-link">
+          <p>Log out</p>
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      <% end %>
+    <% else %>
+
+
+        <p> <%= @user.first_name %>'s trips: </p>
+          <div class="boxrow user-link-other">
+
+
+
+            <% @user.trips.each do |trip| %>
+              <%= link_to trip_path(trip) do %>
+
+
+                <div>
+                  <p><%= trip.trip_name %> | <%= trip.duration %> days </p>
+                  <p><%= trip.likes %> likes</p>
+                </div>
+
+
+
+                  <i class="fas fa-chevron-right ours"></i>
+
+
+              <% end %>
+            <% end %>
+
+
+
+          </div>
+
+
     <% end %>
-
-    <%= link_to edit_user_path(current_user) do %>
-      <div class="boxrow user-link">
-        <p>Edit my profile</p>
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    <% end %>
-
-    <%= link_to destroy_user_session_path, method: :delete do  %>
-    <div class="boxrow user-link">
-      <p>Log out</p>
-      <i class="fas fa-chevron-right"></i>
-      </div>
-    <% end %>
-
-  <div class="button-container d-flex flex-column">
-
-
-
-
-
-
-  </div>
-  <% else %>
-  <div>
-    <p> <%= @user.first_name %>'s trips: </p>
-    <% @user.trips.each do |trip| %>
-    <div>
-      <div>
-        <%= trip.activities.first.photo %>
-      </div>
-      <%= trip.trip_name %>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
 </div>
