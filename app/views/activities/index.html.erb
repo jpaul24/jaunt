@@ -31,12 +31,31 @@
           </div>
         <% end %>
       </ul>
+    <% if !params.dig(:filter, :categories).present? %>
+      <div>
+        <p class="" data-toggle="modal" data-target="#filterModal">Filter activities by category</p>
+      </div>
+    <% elsif params.dig(:filter, :categories).present? %>
+      <div>
+        <p>Displaying activities for: </p>
+          <% categories = params[:filter][:categories] %>
+          <% categories.each do |category| %>
+            <% if category.to_i > 0 %>
+            <% cat = Category.find(category)%>
+              <%= cat.name %> |
+            <% end %>
+          <% end %>
+
+      </div>
+    <% end %>
 
       <%= content_for(:after_js) do %>
         <%= javascript_pack_tag 'components/swing' %>
       <% end %>
     </div>
   <% end %>
+
+
 
     <div class="thum-btns">
       <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
