@@ -23,6 +23,7 @@
 }
 
 .photo-container {
+  position: relative;
   img {
     width: 150px;
     height: 150px;
@@ -81,4 +82,7 @@
 
 #country-flag {
   font-size: 40px;
+  position: absolute;
+  right: 0px;
+  bottom: -25px;
 }
