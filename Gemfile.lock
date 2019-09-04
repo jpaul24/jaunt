@@ -67,6 +67,10 @@ GEM
       rest-client
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.4)
     devise (4.7.0)
       bcrypt (~> 3.0)
@@ -93,6 +97,7 @@ GEM
     httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     json (2.1.0)
@@ -189,6 +194,7 @@ GEM
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sixarm_ruby_unaccent (1.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -210,6 +216,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
+    unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -234,6 +241,7 @@ DEPENDENCIES
   bootsnap
   carrierwave (~> 1.2)
   cloudinary (~> 1.9.1)
+  countries
   devise
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
