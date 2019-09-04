@@ -11,7 +11,14 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.activity = Activity.find(params[:activity_id])
     authorize @review
-    @review.save
+    if @review.save
+      respond_to do |format|
+              format.html { redirect_back(fallback_location: root_path) }
+              format.js # <-- will render `app/views/reviews/create.js.erb`
+            end
+    else
+      render :new
+    end
   end
 
   def edit

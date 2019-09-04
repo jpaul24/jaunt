@@ -17,10 +17,11 @@ class Activity < ApplicationRecord
   has_many :shortlisted_activities, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
-  validates :description, presence: true, uniqueness: true
+  validates :description, presence: true
   validates :city, presence: true
   validates :tod, presence: true, inclusion: { in: TOD }
   validates :price, presence: true
+  validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
 
   before_validation :add_city_to_name
