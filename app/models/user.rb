@@ -10,7 +10,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   def country_flag
-    country = ISO3166::Country.find_country_by_name(nationality)
+    country = Country[nationality]
     country.emoji_flag
   end
 end
