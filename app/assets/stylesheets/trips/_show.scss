@@ -1,5 +1,11 @@
+.tripscontainer {
+  height: 100%;
+  margin-bottom: 20%;
+}
+
 .trip-title {
   display: flex;
+  position: relative;
   justify-content:center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,12 +22,9 @@
 
 .triplikes {
   border-radius: 10px;
-}
-
-.button-row {
-  display: flex;
-  justify-content: right;
-
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .trip-logo {
