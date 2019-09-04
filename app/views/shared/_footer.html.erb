@@ -1,6 +1,22 @@
 
 <div class="footer page-footer">
 
+        <div class="footer-section <%= "active-footer" if params[:action] == "show" && params[:controller] == "users" %>">
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user) do %>
+              <div class="icons">
+                <i class="fas fa-user"></i>
+                <p>Profile</p>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="icons">
+              <i class="fas fa-user"></i>
+              <p>Profile</p>
+            </div>
+          <% end %>
+        </div>
+
         <div class="footer-section">
           <%= link_to root_path do %>
           <div class="icons">
@@ -10,14 +26,7 @@
           <% end %>
         </div>
 
-        <div class="footer-section" data-toggle="modal" data-target="#filterModal">
-          <div class="icons">
-            <i class="fas fa-filter"></i>
-            <p>Filter</p>
-          </div>
-        </div>
-
-        <div class="footer-section <%= "active-footer" if params[:action] == "index" %> ">
+        <div class="footer-section <%= "active-footer" if params[:action] == "index" && params[:controller] == "trips"%> ">
           <%= link_to trips_path do %>
           <div class="icons">
             <i class="fas fa-suitcase-rolling"></i>
@@ -26,8 +35,13 @@
           <% end %>
         </div>
 
-        <div class="footer-section">
-          <%= render 'shared/more' %>
+        <div class="footer-section <%= "active-footer" if params[:controller] == "activities" && params[:action] == "new" %>">
+          <%= link_to new_activity_path do %>
+          <div class="icons">
+            <i class="fas fa-plus"></i>
+            <p>Activity</p>
+          </div>
+          <% end %>
         </div>
 
 </div>
