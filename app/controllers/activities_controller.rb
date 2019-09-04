@@ -50,6 +50,7 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    authorize @activity
   end
 
   def new
@@ -70,11 +71,14 @@ class ActivitiesController < ApplicationController
   end
 
   def update
+    authorize @activity
     @activity.update(activity_params)
+    redirect_to activities_user_path(@activity.user)
   end
 
   def destroy
     @activity.destroy
+    redirect_back(fallback_location: root_path)
     authorize @activity
   end
 

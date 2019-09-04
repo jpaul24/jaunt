@@ -1,10 +1,14 @@
+<div class="all-container">
   <div class="form-inputs">
     <%= simple_form_for(@activity) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :city %>
     <%= f.input :tod, collection: Activity::TOD %>
-    <%= f.input :price %>
-    <%= f.submit %>
+    <%= f.input :price, placeholder: '$' %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, "Edit this activity", class: "btn btn-warning w-100" %>
     <% end %>
   </div>
+</div>
