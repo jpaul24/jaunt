@@ -13,22 +13,42 @@
       </div>
       <div>
         <h4><%= @user.first_name %> <%= @user.second_name %></h2>
-        <p><%= @user.email %></p>
+        <p>username: <%= @user.username %></p>
       </div>
     </div>
     <div class="bio-container">
-      <p><%= @user.bio %></p>
+      <p>Bio: <%= @user.bio %></p>
     </div>
   </div>
   <% if @user == current_user %>
+    <%= link_to activities_user_path(current_user) do %>
+      <div class="boxrow user-link">
+        <p>Activities I've added</p>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    <% end %>
+
+    <%= link_to edit_user_path(current_user) do %>
+      <div class="boxrow user-link">
+        <p>Edit my profile</p>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    <% end %>
+
+    <%= link_to destroy_user_session_path, method: :delete do  %>
+    <div class="boxrow user-link">
+      <p>Log out</p>
+      <i class="fas fa-chevron-right"></i>
+      </div>
+    <% end %>
+
   <div class="button-container d-flex flex-column">
-    <div class="btn user-link"><%= link_to "My Trips", trips_path %></div>
-    <div class="btn user-link"><%= link_to "My Reviews", reviews_user_path(current_user) %></div>
-    <div class="btn user-link"><%= link_to "My Activities", activities_user_path(current_user) %></div>
-    <div class="btn user-link"><%= link_to "Update Profile", edit_user_path(current_user) %> </div>
-    <div class="btn user-link"><%= link_to "Change Password", edit_user_registration_path %></div>
-    <div class="btn user-link"><%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    </div>
+
+
+
+
+
+
   </div>
   <% else %>
   <div>
