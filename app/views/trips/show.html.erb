@@ -1,49 +1,80 @@
-<div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
-  <h2>Explore</h2>
-  <h1><%= @shortlisted_activities.first.activity.city %></h1>
-</div>
+<div class="trip-show-container">
+  <div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
+    <h2> <%= @trip.trip_name %> </h2>
+    <h2> <%= @trip.user.username %> </h2>
+  </div>
 
-<% @trip.trip_duration.each do |day| %>
-  <% @activity = @shortlisted_activities.where(day: day).first.activity.photo %>
-    <div class="day-container mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @activity %>')">
-      <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <h2>Day <%= day %></h2>
-        <h6>click to expand</h6>
-      </a>
-    </div>
-
-  <% @shortlisted_activities.where(day: day).limit(3).each_with_index do |activity, i| %>
-    <div class="collapse" id="collapseExample<%= day %>">
-      <div class="card-product">
-        <%= cl_image_tag activity.activity.photo %>
-        <div class="card-product-infos">
-          <h2><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h2>
-          <div class="icon-container">
-            <div class="icon-inner-container d-flex">
-              <% activity.activity.categories.each do |category| %>
-                <div class="icon-name-container">
-                  <i class="<%= category.icon %>"></i>
-                  <p><%= category.name %></p>
-                </div>
-              <% end %>
-            </div>
-              <div class="tod-icon">
-                <%= image_tag(tod_icon_picker(i)) %>
-              </div>
-          </div>
-        </div>
+  <% @trip.trip_duration.each do |day| %>
+    <% if @shortlisted_activities.where(day: day).first.nil? %>
+      <div class="day-container day-container-opacity mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'trip_photo.jpg' %>)">
+        <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <h2>Day <%= day %></h2>
+          <h6>Nothing planned!
+          <h6>click to add</h6>
+        </a>
       </div>
-    </div>
-  <% end %>
-<% end %>
-
-<% if @trip.user != current_user %>
-
-  <div class="button-row">
-    <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
-      <div>
-        <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+    <% else %>
+      <% @activity = @shortlisted_activities.where(day: day).first.activity.photo %>
+      <div class="day-container mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @activity %>')">
+        <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <h2>Day <%= day %></h2>
+          <h6>click to expand</h6>
+        </a>
       </div>
     <% end %>
+
+
+    <% tod_activity_picker(@shortlisted_activities, day).each do |activity| %>
+      <% if activity.nil?  %>
+        <div class="collapse" id="collapseExample<%= day %>">
+          <div class="card-product background-gray">
+            <div class="photo-img-container">
+              <%= link_to (image_tag "add_photo.png"), new_activity_path %>
+            </div>
+            <div class="card-product-infos">
+              <h2>No activity picked!</h2>
+              <p>Add your own <strong>adventure</strong>!</p>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="collapse" id="collapseExample<%= day %>">
+          <div class="card-product">
+            <%= cl_image_tag activity.activity.photo %>
+            <div class="card-product-infos">
+              <h2><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h2>
+              <div class="icon-container">
+                <div class="icon-inner-container d-flex">
+                  <% activity.activity.categories.each do |category| %>
+                    <div class="icon-name-container">
+                      <i class="<%= category.icon %>"></i>
+                      <p><%= category.name %></p>
+                    </div>
+                  <% end %>
+                </div>
+                  <div class="tod-icon">
+                    <%= image_tag(tod_icon_picker(activity)) %>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+  <div class="map-link-container">
+    <%= image_tag "globe.png" %><%= link_to "Check it out on the map!", trip_map_trip_path(@trip) %>
   </div>
-<% end %>
+
+  <% if @trip.user != current_user %>
+    <div class="button-row">
+      <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+        <div>
+          <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

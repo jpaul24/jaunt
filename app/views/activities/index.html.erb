@@ -1,4 +1,4 @@
-<div class="all-container">
+<div class="all-container d-flex flex-column">
 
   <% if params[:place] && Activity.search_by_city(params[:place].split.first) == [] %>
       <p>Sorry we don't have any activities in that city, search again!</p>
@@ -10,12 +10,23 @@
     </div>
 
   <% else %>
-
-      <% if @activities.length == 1 %>
-        <p>Your search returned <%= @activities.length %> activity:</p>
-      <% else %>
-        <p>Your search returned <%= @activities.length %> activities:</p>
-      <% end %>
+    <% if !params.dig(:filter, :categories).present? %>
+      <div>
+        <p class="" data-toggle="modal" data-target="#filterModal">Filter activities by category</p>
+      </div>
+    <% elsif params.dig(:filter, :categories).present? %>
+      <p class="text">You selected: </p>
+        <div class="categoriesfiltered">
+          <% categories = params[:filter][:categories] %>
+          <% categories.each do |category| %>
+            <% if category.to_i > 0 %>
+              <% cat = Category.find(category)%>
+              <p class="cat"><%= cat.name %></p>
+              <% end %>
+            <% end %>
+        </div>
+      <p class="" data-toggle="modal" data-target="#filterModal">Edit filters</p>
+    <% end %>
 
     <div id="viewport">
 
@@ -32,24 +43,32 @@
         <% end %>
       </ul>
 
+
       <%= content_for(:after_js) do %>
         <%= javascript_pack_tag 'components/swing' %>
       <% end %>
     </div>
-  <% end %>
+
 
     <div class="thum-btns">
-      <i id="thumbs_dwn_btn" class="far fa-thumbs-down"></i>
-        <h4 class="trip-btn"><%= link_to "Plan trip", trips_path(days: params[:days], cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %>
+      <p class="choicebutton n" id="no">Nope!</p>
+      <p class="choicebutton y" id="yes">Hell yea!</p>
+    </div>
+    <div>
+      <h4 class="trip-btn btn w-100"><%= link_to "Lets go to #{@activities.first.city}!", trips_path(days: params[:days], cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %>
         </h4>
-      <i id="thumbs_up_btn" class="far fa-thumbs-up"></i>
     </div>
 
     <%= render 'activities/filter' %>
+  <% end %>
+
+
+
+
 </div>
 
 <script>
-  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne = document.getElementById('yes')
   buttonOne.addEventListener('click', () => {
     console.log('hi')
     buttonOne.style.animation = 'pulse 1s ease'
@@ -58,7 +77,7 @@
     }, 1000)
   })
 
-  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo = document.getElementById('no')
   buttonTwo.addEventListener('click', () => {
     console.log('hi')
     buttonTwo.style.animation = 'pulse 1s ease'

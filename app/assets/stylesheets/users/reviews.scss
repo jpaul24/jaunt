@@ -33,26 +33,12 @@
 }
 
 
-button.edit-btn {
-  padding: 3px 20px;
-  background-color: #F86524;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  &:hover {
-    background-color: #f7946a;
-  }
+.edit-btn {
+  color: #F86524;
 }
 
-a.delete-btn {
-  padding: 5px 10px;
-  background-color: #F86524;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  &:hover {
-    background-color: #f7946a;
-  }
+.delete-btn {
+  color: #F86524;
 }
 
 .return-btn {
@@ -61,6 +47,8 @@ a.delete-btn {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  position: sticky;
+  top: 10px;
   &:hover {
     background-color: #f7946a;
   }
@@ -77,6 +65,11 @@ a.update-review-btn {
   }
 }
 
-div.review-star {
-  margin-bottom: 20px;
+#orange-btns {
+  display: flex;
+  justify-content: end;
+}
+
+.card-product h2 {
+    padding-top: 5px;
 }

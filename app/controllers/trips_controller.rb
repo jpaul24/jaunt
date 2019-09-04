@@ -65,6 +65,7 @@ class TripsController < ApplicationController
 
   def like
     @trip.likes += 1
+    authorize @trip
     @trip.save
   end
 

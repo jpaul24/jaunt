@@ -61,9 +61,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: 12px;
   p {
     margin: 0;
   }
+}
+
+.othertrips {
+  margin-bottom: 30px;
 }
 
 .fa-thumbs-up {
