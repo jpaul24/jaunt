@@ -49,8 +49,8 @@
     <% @activity.reviews.each do |review| %>
       <div class="review-info">
         <div class="d-flex">
-          <div class ="userphoto">
-            <%= @activity.user.photo %>
+          <div class ="photo-container-small">
+            <%= cl_image_tag(@activity.user.photo.url) %>
           </div>
           <p class="review-user"><%= review.user.username %></p>
         </div>

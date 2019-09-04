@@ -10,27 +10,11 @@
   margin-top: -20%;
 }
 
-.user-photo {
-  font-size: 100px;
-  color: white;
-}
-
 .cover-container {
   background-image: asset-url('map.jpg');
   background-position: center;
   background-size: cover;
   height: 25vh;
-}
-
-.photo-container {
-  position: relative;
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-  }
 }
 
 .user-container {
