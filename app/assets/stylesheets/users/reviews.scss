@@ -34,9 +34,11 @@
 
 
 .edit-btn {
+  color: #F86524;
 }
 
 .delete-btn {
+  color: #F86524;
 }
 
 .return-btn {
@@ -63,4 +65,11 @@ a.update-review-btn {
   }
 }
 
+#orange-btns {
+  display: flex;
+  justify-content: end;
+}
 
+.card-product h2 {
+    padding-top: 5px;
+}
