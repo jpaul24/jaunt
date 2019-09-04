@@ -19,10 +19,10 @@ User.destroy_all
 Category.destroy_all
 
 puts "Making users..."
-marc = User.create!(email: 'marc@gmail.com', password:'mypassword', first_name: 'Marc', second_name: 'Johnson', username: 'MJ', nationality: 'United States', bio: 'Originaly from texas, I am looking for authentic and cheap places to stay' )
-janice = User.create!(email: 'janice@gmail.com', password:'mypassword', first_name: 'Janice', second_name: 'Spencer', username: 'Jane', nationality: 'Scottish', bio: 'I love traveling and here to find the best places all arround the world' )
-luke = User.create!(email: 'luke@gmail.com', password:'mypassword', first_name: 'Luke', second_name: 'Chapel', username: 'Chapers', nationality: 'Irish', bio: 'Hey guys, I am traveling all arround Europe and looking for the bests spots 😎' )
-barry = User.create!(email: 'barry@gmail.com', password:'mypassword', first_name: 'Barry', second_name: 'Brown', username: 'Bazzer', nationality: 'English', bio: 'Oi, my name is Bazzers, I am 30 something and I have a passion for exploring the planet' )
+marc = User.create!(email: 'marc@gmail.com', password:'mypassword', first_name: 'Marc', second_name: 'Johnson', username: 'MJ', bio: 'Originaly from texas, I am looking for authentic and cheap places to stay' )
+janice = User.create!(email: 'janice@gmail.com', password:'mypassword', first_name: 'Janice', second_name: 'Spencer', username: 'Jane', bio: 'I love traveling and here to find the best places all arround the world' )
+luke = User.create!(email: 'luke@gmail.com', password:'mypassword', first_name: 'Luke', second_name: 'Chapel', username: 'Chapers', bio: 'Hey guys, I am traveling all arround Europe and looking for the bests spots 😎' )
+barry = User.create!(email: 'barry@gmail.com', password:'mypassword', first_name: 'Barry', second_name: 'Brown', username: 'Bazzer', bio: 'Oi, my name is Bazzers, I am 30 something and I have a passion for exploring the planet' )
 puts "Users created"
 
 puts "Making activities.."
