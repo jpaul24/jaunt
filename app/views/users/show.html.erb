@@ -3,16 +3,9 @@
 
 <div class="all-container">
   <div class="main-container">
-    <div class="user-contianer">
+    <div class="user-container">
       <div class="photo-container">
-        <% console %>
-        <div class="user-icon">
-            <i class="fas fa-user-circle"></i>
-            <p>hello</p>
-        </div>
-          <div class="user-photo">
-            <%= cl_image_tag(@user.photo) %>
-           </div>
+        <%= cl_image_tag(@user.photo.url) %>
       </div>
       <div>
         <h4><%= @user.first_name %> <%= @user.second_name %></h2>
