@@ -1,28 +1,28 @@
-<div class="all-container">
-  <h1 class="text-center trip-head">My Trips</h1>
+<div class="trip-show-container">
+  <div class="trip-title d-flex justify-content-center flex-column my-trip-head">
+    <h3 class="my-trip-title"> My Trips </h3>
+  </div>
     <% if @user_trips.empty? %>
       <div class="trip-none">
         <p>You have no trips planned<p>
         <p>Let's change that...</p>
         <%= link_to "Plan New Trip", root_path, class: "btn btn-warning" %>
       </div>
-      <div class="trip-image">
-      </div>
     <% end %>
       <% counter = 0 %>
       <% @user_trips.each do |trip| %>
       <% activity = trip.activities.first %>
       <div class="card-trip">
-        <div class="card-info-trip">
-            <%= link_to trip.trip_name, trip_path(trip, selected_day: 1, selected_time: "Morning"), class: "trip-title" %>
-          <%= trip.duration %> days
+        <div class="card-trip-infos">
           <div>
-            <i class="fas fa-heart"></i> <%= trip.likes %>
+            <h2><%= link_to trip.trip_name, trip_path(trip, selected_day: 1, selected_time: "Morning") %></h2>
+            <p><%= trip.duration %> days</p>
           </div>
-        </div>
-        <div class="activity-photo-trip" style="background-image: url(<%= asset_path check_photo(activity.photo) %>)" >
+          <h2 class="card-trip-pricing"><%= trip.likes %> <i class="fas fa-heart"></i> </h2>
+          <img src="<%= asset_path check_photo(activity.photo) %>" class="card-trip-user" />
         </div>
       </div>
+
       <% end %>
 </div>
 
