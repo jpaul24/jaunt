@@ -53,6 +53,10 @@
   }
 }
 
+.day-container-opacity {
+  opacity: .4;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -133,3 +137,20 @@
   }
 }
 
+.photo-img-container {
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px;
+  border-style: dashed;
+  border-radius: 10px;
+   img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.card-product {
+  h2 {
+    color: $orange;
+  }
+}
