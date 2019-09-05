@@ -6,6 +6,7 @@
     <%= f.input :city %>
     <%= f.input :tod, collection: Activity::TOD %>
     <%= f.input :price, placeholder: '$' %>
+    <%= f.association :categories %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.button :submit, "Edit this activity", class: "btn btn-warning w-100" %>

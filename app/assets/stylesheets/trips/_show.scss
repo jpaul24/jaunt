@@ -17,13 +17,14 @@
   }
 }
 
-.triplikes {
-  border-radius: 10px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+.trips-likes-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  button {
+    display: flex;
+  }
 }
-
 .trip-logo {
   width: 6vw;
   h2 {
@@ -153,4 +154,10 @@
   h2 {
     color: $orange;
   }
+}
+
+.review-btn-small {
+  padding: 0px 5px 0px 5px;
+  font-size: 10px;
+  margin-left: 10px;
 }
