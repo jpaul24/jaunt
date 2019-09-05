@@ -160,4 +160,15 @@
   padding: 0px 5px 0px 5px;
   font-size: 10px;
   margin-left: 10px;
+  max-height: 20px;
+
+}
+
+.rate-tod-container {
+  display: flex;
+  align-items: center;
+}
+
+.delete-activity {
+  width: 30px;
 }

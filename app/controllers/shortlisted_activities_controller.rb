@@ -50,6 +50,13 @@ class ShortlistedActivitiesController < ApplicationController
     authorize @shortlisted_activity
   end
 
+  def destroy
+    @shortlisted_activity = ShortlistedActivity.find(params[:id])
+    @shortlisted_activity.destroy
+    redirect_back(fallback_location: root_path)
+    authorize @shortlisted_activity
+  end
+
   private
 
   def activity_params
