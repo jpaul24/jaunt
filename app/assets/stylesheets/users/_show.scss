@@ -11,7 +11,7 @@
 }
 
 .cover-container {
-  background-image: asset-url('map.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), asset-url('map2.jpg');
   background-position: center;
   background-size: cover;
   height: 25vh;
@@ -28,7 +28,7 @@
 .bio-container {
   padding-bottom: 10px;
   p {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
@@ -49,15 +49,27 @@
   flex-direction: column;
 }
 
+.boxrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 3px;
+}
 
 .user-link {
-  width: 50vw;
-  background-color: $orange;
   border: none;
   margin-bottom: 5px;
-  a {
-    color: white;
+  p {
+    color: $orange;
+    font-size: 15px;
     text-decoration: none;
+    margin: 0;
+  }
+  i {
+    color: $gray;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 0.5;
   }
   &:hover {
     opacity: .5;
@@ -74,3 +86,34 @@
 #user_nationality {
   width: 100%;
 }
+
+
+.user-link-other {
+border: none;
+  margin-bottom: 5px;
+  position: relative;
+  p {
+    color: $orange;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 0;
+  }
+  i {
+    color: $gray;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+  &:hover {
+    opacity: .5;
+  }
+ & .ours {
+  position: absolute;
+  top: 27px;
+  right: 0;
+ }
+}
+
+
+
+
