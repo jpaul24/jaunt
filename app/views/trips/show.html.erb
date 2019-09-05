@@ -95,13 +95,6 @@
 
     <% if @trip.user != current_user %>
 
-      <div class="boxrow user-link">
-        <div class="map-link-container">
-          <p><%= link_to "View #{@trip.user.username}'s profile", trip_path(@trip) %></p>
-        </div>
-        <i class="fas fa-chevron-right"></i>
-      </div>
-
       <div class="button-row">
         <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
           <div class="trips-likes-container">
