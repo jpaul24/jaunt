@@ -2,12 +2,7 @@
   <div class="" role="document">
 
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Filter</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+
 
       <%= simple_form_for :filter, url: activities_path, method: :get do |f| %>
         <%= f.input :place, as: :hidden, input_html: { value: params[:place] } %>

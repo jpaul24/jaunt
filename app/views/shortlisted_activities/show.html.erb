@@ -42,23 +42,7 @@
       Rate
     </button>
   </div>
-  <div class="review-show" id="reviews">
-    <% if @activity.reviews.blank?  %>
-      <p>Be the first to rate this activity</p>
-    <% else %>
-    <% @activity.reviews.each_with_index do |review, index| %>
-      <% if index > 3 %>
-        <%= render "review", review: review, class_to_add: "hide", class_identifier: "to-hide"  %>
-      <% else %>
-        <%= render "review", review: review, class_to_add: "", class_identifier: "" %>
-      <% end %>
-    <% end %>
-    <% end %>
-  <div class="text-center">
-    <% if @activity.reviews.count > 4 %>
-      <button id="show-reviews" class="ratings-button">Show more ratings</button>
-    <% end %>
-  </div>
+
   </div>
     <div>
     <h5>Who else has done this?</h5>
@@ -89,7 +73,26 @@
       <% end %>
     </div>
   </div>
-  <h4>Where it is</h4>
+
+  <div class="review-show" id="reviews">
+    <% if @activity.reviews.blank?  %>
+      <p>Be the first to rate this activity</p>
+    <% else %>
+    <% @activity.reviews.each_with_index do |review, index| %>
+      <% if index > 3 %>
+        <%= render "review", review: review, class_to_add: "hide", class_identifier: "to-hide"  %>
+      <% else %>
+        <%= render "review", review: review, class_to_add: "", class_identifier: "" %>
+      <% end %>
+    <% end %>
+    <% end %>
+  <div class="text-center">
+    <% if @activity.reviews.count > 4 %>
+      <button id="show-reviews" class="ratings-button">Show more ratings</button>
+    <% end %>
+  </div>
+
+  <h4>On the map</h4>
   <div
     id="map"
     style="width: 100%;
