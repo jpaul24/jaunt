@@ -1,25 +1,40 @@
 <div class="trip-show-container">
-  <div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
-    <h2> <%= @trip.trip_name %> </h2>
-    <h2> <%= @trip.user.username %> </h2>
-  </div>
+    <div class="my-trip-show-head trip-title d-flex justify-content-center flex-column">
+        <h3> <%= @trip.trip_name %> </h3>
+        <h5><%= @trip.duration %> days</h5>
+    </div>
+
+    <div class="trip-show-header">
+      <%= link_to user_path(@trip.user) do %>
+        <div class="photo-container-small">
+          <%= cl_image_tag(@trip.user.photo.url) %>
+        </div>
+      <% end %>
+      <h5> <%= @trip.user.username %> | </h5>
+      <h5> <%= @trip.created_at.day %>/<%= @trip.created_at.month %>/<%= @trip.created_at.year %> | </h5>
+      <%= link_to trip_map_trip_path(@trip) do %>
+        <i class="fas fa-map-marked-alt"></i>
+      <% end %>
+    </div>
 
   <% @trip.trip_duration.each do |day| %>
     <% if @shortlisted_activities.where(day: day).first.nil? %>
       <div class="day-container day-container-opacity mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path 'trip_photo.jpg' %>)">
         <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <h2>Day <%= day %></h2>
+
+          <h4>Day <%= day %></h4>
           <h6>Nothing planned!</h6>
           <% if @trip.user == current_user %>
             <h6>click to add</h6>
           <% end %>
+
         </a>
       </div>
     <% else %>
       <% @activity = @shortlisted_activities.where(day: day).first.activity.photo %>
       <div class="day-container mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @activity %>')">
         <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <h2>Day <%= day %></h2>
+          <h4>Day <%= day %></h4>
           <h6>click to expand</h6>
         </a>
       </div>
@@ -34,7 +49,7 @@
               <%= link_to (image_tag "add_photo.png"), new_trip_shortlisted_activity_path(@trip, day: day, index: i) %>
             </div>
             <div class="card-product-infos">
-              <h2>No activity picked!</h2>
+              <h3>No activity picked!</h3>
               <p>Add your own <strong>adventure</strong>!</p>
             </div>
           </div>
@@ -46,7 +61,7 @@
           <div class="card-product">
             <%= cl_image_tag activity.activity.photo %>
             <div class="card-product-infos">
-              <h2><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h2>
+              <h4><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h4>
               <div class="icon-container">
                 <div class="icon-inner-container d-flex">
                   <% activity.activity.categories.each do |category| %>
@@ -75,20 +90,26 @@
     <% end %>
   <% end %>
 
+  <div class="all-container">
+    <div class="trip-user-section">
 
-  <div class="map-link-container">
-    <%= image_tag "globe.png" %><%= link_to "Check it out on the map!", trip_map_trip_path(@trip) %>
-  </div>
+    <% if @trip.user != current_user %>
 
-  <% if @trip.user != current_user %>
-    <div class="button-row ">
-      <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
-        <div class="trips-likes-container">
-          <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+      <div class="boxrow user-link">
+        <div class="map-link-container">
+          <p><%= link_to "View #{@trip.user.username}'s profile", trip_path(@trip) %></p>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+
+      <div class="button-row ">
+        <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
+          <div class="trips-likes-container">
+            <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
+          </div>
+        <% end %>
+      </div>
+  </div>
 </div>
 
 <div class="modal modal-review fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
