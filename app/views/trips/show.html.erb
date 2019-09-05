@@ -102,13 +102,14 @@
         <i class="fas fa-chevron-right"></i>
       </div>
 
-      <div class="button-row ">
+      <div class="button-row">
         <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
           <div class="trips-likes-container">
             <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
           </div>
         <% end %>
       </div>
+    <% end %>
   </div>
 </div>
 

@@ -31,8 +31,12 @@
 
 .trip-user-section {
   .boxrow {
-    padding: 10px 3px;
+    padding: 20px 3px;
   }
+}
+
+.triplikes i {
+  padding: 3px;
 }
 
 .fa-map-marked-alt {
@@ -65,6 +69,7 @@
   margin-bottom: 50px;
   button {
     display: flex;
+    align-items: center;
   }
 }
 .trip-logo {
