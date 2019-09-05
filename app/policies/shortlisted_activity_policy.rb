@@ -14,10 +14,10 @@ class ShortlistedActivityPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.trip.user == user
   end
 
   def destroy?
-    record.user == user
+    update?
   end
 end

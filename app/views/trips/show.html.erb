@@ -63,6 +63,9 @@
                   <button type="button" class="btn btn-warning review-btn-small" data-toggle="modal" data-target="#rate">
                     Rate
                   </button>
+                  <div class="delete-activity">
+                    <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, shortlisted_activity_path(activity), method: :delete, class: 'btn delete-btn' %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -98,10 +101,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for([@activity, @review], remote: true, html: { class: "review_form" }) do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-          <%= f.button :submit, class: "hidden" %>
-        <% end %>
+        <% if !@activity.nil? %>
+          <%= simple_form_for([@activity, @review], remote: true, html: { class: "review_form" }) do |f| %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+            <%= f.button :submit, class: "hidden" %>
+          <% end %>
+        <% end  %>
       </div>
       </div>
     </div>
