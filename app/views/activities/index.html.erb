@@ -20,7 +20,7 @@
   <% else %>
     <% if !params.dig(:filter, :categories).present? %>
       <div>
-        <p class="" data-toggle="modal" data-target="#filterModal">Filter activities by category</p>
+        <p class="iphone-fix" data-toggle="modal" data-target="#filterModal">Filter activities by category</p>
       </div>
     <% elsif params.dig(:filter, :categories).present? %>
       <p class="text">You selected: </p>
