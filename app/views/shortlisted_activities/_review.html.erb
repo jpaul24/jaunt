@@ -1,0 +1,16 @@
+<div class="review-info <%= class_to_add %> <%= class_identifier %>">
+  <div class="d-flex">
+    <div class ="photo-container-small">
+      <%= cl_image_tag(review.user.photo.url) %>
+      <p class="review-user"><%= review.user.username %></p>
+    </div>
+  </div>
+  <div class="reviewstar">
+    <% review.rating.times do  %>
+    <i class="fas fa-star"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+    <i class="far fa-star"></i>
+    <% end %>
+  </div>
+</div>

@@ -46,25 +46,19 @@
     <% if @activity.reviews.blank?  %>
       <p>Be the first to rate this activity</p>
     <% else %>
-    <% @activity.reviews.each do |review| %>
-      <div class="review-info">
-        <div class="d-flex">
-          <div class ="photo-container-small">
-            <%= cl_image_tag(review.user.photo.url) %>
-            <p class="review-user"><%= review.user.username %></p>
-          </div>
-        </div>
-        <div class="reviewstar">
-          <% review.rating.times do  %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="far fa-star"></i>
-          <% end %>
-        </div>
-      </div>
+    <% @activity.reviews.each_with_index do |review, index| %>
+      <% if index > 3 %>
+        <%= render "review", review: review, class_to_add: "hide", class_identifier: "to-hide"  %>
+      <% else %>
+        <%= render "review", review: review, class_to_add: "", class_identifier: "" %>
+      <% end %>
     <% end %>
     <% end %>
+  <div class="text-center">
+    <% if @activity.reviews.count > 4 %>
+      <button id="show-reviews" class="ratings-button">Show more ratings</button>
+    <% end %>
+  </div>
   </div>
     <div>
     <h5>Who else has done this?</h5>
@@ -117,7 +111,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for([@activity, @review], remote: true, html: { class: "review_form" }) do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", class: "text-center" %>
           <%= f.button :submit, class: "hidden" %>
         <% end %>
       </div>
@@ -125,3 +119,4 @@
     </div>
   </div>
 </div>
+
