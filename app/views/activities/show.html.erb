@@ -35,7 +35,7 @@
     <p><%= @activity.description %></p>
   </div>
   <div>
-    <h4>Who else has done this?</h3>
+    <h5>Who else has done this?</h5>
     <div class="othertrips">
       <% @activitytrips.each do |shortlistedactivity| %>
         <% trip = Trip.find(shortlistedactivity.trip_id) %>
@@ -64,7 +64,7 @@
     </div>
   </div>
   <div>
-    <h4>Ratings</h4>
+    <h5>Activity ratings</h5>
   </div>
   <div class="review-show">
     <% if @activity.reviews.blank? %>
@@ -75,10 +75,10 @@
         <div class="d-flex">
           <div class ="photo-container-small">
             <%= cl_image_tag(@activity.user.photo.url) %>
+            <p class="review-user"><%= @activity.user.username %></p>
           </div>
-          <p class="review-user"><%= @activity.user.username %></p>
         </div>
-        <div class="star">
+        <div class="reviewstar">
           <% review.rating.times do  %>
             <i class="fas fa-star"></i>
           <% end %>
@@ -90,7 +90,7 @@
     <% end %>
     <% end %>
   </div>
-  <h4>Where it is</h4>
+  <h5>On the map</h5>
   <div
     id="map"
     style="width: 100%;
