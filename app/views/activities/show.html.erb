@@ -70,25 +70,19 @@
     <% if @activity.reviews.blank? %>
       <p>There are no ratings for this trip yet</p>
     <% else %>
-    <% @activity.reviews.each do |review| %>
-      <div class="review-info">
-        <div class="d-flex">
-          <div class ="photo-container-small">
-            <%= cl_image_tag(@activity.user.photo.url) %>
-            <p class="review-user"><%= @activity.user.username %></p>
-          </div>
-        </div>
-        <div class="reviewstar">
-          <% review.rating.times do  %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="far fa-star"></i>
-          <% end %>
-        </div>
-      </div>
+    <% @activity.reviews.each_with_index do |review, index| %>
+      <% if index > 3 %>
+        <%= render "./shortlisted_activities/review", review: review, class_to_add: "hide", class_identifier: "to-hide"  %>
+      <% else %>
+        <%= render "./shortlisted_activities/review", review: review, class_to_add: "", class_identifier: "" %>
+      <% end %>
+      <% end %>
     <% end %>
+  <div class="text-center">
+    <% if @activity.reviews.count > 4 %>
+      <button class="ratings-button" id="show-reviews">Show more ratings</button>
     <% end %>
+  </div>
   </div>
   <h5>On the map</h5>
   <div
