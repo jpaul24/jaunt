@@ -94,7 +94,6 @@
     <div class="trip-user-section">
 
     <% if @trip.user != current_user %>
-
       <div class="button-row">
         <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
           <div class="trips-likes-container">
@@ -102,9 +101,16 @@
           </div>
         <% end %>
       </div>
+
     <% end %>
   </div>
+  <div class="deleterow">
+    <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, trip_path(@trip), method: :delete, class: 'btn delete-btn' %>
+    <p>Delete</p>
+  </div>
 </div>
+
+
 
 <div class="modal modal-review fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
