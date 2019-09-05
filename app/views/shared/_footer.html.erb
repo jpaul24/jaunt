@@ -5,13 +5,13 @@
           <% if user_signed_in? %>
             <%= link_to user_path(current_user) do %>
               <div class="icons">
-                <i class="fas fa-user"></i>
+                <i class="footerfas fas fa-user"></i>
                 <p>Profile</p>
               </div>
             <% end %>
           <% else %>
             <div class="icons">
-              <i class="fas fa-user"></i>
+              <i class="footerfas fas fa-user"></i>
               <p>Profile</p>
             </div>
           <% end %>
@@ -20,7 +20,7 @@
         <div class="footer-section">
           <%= link_to root_path do %>
           <div class="icons">
-            <i class="fas fa-search-location"></i>
+            <i class="footerfas fas fa-search-location"></i>
             <p>Search</p>
           </div>
           <% end %>
@@ -29,7 +29,7 @@
         <div class="footer-section <%= "active-footer" if params[:action] == "index" && params[:controller] == "trips"%> ">
           <%= link_to trips_path do %>
           <div class="icons">
-            <i class="fas fa-suitcase-rolling"></i>
+            <i class="footerfas fas fa-suitcase-rolling"></i>
             <p>My trips</p>
           </div>
           <% end %>
@@ -38,7 +38,7 @@
         <div class="footer-section <%= "active-footer" if params[:controller] == "activities" && params[:action] == "new" %>">
           <%= link_to new_activity_path do %>
           <div class="icons">
-            <i class="fas fa-plus"></i>
+            <i class="footerfas fas fa-plus"></i>
             <p>Activity</p>
           </div>
           <% end %>

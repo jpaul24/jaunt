@@ -8,6 +8,7 @@ class TripsController < ApplicationController
   def show
     @trip.sort_activities
     @shortlisted_activities = @trip.shortlisted_activities
+    @review = Review.new
     authorize @trip
   end
 

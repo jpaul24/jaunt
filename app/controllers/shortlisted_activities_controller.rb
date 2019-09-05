@@ -15,6 +15,7 @@ class ShortlistedActivitiesController < ApplicationController
     ]
     @review = Review.new
     authorize @activity
+    @activitytrips = ShortlistedActivity.where("activity_id = ?", @activity.id)
   end
 
   def new
@@ -47,6 +48,13 @@ class ShortlistedActivitiesController < ApplicationController
       render :new
     end
 
+    authorize @shortlisted_activity
+  end
+
+  def destroy
+    @shortlisted_activity = ShortlistedActivity.find(params[:id])
+    @shortlisted_activity.destroy
+    redirect_back(fallback_location: root_path)
     authorize @shortlisted_activity
   end
 

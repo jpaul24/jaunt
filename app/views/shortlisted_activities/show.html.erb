@@ -1,4 +1,4 @@
-<div class="all-container">
+<div class="all-container" style="">
   <div class="link-trip">
     <%= link_to "Back to trip", trip_path(@trip), class: "btn btn-warning" %>
   </div>
@@ -59,6 +59,35 @@
       <button id="show-reviews" class="ratings-button">Show more ratings</button>
     <% end %>
   </div>
+  </div>
+    <div>
+    <h5>Who else has done this?</h5>
+    <div class="othertrips">
+      <% @activitytrips.each do |shortlistedactivity| %>
+        <% trip = Trip.find(shortlistedactivity.trip_id) %>
+        <% user = User.find(trip.user_id) %>
+          <% if user != current_user %>
+            <div class="otherusers">
+              <div class="userinfo">
+                <%= link_to user_path(user) do %>
+                  <div class ="photo-container-small">
+                    <%= cl_image_tag(user.photo.url) %>
+                    <p class="review-user"><%= user.username %></p>
+                  </div>
+                <% end %>
+              </div>
+              <%= link_to trip_path(trip) do  %>
+              <div class="tripinfo">
+                <p><em> <%= trip.trip_name %> </em> </p>
+                <div>
+                  <%= trip.created_at.day %>/<%= trip.created_at.month %>/<%= trip.created_at.year %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
   </div>
   <h4>Where it is</h4>
   <div
