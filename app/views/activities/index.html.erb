@@ -1,12 +1,20 @@
 <div class="all-container d-flex flex-column" id="activitycontainer">
 
-  <% if params[:place] && Activity.search_by_city(params[:place].split.first) == [] %>
+  <% if params[:place].present? %>
+    <% place = params[:place] %>
+    <% duration = params[:days] %>
+  <% elsif params.dig(:filter, :place).present? %>
+    <% place = params[:filter][:place] %>
+    <% duration = params[:filter][:days] %>
+  <% end %>
+
+  <% if place && Activity.search_by_city(place.split.first) == [] %>
       <p>Sorry we don't have any activities in that city, search again!</p>
 
   <% elsif @activities.length == 0 %>
 
     <div class="noactivities">
-      <p>Sorry, there are no activities for <%= params[:filter][:place] %> in those categories. Try another category!</p>
+      <p>Sorry, there are no activities for <%= place %> in those categories. Try another category!</p>
     </div>
 
   <% else %>
@@ -43,27 +51,22 @@
         <% end %>
       </ul>
 
-
       <%= content_for(:after_js) do %>
         <%= javascript_pack_tag 'components/swing' %>
       <% end %>
     </div>
-
 
     <div class="thum-btns">
       <p class="choicebutton n" id="no">Nope!</p>
       <p class="choicebutton y" id="yes">Hell yea!</p>
     </div>
     <div>
-      <h4 class="trip-btn btn w-100"><%= link_to "Lets go to #{@activities.first.city}!", trips_path(days: params[:days], cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %>
+      <h4 class="trip-btn btn w-100"><%= link_to "Lets go to #{@activities.first.city}!", trips_path(days: duration, cardIds: params[:cardIds]), method: :post, id:'plan_trip_link', remote: false %>
         </h4>
     </div>
 
     <%= render 'activities/filter' %>
   <% end %>
-
-
-
 
 </div>
 

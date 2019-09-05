@@ -28,7 +28,7 @@ class TripsController < ApplicationController
       @trip = Trip.new
       @trip.user = current_user
       @trip.likes = 0
-      @trip.duration = params[:days]
+      @trip.duration = params[:days].to_i
       @trip.trip_name = "My trip to #{params[:place]}"
       authorize @trip
       @trip.save

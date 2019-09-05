@@ -1,4 +1,4 @@
-<div class="all-container">
+<div class="all-container container-padding">
   <div class="text-center header-show">
     <h2><%= @activity.name %></h1>
       <p>Recommended for: <%= @activity.tod %></p>
@@ -49,7 +49,8 @@
                   </div>
                 <% end %>
                 <div>
-                  <%= user.username %>
+                  <p class="review-user"><%= user.username %></p>
+
                 </div>
               </div>
               <%= link_to trip_path(trip) do  %>
