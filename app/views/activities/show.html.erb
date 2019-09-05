@@ -35,7 +35,7 @@
     <p><%= @activity.description %></p>
   </div>
   <div>
-    <h4>Who else has done this?</h3>
+    <h5>Who else has done this?</h5>
     <div class="othertrips">
       <% @activitytrips.each do |shortlistedactivity| %>
         <% trip = Trip.find(shortlistedactivity.trip_id) %>
@@ -46,11 +46,9 @@
                 <%= link_to user_path(user) do %>
                   <div class ="photo-container-small">
                     <%= cl_image_tag(user.photo.url) %>
+                    <p class="review-user"><%= user.username %></p>
                   </div>
                 <% end %>
-                <div>
-                  <%= user.username %>
-                </div>
               </div>
               <%= link_to trip_path(trip) do  %>
               <div class="tripinfo">
@@ -66,7 +64,7 @@
     </div>
   </div>
   <div>
-    <h4>Ratings</h4>
+    <h5>Activity ratings</h5>
   </div>
   <div class="review-show">
     <% if @activity.reviews.blank? %>
@@ -77,10 +75,10 @@
         <div class="d-flex">
           <div class ="photo-container-small">
             <%= cl_image_tag(@activity.user.photo.url) %>
+            <p class="review-user"><%= @activity.user.username %></p>
           </div>
-          <p class="review-user"><%= @activity.user.username %></p>
         </div>
-        <div class="star">
+        <div class="reviewstar">
           <% review.rating.times do  %>
             <i class="fas fa-star"></i>
           <% end %>
@@ -92,7 +90,7 @@
     <% end %>
     <% end %>
   </div>
-  <h4>Where it is</h4>
+  <h5>On the map</h5>
   <div
     id="map"
     style="width: 100%;
@@ -102,7 +100,7 @@
   >
   </div>
 
-   <div class="thum-btns thum-vote" id="thumbs-show">
+   <div class="thum-btns">
     <%= link_to activities_path(cardIds: params[:cardIds], days: params[:days], place: @place) do %>
       <p class="choicebutton n" id="no">Nope!</p>
     <% end %>
@@ -114,7 +112,7 @@
 </div>
 
 <script>
-  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne = document.getElementById('yes')
   buttonOne.addEventListener('click', () => {
     console.log('hi')
     buttonOne.style.animation = 'pulse 1s ease'
@@ -123,7 +121,7 @@
     }, 1000)
   })
 
-  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo = document.getElementById('no')
   buttonTwo.addEventListener('click', () => {
     console.log('hi')
     buttonTwo.style.animation = 'pulse 1s ease'

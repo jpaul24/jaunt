@@ -1,3 +1,5 @@
+
+
 .header-show {
   margin-top: 15px;
 }
@@ -13,6 +15,7 @@
   display: flex;
   justify-content: center;
 }
+
 .show-rating {
   margin-top: 20px;
   display: flex;
@@ -55,6 +58,9 @@
   p {
     text-align: right;
   }
+   a {
+    color: $orange;
+  }
 }
 
 .otherusers {
@@ -70,6 +76,14 @@
 
 .othertrips {
   margin-bottom: 30px;
+  a {
+    color: $orange;
+  }
+}
+
+.review-user {
+  color: $gray;
+  margin: 0;
 }
 
 .fa-thumbs-up {

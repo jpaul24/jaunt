@@ -23,13 +23,12 @@
       </div>
     <% end %>
 
-
-    <% tod_activity_picker(@shortlisted_activities, day).each do |activity| %>
+    <% tod_activity_picker(@shortlisted_activities, day).each_with_index do |activity, i| %>
       <% if activity.nil?  %>
         <div class="collapse" id="collapseExample<%= day %>">
           <div class="card-product background-gray">
             <div class="photo-img-container">
-              <%= link_to (image_tag "add_photo.png"), new_activity_path %>
+              <%= link_to (image_tag "add_photo.png"), new_trip_shortlisted_activity_path(@trip, day: day, index: i) %>
             </div>
             <div class="card-product-infos">
               <h2>No activity picked!</h2>

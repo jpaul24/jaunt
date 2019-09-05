@@ -4,7 +4,8 @@
   <%= f.input :username %>
   <%= f.input :first_name %>
   <%= f.input :second_name %>
-  <%= f.country_select :nationality, class: "country-select" %>
+  <%= f.label :nationality %>
+  <%= f.country_select :nationality, class: "country-select"%>
   <%= f.input :bio %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
