@@ -76,17 +76,20 @@
   <div class="trip-user-section">
     <div class="boxrow user-link">
       <div class="map-link-container photo-container-small">
-        <%= link_to "View on a map", trip_map_trip_path(@trip) %> <%= image_tag "globe.png" %>
+        <p><%= link_to "View on a map", trip_map_trip_path(@trip) %> <%= image_tag "globe.png" %></p>
       </div>
          <i class="fas fa-chevron-right"></i>
     </div>
 
-    <div class="boxrow user-link">
-      <div class="map-link-container">
-        <%= link_to "View #{@trip.user.username}'s profile", trip_path(@trip) %>
+
+    <% if @trip.user != current_user %>
+      <div class="boxrow user-link">
+        <div class="map-link-container">
+          <p><%= link_to "View #{@trip.user.username}'s profile", trip_path(@trip) %></p>
+        </div>
+        <i class="fas fa-chevron-right"></i>
       </div>
-      <i class="fas fa-chevron-right"></i>
-    </div>
+    <% end %>
   </div>
 
 
