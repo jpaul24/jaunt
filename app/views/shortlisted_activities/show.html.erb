@@ -33,9 +33,11 @@
       <p>$<%= @activity.price %></p>
     </div>
   </div>
+
   <div class="description">
     <p><%= @activity.description %></p>
   </div>
+
   <div class="review-act">
     <h4>Ratings</h4>
     <button type="button" class="btn btn-warning review-btn" data-toggle="modal" data-target="#rate">
@@ -43,7 +45,6 @@
     </button>
   </div>
 
-  </div>
     <div>
     <h5>Who else has done this?</h5>
     <div class="othertrips">
@@ -86,10 +87,11 @@
       <% end %>
     <% end %>
     <% end %>
-  <div class="text-center">
-    <% if @activity.reviews.count > 4 %>
-      <button id="show-reviews" class="ratings-button">Show more ratings</button>
-    <% end %>
+    <div class="text-center">
+      <% if @activity.reviews.count > 4 %>
+        <button id="show-reviews" class="ratings-button">Show more ratings</button>
+      <% end %>
+    </div>
   </div>
 
   <h4>On the map</h4>
