@@ -46,12 +46,9 @@
                 <%= link_to user_path(user) do %>
                   <div class ="photo-container-small">
                     <%= cl_image_tag(user.photo.url) %>
+                    <p class="review-user"><%= user.username %></p>
                   </div>
                 <% end %>
-                <div>
-                  <p class="review-user"><%= user.username %></p>
-
-                </div>
               </div>
               <%= link_to trip_path(trip) do  %>
               <div class="tripinfo">
@@ -103,7 +100,7 @@
   >
   </div>
 
-   <div class="thum-btns thum-vote" id="thumbs-show">
+   <div class="thum-btns">
     <%= link_to activities_path(cardIds: params[:cardIds], days: params[:days], place: @place) do %>
       <p class="choicebutton n" id="no">Nope!</p>
     <% end %>
@@ -115,7 +112,7 @@
 </div>
 
 <script>
-  buttonOne = document.getElementById('thumbs_up_btn')
+  buttonOne = document.getElementById('yes')
   buttonOne.addEventListener('click', () => {
     console.log('hi')
     buttonOne.style.animation = 'pulse 1s ease'
@@ -124,7 +121,7 @@
     }, 1000)
   })
 
-  buttonTwo = document.getElementById('thumbs_dwn_btn')
+  buttonTwo = document.getElementById('no')
   buttonTwo.addEventListener('click', () => {
     console.log('hi')
     buttonTwo.style.animation = 'pulse 1s ease'

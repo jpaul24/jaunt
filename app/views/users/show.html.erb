@@ -13,11 +13,11 @@
       </div>
       <div>
         <h4><%= @user.first_name %> <%= @user.second_name %></h2>
-        <p>username: <%= @user.username %></p>
+        <p>Username: <%= @user.username %></p>
       </div>
     </div>
     <div class="bio-container">
-      <p>Bio: <%= @user.bio %></p>
+      <p><%= @user.bio %></p>
     </div>
   </div>
     <% if @user == current_user %>
