@@ -51,10 +51,10 @@
         <div class="d-flex">
           <div class ="photo-container-small">
             <%= cl_image_tag(review.user.photo.url) %>
+            <p class="review-user"><%= review.user.username %></p>
           </div>
-          <p class="review-user"><%= review.user.username %></p>
         </div>
-        <div class="star">
+        <div class="reviewstar">
           <% review.rating.times do  %>
             <i class="fas fa-star"></i>
           <% end %>
