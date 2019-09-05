@@ -10,7 +10,9 @@
         <a data-toggle="collapse" href="#collapseExample<%= day %>" role="button" aria-expanded="false" aria-controls="collapseExample">
           <h2>Day <%= day %></h2>
           <h6>Nothing planned!
-          <h6>click to add</h6>
+          <% if @trip.user = current_user %>
+            <h6>click to add</h6>
+          <% end %>
         </a>
       </div>
     <% else %>
@@ -24,7 +26,7 @@
     <% end %>
 
     <% tod_activity_picker(@shortlisted_activities, day).each_with_index do |activity, i| %>
-      <% if activity.nil?  %>
+      <% if activity.nil? && @trip.user == current_user  %>
         <div class="collapse" id="collapseExample<%= day %>">
           <div class="card-product background-gray">
             <div class="photo-img-container">
@@ -36,7 +38,9 @@
             </div>
           </div>
         </div>
-        <% else %>
+      <% elsif activity.nil? %>
+      <% else%>
+        <% @activity = activity.activity %>
         <div class="collapse" id="collapseExample<%= day %>">
           <div class="card-product">
             <%= cl_image_tag activity.activity.photo %>
@@ -51,9 +55,14 @@
                     </div>
                   <% end %>
                 </div>
+                <div class="rate-tod-container d-flex">
                   <div class="tod-icon">
                     <%= image_tag(tod_icon_picker(activity)) %>
                   </div>
+                  <button type="button" class="btn btn-warning review-btn-small" data-toggle="modal" data-target="#rate">
+                    Rate
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -68,12 +77,33 @@
   </div>
 
   <% if @trip.user != current_user %>
-    <div class="button-row">
+    <div class="button-row ">
       <%= link_to like_trip_path(@trip), method: :post, remote: true do %>
-        <div>
+        <div class="trips-likes-container">
           <button class="btn btn-warning triplikes"><%= @trip.likes %> <i class="fas fa-heart"></i></button>
         </div>
       <% end %>
     </div>
   <% end %>
 </div>
+
+<div class="modal modal-review fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-content-review">
+      <div class="modal-header">
+        <h5 class="modal-title modal-title-review" id="exampleModalLabel">Rate</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for([@activity, @review], remote: true, html: { class: "review_form" }) do |f| %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+          <%= f.button :submit, class: "hidden" %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
