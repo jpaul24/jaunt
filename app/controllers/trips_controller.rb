@@ -62,6 +62,7 @@ class TripsController < ApplicationController
   def destroy
     authorize @trip
     @trip.destroy
+    redirect_to trips_path
   end
 
   def like
