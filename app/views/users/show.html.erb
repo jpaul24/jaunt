@@ -44,33 +44,17 @@
       <% end %>
     <% else %>
 
-
         <p> <%= @user.first_name %>'s trips: </p>
-          <div class="boxrow user-link-other">
-
-
-
-            <% @user.trips.each do |trip| %>
-              <%= link_to trip_path(trip) do %>
-
-
+          <% @user.trips.each do |trip| %>
+            <%= link_to trip_path(trip) do %>
+              <div class="boxrow user-link">
                 <div>
                   <p><%= trip.trip_name %> | <%= trip.duration %> days </p>
                   <p><%= trip.likes %> likes</p>
                 </div>
-
-
-
                   <i class="fas fa-chevron-right ours"></i>
-
-
-              <% end %>
+              </div>
             <% end %>
-
-
-
-          </div>
-
-
+          <% end %>
     <% end %>
 </div>
