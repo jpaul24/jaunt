@@ -13,11 +13,23 @@
   }
 }
 
+.days-and-map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .trip-user-section {
   .boxrow {
     padding: 10px 3px;
   }
+}
 
+.fa-map-marked-alt {
+  font-size: 25px;
+  color: $orange;
+  opacity: 0.75;
+  padding: 15px 15px 20px 15px;
 }
 
 .trip-title {
@@ -145,10 +157,7 @@
 }
 
 .map-link-container {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  padding: 10px;
+
   a {
     text-decoration: none;
     color: $orange;
