@@ -1,0 +1,17 @@
+<div class="trip-title d-flex justify-content-center flex-column new-activity-head">
+  <h3 class="my-trip-title">Add Activity To Your Trip </h3>
+</div>
+<div class="all-container activity-new">
+  <div>
+    <% if policy(Activity).create? %>
+      <%= simple_form_for [@trip, @activity], url: trip_shortlisted_activities_path(day: params[:day], index: params[:index]) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price, placeholder: '$' %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.button :submit, "Add this activity", class: "btn btn-warning w-100" %>
+        <% end %>
+    <% end %>
+  </div>
+</div>
