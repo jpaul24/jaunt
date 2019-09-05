@@ -1,7 +1,18 @@
+
 <div class="trip-show-container">
-  <div class="trip-title d-flex justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path("https://res.cloudinary.com/nmozzer/image/upload/v1567498833/trips-show_sna7g4.jpg") %>')">
-    <h2> <%= @trip.trip_name %> </h2>
-    <h2> <%= @trip.user.username %> </h2>
+  <div class="trip-title d-flex justify-content-center flex-column">
+
+    <h3> <%= @trip.trip_name %> </h3>
+    <h5><%= @trip.duration %> days</h5>
+
+    <div class="trip-show-header">
+      <div class="photo-container-small">
+        <%= cl_image_tag(@trip.user.photo.url) %>
+      </div>
+      <h5> <%= @trip.user.username %> | </h5>
+      <h5> <%= @trip.created_at.day %>/<%= @trip.created_at.month %>/<%= @trip.created_at.year %> </h5>
+    </div>
+
   </div>
 
   <% @trip.trip_duration.each do |day| %>
@@ -61,11 +72,23 @@
       <% end %>
     <% end %>
   <% end %>
+<div class="all-container">
+  <div class="trip-user-section">
+    <div class="boxrow user-link">
+      <div class="map-link-container photo-container-small">
+        <%= link_to "View on a map", trip_map_trip_path(@trip) %> <%= image_tag "globe.png" %>
+      </div>
+         <i class="fas fa-chevron-right"></i>
+    </div>
 
-
-  <div class="map-link-container">
-    <%= image_tag "globe.png" %><%= link_to "Check it out on the map!", trip_map_trip_path(@trip) %>
+    <div class="boxrow user-link">
+      <div class="map-link-container">
+        <%= link_to "View #{@trip.user.username}'s profile", trip_path(@trip) %>
+      </div>
+      <i class="fas fa-chevron-right"></i>
+    </div>
   </div>
+
 
   <% if @trip.user != current_user %>
     <div class="button-row">
@@ -76,4 +99,8 @@
       <% end %>
     </div>
   <% end %>
+</div>
+
+
+
 </div>

@@ -3,6 +3,20 @@
   margin-bottom: 20%;
 }
 
+.trip-show-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h5 {
+    margin: 0;
+    margin-left: 5px;
+  }
+}
+
+.trip-user-section {
+
+}
+
 .trip-title {
   display: flex;
   position: relative;
@@ -10,7 +24,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 20vh;
+  height: 15vh;
   align-items: center;
   h2 {
     color: white;
@@ -124,6 +138,7 @@
 .trip-show-container {
   height: 100%;
   margin-bottom: 20%;
+
 }
 
 .map-link-container {

@@ -15,6 +15,7 @@ class ShortlistedActivitiesController < ApplicationController
     ]
     @review = Review.new
     authorize @activity
+    @activitytrips = ShortlistedActivity.where("activity_id = ?", @activity.id)
   end
 
   def new
