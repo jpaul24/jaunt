@@ -12,13 +12,13 @@ class ActivitiesController < ApplicationController
     end
     if params[:place].present?
       place = params[:place].split.first
-      @activities = Activity.near(place, 20)
+      @activities = Activity.search_by_city
 
     elsif
       params.dig(:filter, :place).present?
       filter = params[:filter]
       place = filter[:place].split.first
-      @activities = Activity.near(place, 20)
+      @activities = Activity.search_by_city
     else
       @activities = policy_scope(Activity)
     end
