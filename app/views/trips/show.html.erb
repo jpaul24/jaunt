@@ -80,7 +80,7 @@
           <div class="card-product">
             <%= cl_image_tag activity.activity.photo %>
             <div class="card-product-infos">
-              <h4><%= link_to activity.activity.name, trip_shortlisted_activity_path(@trip, activity) %></h4>
+              <h4><%= link_to activity.activity.name.truncate(20), trip_shortlisted_activity_path(@trip, activity) %></h4>
                 <div class="starrow">
                   <% activity.activity.reviews.where(user: current_user).each do |review| %>
                       <div class="">
@@ -94,7 +94,7 @@
                   <% end %>
 
                   <% if activity.activity.reviews.where(user: current_user).empty? %>
-                      <p>You have not given this activity a rating</p>
+                      <p>You haven't rated this activity</p>
                   <% end %>
                 </div>
 
