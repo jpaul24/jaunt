@@ -37,6 +37,9 @@
   <div>
     <h5>Who else has done this?</h5>
     <div class="othertrips">
+      <% if @activity.reviews.blank? %>
+        <p>There are no ratings for this trip yet</p>
+      <% else %>
       <% @activitytrips.each do |shortlistedactivity| %>
         <% trip = Trip.find(shortlistedactivity.trip_id) %>
         <% user = User.find(trip.user_id) %>
@@ -60,6 +63,7 @@
               <% end %>
             </div>
           <% end %>
+      <% end %>
       <% end %>
     </div>
   </div>
