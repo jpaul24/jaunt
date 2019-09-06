@@ -1,2 +1,8 @@
-<h5><%= activity.name %></h5>
-<%= cl_image_tag activity.photo, class: "map-image" %>
+<div class="activity-map-card">
+  <h5><%= activity.name %></h5>
+  <%= cl_image_tag activity.photo, class: "map-image" %>
+  <div>
+    <p>Day <%= ShortlistedActivity.find_by(activity: activity).day %>: <%= activity.tod %></p>
+  </div>
+
+</div>
