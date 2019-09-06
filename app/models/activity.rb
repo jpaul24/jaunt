@@ -16,7 +16,7 @@ class Activity < ApplicationRecord
   has_many :categories, through: :activity_categories, dependent: :destroy
   has_many :shortlisted_activities, dependent: :destroy
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :description, presence: true
   validates :city, presence: true
   validates :tod, presence: true, inclusion: { in: TOD }
