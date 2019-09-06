@@ -38,16 +38,12 @@
     <p><%= @activity.description %></p>
   </div>
 
-  <div class="review-act">
-    <h4>Ratings</h4>
-    <button type="button" class="btn btn-warning review-btn" data-toggle="modal" data-target="#rate">
-      Rate
-    </button>
-  </div>
-
-    <div>
+  <div>
     <h5>Who else has done this?</h5>
     <div class="othertrips">
+      <% if @activity.reviews.blank? %>
+        <p>There are no ratings for this trip yet</p>
+      <% else %>
       <% @activitytrips.each do |shortlistedactivity| %>
         <% trip = Trip.find(shortlistedactivity.trip_id) %>
         <% user = User.find(trip.user_id) %>
@@ -72,7 +68,15 @@
             </div>
           <% end %>
       <% end %>
+      <% end %>
     </div>
+  </div>
+
+  <div class="review-act">
+    <h5>Ratings</h5>
+    <button type="button" class="btn btn-warning review-btn" data-toggle="modal" data-target="#rate">
+      Rate
+    </button>
   </div>
 
   <div class="review-show" id="reviews">
