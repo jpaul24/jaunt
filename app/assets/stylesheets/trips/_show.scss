@@ -65,8 +65,8 @@
 
 .trips-likes-container {
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  justify-content: flex-end;
+  padding: 20px 0 0 0;
   button {
     display: flex;
     align-items: center;

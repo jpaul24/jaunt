@@ -70,6 +70,7 @@
 
 .categoriesfiltered {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .cat {
@@ -266,6 +267,13 @@
       -moz-box-shadow: 0 0 0 0 rgba(247,101,35, 0);
       box-shadow: 0 0 0 0 rgba(247,101,35, 0);
   }
+}
+
+.iphone-fix {
+  padding: 20px 0px;
+  margin: 0px !important;
+  border: none;
+  background-color: transparent;
 }
 
 
