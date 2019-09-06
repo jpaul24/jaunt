@@ -1,0 +1,8 @@
+<div>
+  <% (review.rating || 0).times do  %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <% (5 - (review&.rating || 0)).times do %>
+    <i class="far fa-star"></i>
+  <% end %>
+</div>

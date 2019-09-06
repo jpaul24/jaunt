@@ -6,6 +6,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
 import { hideReviews } from "./components/hide_reviews";
 
+window.initStarRating = initStarRating
+
 initStarRating();
 hideReviews();
 initMapbox();

@@ -1,10 +1,14 @@
-function refreshForm(innerHTML) {
-  const newReviewForm = document.getElementById('new_review');
-  newReviewForm.innerHTML = innerHTML;
-}
+modal = document.querySelector('#rate-<%= @review.activity.id %>')
+formContainer = modal.querySelector('form').parentNode
+newForm = '<%= j render "reviews/star_form", activity: @review.activity %>'
 
-function addReview(reviewHTML) {
-  const reviews = document.getElementById('reviews');
-  reviews.insertAdjacentHTML('beforeend', reviewHTML);
-}
+formContainer.innerHTML = newForm
+initStarRating()
 
+row = document.querySelector('#star-<%= @review.activity.id %>')
+row.innerHTML = '<%= j render "reviews/star_row", review: @review %>'
+// function addReview(reviewHTML) {
+//   const reviews = document.getElementById('reviews');
+//   reviews.insertAdjacentHTML('beforeend', reviewHTML);
+// }
+$('#rate-<%= @review.activity.id %>').modal('hide')

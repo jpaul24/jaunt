@@ -52,10 +52,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <%= simple_form_for([activity.activity, Review.new], remote: true, html: { class: "review_form" }) do |f| %>
-                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: { class: 'activity-review-select' } %>
-                  <%= f.button :submit, class: "hidden" %>
-                <% end %>
+                <%= render 'reviews/star_form', activity: activity.activity %>
               </div>
             </div>
           </div>
@@ -81,16 +78,9 @@
             <%= cl_image_tag activity.activity.photo %>
             <div class="card-product-infos">
               <h4><%= link_to activity.activity.name.truncate(20), trip_shortlisted_activity_path(@trip, activity) %></h4>
-                <div class="starrow">
+                <div class="starrow" id='star-<%= activity.activity.id %>'>
                   <% activity.activity.reviews.where(user: current_user).each do |review| %>
-                      <div class="">
-                        <% review.rating.times do  %>
-                          <i class="fas fa-star"></i>
-                        <% end %>
-                        <% (5 - review.rating).times do %>
-                          <i class="far fa-star"></i>
-                        <% end %>
-                      </div>
+                      <%= render 'reviews/star_row', review: review %>
                   <% end %>
 
                   <% if activity.activity.reviews.where(user: current_user).empty? %>
@@ -111,7 +101,7 @@
                   <div class="tod-icon">
                     <%= image_tag(tod_icon_picker(activity)) %>
                   </div>
-                  <button type="button" class="btn btn-warning review-btn-small" data-toggle="modal" data-target="#rate-<%= activity.activity.id %>">
+                  <button type="button" class="btn btn-warning review-btn-small" data-toggle="modal" data-target="#rate-<%= activity.activity.id %>" data-backdrop="false">
                     Rate
                   </button>
                   <div class="delete-activity">
@@ -148,4 +138,11 @@
   <% end %>
 </div>
 
+<% content_for :before_js do %>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<% end %>
 

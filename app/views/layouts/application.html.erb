@@ -22,10 +22,11 @@
   <body>
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
+      <%= yield(:before_js) %>
       <%= yield %>
-      <%= yield(:after_js) %>
       <%= javascript_include_tag 'application' %>
       <%= javascript_pack_tag 'application' %>
+      <%= yield(:after_js) %>
 
       <% if params[:action] != "home" %>
         <%= render 'shared/footer' %>
