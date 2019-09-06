@@ -21,3 +21,23 @@
   position: sticky;
   top: 10px;
 }
+
+.activity-map-card {
+  background-color: $orange;
+  color: white;
+  padding: 5px !important;
+  p {
+    padding-top: 10px;
+    margin: 0 !important;
+    font-size: 16px;
+    font-weight: bold;
+  };
+  h5 {
+    font-weight: bold;
+  }
+}
+.mapboxgl-popup-content {
+  background: $orange !important;
+  opacity: 0.92;
+  border-radius: 10px !important;
+}
