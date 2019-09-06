@@ -2,11 +2,12 @@ import "jquery-bar-rating";
 import "jquery-bar-rating/dist/themes/css-stars.css";
 
 const initStarRating = () => {
-  $('#review_rating').barrating({
+  $('.activity-review-select').barrating({
     theme: 'css-stars',
-    onSelect: (value, text, event) => {
-      const form = $("form.review_form"); // We are selecting the form on the page with its class
-      form.submit(); // We submit the form with javascript
+    onSelect: function(value, text, event) {
+    // We are selecting the form on the page with its class
+      event.currentTarget.closest('form').submit(); // We submit the form with javascript
+
     }
   });
   // TODO
