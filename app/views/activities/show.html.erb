@@ -38,7 +38,7 @@
     <h5>Who else has done this?</h5>
     <div class="othertrips">
       <% if @activity.reviews.blank? %>
-        <p>There are no ratings for this trip yet</p>
+        <p>No one else has included this in their trip yet!</p>
       <% else %>
       <% @activitytrips.each do |shortlistedactivity| %>
         <% trip = Trip.find(shortlistedactivity.trip_id) %>
