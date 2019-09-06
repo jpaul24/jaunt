@@ -6,7 +6,7 @@ const initStarRating = () => {
     theme: 'css-stars',
     onSelect: function(value, text, event) {
     // We are selecting the form on the page with its class
-      event.currentTarget.closest('form').submit(); // We submit the form with javascript
+      // event.currentTarget.closest('form').submit(); // We submit the form with javascript
 
     }
   });
