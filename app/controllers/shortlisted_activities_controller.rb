@@ -43,7 +43,7 @@ class ShortlistedActivitiesController < ApplicationController
     @shortlisted_activity.day = params[:day]
 
     if @shortlisted_activity.save!
-      redirect_to trip_path(@trip)
+      redirect_to trip_shortlisted_activity_path(@trip, @shortlisted_activity)
     else
       render :new
     end
