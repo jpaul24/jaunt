@@ -13,9 +13,16 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.save
       respond_to do |format|
-              format.html { redirect_back(fallback_location: root_path) }
-              format.js # <-- will render `app/views/reviews/create.js.erb`
-            end
+        format.html { redirect_back(fallback_location: root_path) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
+    elsif Review.where(activity: @review.activity).find_by(user: current_user)
+      @review = Review.where(activity: @review.activity).find_by(user: current_user)
+      @review.update(review_params)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
       render :new
     end
