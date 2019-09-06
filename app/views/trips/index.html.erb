@@ -11,7 +11,7 @@
     <% end %>
       <% counter = 0 %>
       <% @user_trips.each do |trip| %>
-      <% activity = trip.activities.first %>
+      <% activity = trip.activities.first || Activity.first %>
       <div class="card-trip">
         <div class="card-trip-infos">
           <div class="index-trip-head">
