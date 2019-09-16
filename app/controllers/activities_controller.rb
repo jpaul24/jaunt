@@ -26,6 +26,7 @@ class ActivitiesController < ApplicationController
     if params.dig(:filter, :categories).present?
       filter = params[:filter]
       @activities = @activities.joins(:categories).where(categories: { id: filter[:categories].reject(&:empty?).map(&:to_i) })
+      @activities = @activities.uniq
     end
 
     if params[:cardIds]
